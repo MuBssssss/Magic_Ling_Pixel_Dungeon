@@ -3800,7 +3800,7 @@ public class Hero extends Char {
 				Statistics.ankhsUsed++;
 				Buff.detach(this,UnlessFlower.UnlessFlowerTime.class);
 				if(branch == 10 && Dungeon.depth == 26){
-					GLog.w("索托斯：谨慎一点，再失误一次可就危险了。");
+					GLog.w("Sothoth: Careful. One more mistake and you are in real danger.");
 				}
 
 				ankh.detach(belongings.backpack);

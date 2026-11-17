@@ -104,7 +104,7 @@ public class InventoryPane extends Component {
 	// 分页相关变量
 	private int currentPage = 0;
 	private static final int BAGS_PER_PAGE = 4; // 每页显示的背包数量
-	private PageCycleButton pageCycleBtn; // 循环翻页按钮
+	private PageCycleButton pageCycleBtn; // 循环Page按钮
 	private BitmapText pageIndicator; // 页码指示器
 
 	private WndBag.ItemSelector selector;
@@ -1031,7 +1031,7 @@ public class InventoryPane extends Component {
 		}
 	}
 
-	//循环翻页按钮类
+	//循环Page按钮类
 	private class PageCycleButton extends IconButton {
 
 		private static final int ACTIVE = 0x9953564D;
@@ -1043,7 +1043,7 @@ public class InventoryPane extends Component {
 
 		public PageCycleButton() {
 			super(Icons.get(Icons.CHANGES)); // 使用循环箭头图标
-			this.tooltipText = "翻页";
+			this.tooltipText = "Page";
 		}
 
 		@Override

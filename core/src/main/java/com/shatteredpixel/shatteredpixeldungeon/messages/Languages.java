@@ -27,13 +27,13 @@ import java.util.Locale;
 public enum Languages {
 	ENGLISH("English","en", Status.UNREVIEWED, new String[]{"JDSALing","Daniel_Calan","Biostarbluexray"},
 			new String[]{"Noodlemire","Aeonius","Catand","1000Mistakes",}),
-	CHINESE("中文",      "",   Status.REVIEWED,  null, null),
-	HARDCHINESE("繁體中文","chk", Status.REVIEWED, new String[]{"Sotis","JDSALing"},
-			new String[]{"那些回忆","冷群"}),
+	CHINESE("Chinese",      "",   Status.REVIEWED,  null, null),
+	HARDCHINESE("Traditional Chinese","chk", Status.REVIEWED, new String[]{"Sotis","JDSALing"},
+			new String[]{"Those Memories","Lengqun"}),
 	RUSSIAN("Russian", "ru", Status.REVIEWED, new String[]{"JDSALing","FixAkaTheFix"},new String[]{"Dominowood371"}),
 	VIETNAMESE("tiếng việt","vi", Status.INCOMPLETE, new String[]{"JDSALing", "Niko De Lightbulb"}, null),
 
-	JAPANESE("日本語","ja", Status.INCOMPLETE, new String[]{"JDSALing","Ayanokosa","FromBeyond"}, null),
+	JAPANESE("Japanese","ja", Status.INCOMPLETE, new String[]{"JDSALing","Ayanokosa","FromBeyond"}, null),
 	GREEK("ελληνικά",       "el", Status.INCOMPLETE, new String[]{"Aeonius", "JDSALing"}, null),
 	PORTUGUESE("Brazilian-PT", "ptbr", Status.INCOMPLETE, new String[]{"Andrew-px1 [TETO]", "JDSALing"},null);
 

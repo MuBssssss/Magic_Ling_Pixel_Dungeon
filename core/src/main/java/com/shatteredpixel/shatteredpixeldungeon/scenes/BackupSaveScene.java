@@ -1134,7 +1134,7 @@ public class BackupSaveScene extends PixelScene {
                 if (info != null) {
                     btnLabel = "Slot" + slot + " — " + info.heroClass.title();
                 } else {
-                    btnLabel = "Slot" + slot + " — 空槽";
+                    btnLabel = "Slot" + slot + " - empty slot";
                 }
 
                 final int selectedSlot = slot;

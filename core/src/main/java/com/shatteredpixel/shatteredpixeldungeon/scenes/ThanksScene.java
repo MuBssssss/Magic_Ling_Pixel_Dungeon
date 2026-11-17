@@ -99,7 +99,7 @@ public class ThanksScene extends PixelScene {
         content.add(specialThanksX);
 
         CreditsBlock specialThanks = new CreditsBlock(true, 0x00899C,
-                "Original Music Two By 犬羅",
+                "Original Music Two By Quanluo",
                 new Image("dog.png", 0, 0, 22, 24),
                 null,
                 null,
@@ -108,7 +108,7 @@ public class ThanksScene extends PixelScene {
         content.add(specialThanks);
 
         CreditsBlock specialThanks2 = new CreditsBlock(true, 0xC62BFF,
-                "Map Made 迪泠",
+                "Map Made Diling",
                 new Image("DiLing.png", 0, 0, 32, 32),
                 null,
                 null,
@@ -162,7 +162,7 @@ public class ThanksScene extends PixelScene {
 
         CreditsBlock ren = new CreditsBlock(true,
                 0xff00ff,
-                "莲仁-REN",
+                "Lianren-REN",
                 new RenSprite(),
                 "Main Dev:Night Pro 2 Pixel Dungeon\nWhisky Pixel Dungeon",
                 null,
@@ -213,7 +213,7 @@ public class ThanksScene extends PixelScene {
                 "Thanks Playing My Dungeon",
                 Icons.TALENT.get(),
                 "All the Players wishing you all the best every day!!!\n\n",
-                "加入QQ魔绫开发总群",
+                "Join the Magic Ling QQ dev group",
                 "https://jq.qq.com/?_wv=1027&k=wzMjU0f7");
         if (landscape()){
             wata2.setRect((Camera.main.width - colWidth)/2f-10, wata.bottom() + 20, colWidth+20, 0);
