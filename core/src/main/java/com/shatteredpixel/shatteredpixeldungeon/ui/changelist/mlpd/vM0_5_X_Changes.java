@@ -71,21 +71,21 @@ public class vM0_5_X_Changes {
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SAI,
-                new ItemSprite.Glowing( 0xFF0000 )), ("吸血鬼刀改善"),
-                ("1.吸血鬼刀改进 感谢@A神 的建议\n" +
-                        "公式为：角色最大血量*0.01+武器等级*0.5+0.8\n" +
-                        "温馨提示：是取整 6.9=6 而不是四舍五入\n\n" +
-                        "举例：0级武器 1级角色\n" +
+                new ItemSprite.Glowing( 0xFF0000 )), ("Vampiric Blade Improved"),
+                ("1. Improved the Vampiric Blade, thanks to @A for the suggestion\n" +
+                        "The formula is: max health * 0.01 + weapon level * 0.5 + 0.8\n" +
+                        "Note: this rounds down, so 6.9 = 6, not 7\n\n" +
+                        "Example: +0 weapon, level 1 hero\n" +
                         "20x0.01+0*0.5+0.8=0.2+0+0.8=1\n" +
-                        "10级武器 10级角色\n" +
+                        "+10 weapon, level 10 hero\n" +
                         "70x0.01+10x0.5+0.8=0.7+5+0.8=6.5=6")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -96,18 +96,18 @@ public class vM0_5_X_Changes {
         changes19.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes19);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("动态情报"),
-                ("动态情报追加按钮，以后大家可以在这里面获取最新版！！！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("Live News"),
+                ("Added a Live News button, where you can get the latest version from now on!!!")));
 
         changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SAI,
-                new ItemSprite.Glowing( 0xFF0000 )), ("吸血鬼刀"),
-                ("原3阶武器，现在迁移到4阶武器")));
+                new ItemSprite.Glowing( 0xFF0000 )), ("Vampiric Blade"),
+                ("Was a tier-3 weapon, now moved to tier 4")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -118,19 +118,19 @@ public class vM0_5_X_Changes {
         changes18.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes18);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.AMULET,
-                new ItemSprite.Glowing( 0x00FFFF )), ("护身符调整"),
-                ("结束游戏改为返回主城！")));
+                new ItemSprite.Glowing( 0x00FFFF )), ("Amulet Changes"),
+                ("Ending the game now returns you to the main city!")));
 
 
-        changes.addButton(new ChangeButton(new NyzSprites(), ("奈亚子商店正式入驻"),
-               ("看脸还是运气？这是个问题！随机购买商店奈亚子已入驻！并且修复卡顿问题！")));
+        changes.addButton(new ChangeButton(new NyzSprites(), ("Nyazaki's Shop Opens"),
+               ("Luck or fate? Good question! The random-shop is now run by Nyazaki! Lag issues fixed too!")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -141,15 +141,15 @@ public class vM0_5_X_Changes {
         changes17.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes17);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
 
-        changes.addButton(new ChangeButton(new NyzSprites(), ("奈亚子商店正式入驻"),
-                ("看脸还是运气？这是个问题！随机购买商店奈亚子已入驻！")));
+        changes.addButton(new ChangeButton(new NyzSprites(), ("Nyazaki's Shop Opens"),
+                ("Luck or fate? Good question! The random-shop is now run by Nyazaki!")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -160,7 +160,7 @@ public class vM0_5_X_Changes {
         changes16.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes16);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
@@ -173,7 +173,7 @@ public class vM0_5_X_Changes {
         changes.addButton(new ChangeButton(new ShopkeeperSprite(), (Messages.get(vM0_5_X_Changes.class, "shop12")),
                 Messages.get(vM0_5_X_Changes.class, "shop12logs")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -184,15 +184,15 @@ public class vM0_5_X_Changes {
         changes15.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes15);
 
-        changes = new ChangeInfo("新内容", false, null);
+        changes = new ChangeInfo("New Content", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
         changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.GREATAXE,
-                new ItemSprite.Glowing( 0x00FFFF )), "新附魔：鬼磷",
-                "这个附魔会使磷火从武器中喷薄而出，能够使用点燃敌人并对正在燃烧的敌人造成中毒的额外伤害。"));
+                new ItemSprite.Glowing( 0x00FFFF )), "New Enchantment: Ghostfire",
+                "This enchantment lets wisp fire burst from your weapon, setting enemies alight and poisoning enemies that are already burning."));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -203,14 +203,14 @@ public class vM0_5_X_Changes {
         changes14.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes14);
 
-        changes = new ChangeInfo("新内容", false, null);
+        changes = new ChangeInfo("New Content", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), (Messages.get(vM0_5_X_Changes.class, "exsg")),
                 Messages.get(vM0_5_X_Changes.class, "exsglogs")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -223,14 +223,14 @@ public class vM0_5_X_Changes {
         changes13.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes13);
 
-        changes = new ChangeInfo("新内容", false, null);
+        changes = new ChangeInfo("New Content", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(Icons.get(Icons.SEED_POUCH), (Messages.get(vM0_5_X_Changes.class, "seed")),
                 Messages.get(vM0_5_X_Changes.class, "seedlogs")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
@@ -241,7 +241,7 @@ public class vM0_5_X_Changes {
         changes12.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes12);
 
-        changes = new ChangeInfo("改动", false, null);
+        changes = new ChangeInfo("Changes", false, null);
         changes.hardlight(Window.SKYBULE_COLOR);
         changeInfos.add(changes);
 
@@ -256,14 +256,14 @@ public class vM0_5_X_Changes {
                 "icewandgod2")),
                 Messages.get(vM0_5_X_Changes.class, "icewandgod2logs")));
 
-        changes = new ChangeInfo("修复", false, null);
+        changes = new ChangeInfo("Fixes", false, null);
         changes.hardlight(Window.RED_COLOR);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(new Image("sprites/spinner.png", 144, 0, 16, 16), (Messages.get(ChangesScene.class, "bugfixes")),
                 Messages.get(vM0_5_X_Changes.class, "bug_05X9")));
 
-        changes = new ChangeInfo("平衡", false, null);
+        changes = new ChangeInfo("Balance", false, null);
         changes.hardlight(Window.GREEN_COLOR);
         changeInfos.add(changes);
 
@@ -288,7 +288,7 @@ public class vM0_5_X_Changes {
                 "kage2")),
                 Messages.get(vM0_5_X_Changes.class, "kage2logs")));
 
-        changes = new ChangeInfo("开发", false, null);
+        changes = new ChangeInfo("Development", false, null);
         changes.hardlight(Window.SHPX_COLOR);
         changeInfos.add(changes);
 
@@ -495,23 +495,23 @@ public class vM0_5_X_Changes {
 
         Image i = new Image(new BombGnollTricksterSprites());
         i.scale.set(PixelScene.align(0.74f));
-        changes.addButton( new ChangeButton(new BombGnollTricksterSprites(), "豺狼炼药长老",
-                "豺狼中的高智能，会使用炼药来摧残每一个入侵者。"));
+        changes.addButton( new ChangeButton(new BombGnollTricksterSprites(), "Gnoll Alchemist",
+                "The cleverest of the gnolls, it uses alchemy to wear down every intruder."));
 
         Image iii = new Image(new ShopGuardEye.ShopGuardianRedSprite());
         iii.scale.set(PixelScene.align(0.74f));
-        changes.addButton( new ChangeButton(new ShopGuardEye.ShopGuardianRedSprite(), "守卫更新",
-                "添加裁决者，7回合后审判0元购者"));
+        changes.addButton( new ChangeButton(new ShopGuardEye.ShopGuardianRedSprite(), "Guard Update",
+                "Added the Adjudicator, who passes judgment on shoplifters after 7 turns"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(Window.WATA_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB_SWORD), "炸弹匕首",
-                "炸弹匕首生成的炸弹将立刻爆炸"));
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB_SWORD), "Bomb Dagger",
+                "Bombs made by the Bomb Dagger now explode instantly"));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ANKH), "十字架改动",
-                "十字架现在是死亡后直接返回0层，进行新一轮的冒险。"));
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ANKH), "Cross Changes",
+                "The cross now returns you straight to floor 0 after death to begin a new run."));
 
         ChangeInfo changes7 = new ChangeInfo("V0.5.3.6-SPV", true, "");
         changes7.hardlight(Window.Pink_COLOR);
