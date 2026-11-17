@@ -23,7 +23,7 @@ public class FourStone extends NPC {
         float left = 50f;
         Buff.affect(hero, FireImbue.class).set(left);
         sprite.turnTo(pos, hero.pos);
-        GLog.w("石碑中的神奇力量已被你吸收！");
+        GLog.w("You have absorbed the wondrous power of the stone tablet!");
         die(true);
         return true;
     }
@@ -40,7 +40,7 @@ public class FourStone extends NPC {
             float left = 50f;
             Buff.affect(hero, FrostImbue.class,left);
             sprite.turnTo(pos, hero.pos);
-            GLog.w("石碑中的神奇力量已被你吸收！");
+            GLog.w("You have absorbed the wondrous power of the stone tablet!");
             die(true);
             return true;
         }
@@ -58,7 +58,7 @@ public class FourStone extends NPC {
             float left = 50f;
             Buff.affect(hero, ToxicImbue.class).set(left);
             sprite.turnTo(pos, hero.pos);
-            GLog.w("石碑中的神奇力量已被你吸收！");
+            GLog.w("You have absorbed the wondrous power of the stone tablet!");
             die(true);
             return true;
         }
@@ -76,7 +76,7 @@ public class FourStone extends NPC {
             float left = 50f;
             Buff.affect(hero, MagicImmune.class,left);
             sprite.turnTo(pos, hero.pos);
-            GLog.w("石碑中的神奇力量已被你吸收！");
+            GLog.w("You have absorbed the wondrous power of the stone tablet!");
             die(true);
             return true;
         }

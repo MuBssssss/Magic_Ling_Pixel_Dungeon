@@ -107,7 +107,7 @@ public class Regeneration extends Buff {
 
 			else {
 				// 目前的实现不完全支持非英雄单位进入此生命恢复流程
-				GLog.n("存在非英雄单位进入Regeneration");
+				GLog.n("a non-hero unit entered Regeneration");
 				diactivate();
 			}
 

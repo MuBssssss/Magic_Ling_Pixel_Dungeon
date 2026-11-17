@@ -176,7 +176,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock shpx = new CreditsBlock(true, 0x00C7CB,
                 "Magic Ling Pixel Dungeon",
                 Icons.SHPX.get(),
-                "魔绫像素地牢",
+                "Magic Ling Pixel Dungeon",
                 "mlpd.spldream.com",
                 "https://mlpd.spldream.com/");
         shpx.setRect((w - fullWidth)/2f, 6, fullWidth, 0);
@@ -185,7 +185,7 @@ public class MLPDAboutScene extends PixelScene {
 
         //核心策划设计
         CreditsBlock mainPlan = new CreditsBlock(false, Window.TITLE_COLOR,
-                "主策划",
+                "LEAD DESIGN",
                 About_Icons("LING"),
                 "JDSALing",
                 null,
@@ -195,9 +195,9 @@ public class MLPDAboutScene extends PixelScene {
         content.add(mainPlan);
 
         CreditsBlock mainDesign = new CreditsBlock(false, 0x9B7951,
-                "主 设 计 ",
+                "M A I N   D E S I G N",
                 About_Icons("JISHEN"),
-                "寄神",
+                "Jishen",
                 null,
                 null);
         mainDesign.setRect(mainPlan.right(), mainPlan.top(), colWidth/2f, 0);
@@ -216,7 +216,7 @@ public class MLPDAboutScene extends PixelScene {
 
         //*** 美术设计团队 ***
         CreditsBlock art1 = new CreditsBlock(true, 0xcf3227,
-                "美  术  设  计 ",
+                "A R T",
                 About_Icons("Daniel_Calan"),
                 "Daniel Calan",
                 null,
@@ -226,9 +226,9 @@ public class MLPDAboutScene extends PixelScene {
         content.add(art1);
 
         CreditsBlock art2 = new CreditsBlock(true,0x6f439c,
-                "美  术  设  计",
+                "A R T",
                 About_Icons("LUOBAI"),
-                "落白",
+                "Luobai",
                 null,
                 null);
         art2.setRect(art1.right(), art1.top(), colWidth/2f, 0);
@@ -248,7 +248,7 @@ public class MLPDAboutScene extends PixelScene {
         content.add(code1);
 
         CreditsBlock code2 = new CreditsBlock(true,0xB71575,
-                "程  序  编  码",
+                "P R O G R A M M I N G",
                 About_Icons("LING"),
                 "JDSALing",
                 null,
@@ -259,14 +259,14 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock code3 = new CreditsBlock(true,0x123546,
                 "",
                 About_Icons("FLASH"),
-                "手电",
+                "Shoudian",
                 null,
                 null);
         code3.setRect(code2.right(), code2.top(), colWidth/3f, 0);
         content.add(code3);
 
 
-        CreditsBlock code4 = new CreditsBlock(true,0x25273e, "", About_Icons("WTR"), "箐筅", null, null);
+        CreditsBlock code4 = new CreditsBlock(true,0x25273e, "", About_Icons("WTR"), "Qingxian", null, null);
         code4.setRect(code1.x, code1.bottom()+10, colWidth/3f, 0);
         content.add(code4);
         qingXianBlock = code4;
@@ -293,7 +293,7 @@ public class MLPDAboutScene extends PixelScene {
 
         //*** 测试协力团队 ***
         CreditsBlock test1 = new CreditsBlock(true,0xF25CAC,
-                "中  测  协  力",
+                "T E S T I N G",
                 About_Icons("ARE"),
                 "Archetto",
                 null,
@@ -304,7 +304,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock test2 = new CreditsBlock(true, 0x5C5C94,
                 "",
                 About_Icons("TSWQ"),
-                "太上忘情",
+                "Taishang Wangqing",
                 null,
                 null);
         test2.setSize(colWidth/3f, 0);
@@ -314,7 +314,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock test3 = new CreditsBlock(true,0x8E1B44,
                 "",
                 About_Icons("SHENHAI"),
-                "深海",
+                "Shenhai",
                 null,
                 null);
         test3.setRect(code3.x, code4.bottom()+14, colWidth/3f, 0);
@@ -342,7 +342,7 @@ public class MLPDAboutScene extends PixelScene {
         content.add(skin1);
 
         CreditsBlock skin2 = new CreditsBlock(true, 0xEF0101,
-                "皮 肤 设 计",
+                "S K I N   D E S I G N",
                 null,
                 " ",
                 null,
@@ -371,7 +371,7 @@ public class MLPDAboutScene extends PixelScene {
         content.add(balance1);
 
         CreditsBlock balance2 = new CreditsBlock(true, 0xf898b8,
-                "平 衡 研 判 ",
+                "B A L A N C E",
                 null,
                 " ",
                 null,
@@ -382,7 +382,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock balance3 = new CreditsBlock(true, 0xF1A0B8,
                 "",
                 About_Icons("XYE"),
-                "小叶",
+                "Xiaoye",
                 null,
                 null);
         balance3.setRect(balance2.x+20, skin2.bottom()+40, colWidth/3f, 0);
@@ -393,7 +393,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock text1 = new CreditsBlock(true, 0XBFA041,
                 "",
                 About_Icons("KUZUMI"),
-                "久住",
+                "Jiuzhu",
                 null,
                 null);
         text1.setSize(colWidth/3f, 0);
@@ -401,7 +401,7 @@ public class MLPDAboutScene extends PixelScene {
         content.add(text1);
 
         CreditsBlock text2 = new CreditsBlock(true, 0X4557FF,
-                "文 案 设 计",
+                "W R I T I N G",
                 About_Icons("ARE"),
                 "Archetto",
                 null,
@@ -412,7 +412,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock text3 = new CreditsBlock(true, 0x9B7951,
                 "",
                 About_Icons("JISHEN"),
-                "寄神",
+                "Jishen",
                 null,
                 null);
         text3.setRect(text2.right(), text2.top(), colWidth/3f, 0);
@@ -421,10 +421,10 @@ public class MLPDAboutScene extends PixelScene {
 
         //*** 运营宣发（四人） ***
         CreditsBlock openration1 = new CreditsBlock(true, 0xFE9F8D,
-                "运 营 宣 发" +
+                "M A R K E T I N G" +
                         "\n",
                 About_Icons("ROBEIRI"),
-                "罗贝里",
+                "Roveri",
                 null,
                 null);
         openration1.setRect(code2.x, text1.bottom()+10, colWidth/3f, 0);
@@ -433,7 +433,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock openration2 = new CreditsBlock(true, 0XBFA041,
                 "",
                 About_Icons("NXHY"),
-                "那些回忆",
+                "Those Memories",
                 null,
                 null);
         openration2.setSize(colWidth/3f, 0);
@@ -443,7 +443,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock openration3 = new CreditsBlock(true, 0xFFD700,
                 "",
                 About_Icons("TELLER"),
-                "泰勒",
+                "Taylor",
                 null,
                 null);
         openration3.setRect(code3.x, text1.bottom()+14, colWidth/3f, 0);
@@ -471,7 +471,7 @@ public class MLPDAboutScene extends PixelScene {
         musicDesign1.setPos(code4.x, openration4.bottom()+15);
         content.add(musicDesign1);
         CreditsBlock musicDesign2 = new CreditsBlock(true, Window.CBLACK,
-                "音 乐 设 计 ",
+                "M U S I C",
                 About_Icons("POR"),
                 "Prohonor",
                 null,
@@ -482,7 +482,7 @@ public class MLPDAboutScene extends PixelScene {
         CreditsBlock musicDesign3 = new CreditsBlock(true, Window.WHITE,
                 " ",
                 About_Icons("DOG"),
-                "犬罗",
+                "Quanluo",
                 null,
                 null);
         musicDesign3.setRect(musicDesign2.right(), musicDesign2.top(), colWidth/3f, 0);

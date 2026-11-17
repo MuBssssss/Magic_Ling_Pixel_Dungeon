@@ -114,7 +114,7 @@ public class DailyServiceImpl extends DailyService {
                 try {
                     JsonValue root = jsonReader.parse(httpResponse.getResultAsString());
                     if (root.getInt("code") != 0) {
-                        callback.onFailure("服务器错误: " + root.getInt("code"));
+                        callback.onFailure("Server error: " + root.getInt("code"));
                         return;
                     }
 
@@ -128,7 +128,7 @@ public class DailyServiceImpl extends DailyService {
                     } else if (data.has("code")) {
                         result.seed = DungeonSeed.convertFromCode(data.getString("code"));
                     } else {
-                        callback.onFailure("服务器未返回种子");
+                        callback.onFailure("The server did not return a seed");
                         return;
                     }
                     result.difficulty = data.getString("difficulty", "NORMAL");
@@ -141,19 +141,19 @@ public class DailyServiceImpl extends DailyService {
                     }
                     callback.onSuccess(result);
                 } catch (Exception e) {
-                    callback.onFailure("解析失败: " + e.getMessage());
+                    callback.onFailure("Parsing failed: " + e.getMessage());
                 }
             }
 
-            @Override public void failed(Throwable t) { callback.onFailure(t == null ? "网络错误" : t.getMessage()); }
-            @Override public void cancelled()        { callback.onFailure("已取消"); }
+            @Override public void failed(Throwable t) { callback.onFailure(t == null ? "Network error" : t.getMessage()); }
+            @Override public void cancelled()        { callback.onFailure("Cancelled"); }
         });
     }
 
     @Override
     public void submitScore(Bundle bundle, DailyResultCallback<SubmitResultData> callback) {
         if (bundle == null) {
-            callback.onFailure("没有可提交的每日成绩");
+            callback.onFailure("There is no daily score to submit");
             return;
         }
 
@@ -177,7 +177,7 @@ public class DailyServiceImpl extends DailyService {
                 }
             }
             if (playerName == null || playerName.trim().isEmpty()) {
-                playerName = "冒险者";
+                playerName = "Adventurer";
             }
 
             String playerId = DailyIdentity.getPlayerId();
@@ -249,22 +249,22 @@ public class DailyServiceImpl extends DailyService {
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         DailyConfig.restore();
-                        callback.onFailure("解析失败: " + e.getMessage());
+                        callback.onFailure("Parsing failed: " + e.getMessage());
                     }
                 }
 
                 @Override public void failed(Throwable t) {
                     DailyConfig.restore();
-                    callback.onFailure(t == null ? "网络错误" : t.getMessage());
+                    callback.onFailure(t == null ? "Network error" : t.getMessage());
                 }
                 @Override public void cancelled() {
                     DailyConfig.restore();
-                    callback.onFailure("已取消");
+                    callback.onFailure("Cancelled");
                 }
             });
         } catch (Exception e) {
             DailyConfig.restore();
-            callback.onFailure("序列化失败: " + e.getMessage());
+            callback.onFailure("Serialization failed: " + e.getMessage());
         }
     }
 
@@ -304,7 +304,7 @@ public class DailyServiceImpl extends DailyService {
                 try {
                     JsonValue root = jsonReader.parse(httpResponse.getResultAsString());
                     if (root.getInt("code") != 0) {
-                        callback.onFailure("服务器错误: " + root.getInt("code"));
+                        callback.onFailure("Server error: " + root.getInt("code"));
                         return;
                     }
                     JsonValue data = root.get("data");
@@ -357,12 +357,12 @@ public class DailyServiceImpl extends DailyService {
                     }
                     callback.onSuccess(result);
                 } catch (Exception e) {
-                    callback.onFailure("解析失败: " + e.getMessage());
+                    callback.onFailure("Parsing failed: " + e.getMessage());
                 }
             }
 
-            @Override public void failed(Throwable t) { callback.onFailure(t == null ? "网络错误" : t.getMessage()); }
-            @Override public void cancelled()        { callback.onFailure("已取消"); }
+            @Override public void failed(Throwable t) { callback.onFailure(t == null ? "Network error" : t.getMessage()); }
+            @Override public void cancelled()        { callback.onFailure("Cancelled"); }
         });
     }
 }

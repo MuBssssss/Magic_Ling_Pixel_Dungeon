@@ -145,7 +145,7 @@ public class MagicPower extends Buff implements ActionIndicator.Action {
     public void doAction() {
         if(magicPower>=5){
             Buff.affect(hero, MagicPowerIceMagic.class,12f);
-            GLog.p("已激活冰澪附魔");
+            GLog.p("Frostfall enchantment activated");
             Buff.affect(hero, MagicPowerIceMagicCooldown.class,15f);
             BuffIndicator.refreshHero();
             usedMagic(5);

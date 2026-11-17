@@ -4111,7 +4111,7 @@ public class Mp {
         if (name == null) return false;
         String n = name.trim();
         return n.equals(Messages.get(Mp.class, "server_name"))
-                || n.equals("系统") || n.equals("Server") || n.equals("系統");
+                || n.equals("\u7cfb\u7edf") || n.equals("Server") || n.equals("\u7cfb\u7d71");
     }
 
     /** 聊天指令：/list 所有人可用；/kick 仅房主可用 */

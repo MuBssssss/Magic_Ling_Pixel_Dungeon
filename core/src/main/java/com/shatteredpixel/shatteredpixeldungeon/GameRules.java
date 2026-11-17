@@ -210,10 +210,10 @@ public class GameRules {
         Map<String, Solar> table = lunar.getJieQiTable();
         String today = lunar.getSolar().toYmd();
 
-        Solar liChun = pick(table, "立春", "LI_CHUN");
-        Solar liXia  = table.get("立夏");
-        Solar liQiu  = table.get("立秋");
-        Solar liDong = table.get("立冬");
+        Solar liChun = pick(table, "\u7acb\u6625", "LI_CHUN");
+        Solar liXia  = table.get("\u7acb\u590f");
+        Solar liQiu  = table.get("\u7acb\u79cb");
+        Solar liDong = table.get("\u7acb\u51ac");
 
         if (inRange(today, liChun, liXia)) {   // 立春 ~ 立夏前
             return Assets.Interfaces.BANNERS_SR;
@@ -247,43 +247,43 @@ public class GameRules {
     /** 自定义横幅映射（原 switch 逻辑平移为 Map） */
     private static String getCustomBanner(String key) {
         Map<String, String> map = Map.ofEntries(
-                Map.entry("复活", Assets.Interfaces.BANNERS_EA),
+                Map.entry("\u590d\u6d3b", Assets.Interfaces.BANNERS_EA),
                 Map.entry("RH", Assets.Interfaces.BANNERS_EA),
-                Map.entry("圣诞", Assets.Interfaces.BANNERS_SD),
+                Map.entry("\u5723\u8bde", Assets.Interfaces.BANNERS_SD),
                 Map.entry("CS", Assets.Interfaces.BANNERS_SD),
-                Map.entry("端午", Assets.Interfaces.BANNERS_DW),
+                Map.entry("\u7aef\u5348", Assets.Interfaces.BANNERS_DW),
                 Map.entry("DBF", Assets.Interfaces.BANNERS_DW),
-                Map.entry("元宵", Assets.Interfaces.BANNERS_YX),
+                Map.entry("\u5143\u5bb5", Assets.Interfaces.BANNERS_YX),
                 Map.entry("LR", Assets.Interfaces.BANNERS_YX),
-                Map.entry("七夕", Assets.Interfaces.BANNERS_QX),
+                Map.entry("\u4e03\u5915", Assets.Interfaces.BANNERS_QX),
                 Map.entry("QX", Assets.Interfaces.BANNERS_QX),
-                Map.entry("生日", Assets.Interfaces.BANNERS_BD),
+                Map.entry("\u751f\u65e5", Assets.Interfaces.BANNERS_BD),
                 Map.entry("BR", Assets.Interfaces.BANNERS_BD),
-                Map.entry("清明", Assets.Interfaces.BANNERS_QM),
+                Map.entry("\u6e05\u660e", Assets.Interfaces.BANNERS_QM),
                 Map.entry("QF", Assets.Interfaces.BANNERS_QM),
-                Map.entry("万圣", Assets.Interfaces.BANNERS_HL),
+                Map.entry("\u4e07\u5723", Assets.Interfaces.BANNERS_HL),
                 Map.entry("HW", Assets.Interfaces.BANNERS_HL),
-                Map.entry("春节", Assets.Interfaces.BANNERS_CJ),
+                Map.entry("\u6625\u8282", Assets.Interfaces.BANNERS_CJ),
                 Map.entry("SF", Assets.Interfaces.BANNERS_CJ),
-                Map.entry("夏季", Assets.Interfaces.BANNERS_SM),
+                Map.entry("\u590f\u5b63", Assets.Interfaces.BANNERS_SM),
                 Map.entry("SS", Assets.Interfaces.BANNERS_SM),
-                Map.entry("冬季", Assets.Interfaces.BANNERS_WT),
+                Map.entry("\u51ac\u5b63", Assets.Interfaces.BANNERS_WT),
                 Map.entry("WR", Assets.Interfaces.BANNERS_WT),
-                Map.entry("秋季", Assets.Interfaces.BANNERS_AT),
+                Map.entry("\u79cb\u5b63", Assets.Interfaces.BANNERS_AT),
                 Map.entry("AT", Assets.Interfaces.BANNERS_AT),
-                Map.entry("春季", Assets.Interfaces.BANNERS_SR),
+                Map.entry("\u6625\u5b63", Assets.Interfaces.BANNERS_SR),
                 Map.entry("SR", Assets.Interfaces.BANNERS_SR),
-                Map.entry("劳动", Assets.Interfaces.BANNERS_LD),
+                Map.entry("\u52b3\u52a8", Assets.Interfaces.BANNERS_LD),
                 Map.entry("LD", Assets.Interfaces.BANNERS_LD),
-                Map.entry("中元", Assets.Interfaces.BANNERS_ZY),
+                Map.entry("\u4e2d\u5143", Assets.Interfaces.BANNERS_ZY),
                 Map.entry("ZY", Assets.Interfaces.BANNERS_ZY),
-                Map.entry("国庆", Assets.Interfaces.BANNERS_GQ),
+                Map.entry("\u56fd\u5e86", Assets.Interfaces.BANNERS_GQ),
                 Map.entry("GQ", Assets.Interfaces.BANNERS_GQ),
-                Map.entry("重阳", Assets.Interfaces.BANNERS_CY),
+                Map.entry("\u91cd\u9633", Assets.Interfaces.BANNERS_CY),
                 Map.entry("CY", Assets.Interfaces.BANNERS_CY),
-                Map.entry("中秋", Assets.Interfaces.BANNERS_ZQ),
+                Map.entry("\u4e2d\u79cb", Assets.Interfaces.BANNERS_ZQ),
                 Map.entry("ZQ", Assets.Interfaces.BANNERS_ZQ),
-                Map.entry("碎生", Assets.Interfaces.BANNERS_BX),
+                Map.entry("\u788e\u751f", Assets.Interfaces.BANNERS_BX),
                 Map.entry("BX", Assets.Interfaces.BANNERS_BX)
         );
         return map.getOrDefault(key, Assets.Interfaces.BANNERS);

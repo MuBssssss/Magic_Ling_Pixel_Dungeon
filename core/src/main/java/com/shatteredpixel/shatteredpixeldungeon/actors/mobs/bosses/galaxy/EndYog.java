@@ -61,7 +61,7 @@ public class EndYog extends GodNPC {
             first = false;
         } else {
             //Chinese
-            yell("我会继续注视着你的。");
+            yell("I will keep watching you.");
         }
         return true;
     }

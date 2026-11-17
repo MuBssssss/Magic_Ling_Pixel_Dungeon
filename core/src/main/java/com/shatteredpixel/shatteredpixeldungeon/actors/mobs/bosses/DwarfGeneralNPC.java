@@ -55,7 +55,7 @@ public class DwarfGeneralNPC extends NTNPC {
                         GameScene.show(new WndDialog(plot,false));
                     } catch (Exception e) {
                         // 弹窗构造失败时兜底：直接开启boss战，避免卡死
-                        GLog.n("剧情弹窗加载失败，直接开始战斗！");
+                        GLog.n("The story popup failed to load, starting the fight directly!");
                         if (!Dungeon.level.locked) {
                             Dungeon.level.seal();
                         }

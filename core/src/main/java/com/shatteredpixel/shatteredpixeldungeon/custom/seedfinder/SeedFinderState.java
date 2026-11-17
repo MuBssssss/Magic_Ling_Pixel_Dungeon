@@ -56,7 +56,7 @@ public final class SeedFinderState {
     private static SeedFinderState map(File file, int workers, boolean writable, boolean create, int slot) throws IOException {
         long bytes = (long) workers * SLOT_BYTES;
         if (!create && (!file.isFile() || file.length() < bytes))
-            throw new IOException("状态文件不完整：" + file);
+            throw new IOException("State file incomplete: " + file);
         RandomAccessFile raf = new RandomAccessFile(file, writable ? "rw" : "r");
         try {
             if (create) raf.setLength(bytes);

@@ -274,10 +274,10 @@ public class WndLeaderboard extends Window {
             } catch (IllegalArgumentException e) {
                 // 中文名称映射回枚举
                 switch (heroClassStr) {
-                    case "法师": return HeroClass.MAGE;
-                    case "盗贼": return HeroClass.ROGUE;
-                    case "女猎手": return HeroClass.HUNTRESS;
-                    case "决斗家": return HeroClass.DUELIST;
+                    case "\u6cd5\u5e08": return HeroClass.MAGE;
+                    case "\u76d7\u8d3c": return HeroClass.ROGUE;
+                    case "\u5973\u730e\u624b": return HeroClass.HUNTRESS;
+                    case "\u51b3\u6597\u5bb6": return HeroClass.DUELIST;
                     default: return HeroClass.WARRIOR;
                 }
             }

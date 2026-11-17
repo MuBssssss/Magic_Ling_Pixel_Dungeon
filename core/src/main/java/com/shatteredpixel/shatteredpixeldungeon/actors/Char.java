@@ -1094,14 +1094,14 @@ public abstract class Char extends Actor {
 
 		if(DeviceCompat.isDesktop() && DeviceCompat.isDebug()){
 			if(this instanceof Hero){
-				str = "玩家";
+				str = "player";
 			}else {
-				str = "非玩家";
+				str = "non-player";
 			}
-			if (type == DamageType.Element) GLog.n(str + "受到元素伤害");
-			if (type == DamageType.REAL) GLog.i(str + "受到真实伤害");
-			if (type == DamageType.PHYSICAL) GLog.w(str + "受到物理伤害");
-			if (type == DamageType.MAGIC) GLog.pink(str + "受到魔法伤害");
+			if (type == DamageType.Element) GLog.n(str + " took elemental damage");
+			if (type == DamageType.REAL) GLog.i(str + " took true damage");
+			if (type == DamageType.PHYSICAL) GLog.w(str + " took physical damage");
+			if (type == DamageType.MAGIC) GLog.pink(str + " took magical damage");
 		}
 
 
