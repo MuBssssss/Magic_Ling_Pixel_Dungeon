@@ -119,33 +119,33 @@ import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 联机核心：房主/访客状态机、帧协议与多人同步。
- * 房间由房主权威模拟，访客只同步位置/职业/聊天。
+ * Multiplayer core: host/guest state machine, frame protocol and multiplayer sync.
+ * The room is simulated authoritatively by the host; guests only sync position/class/chat.
  */
 public class Mp {
 
-    /** 全局单例（外部通过 {@link #get()} 访问）。 */
+    /** Global singleton (accessed externally through {@link #get()}). */
     private static final Mp I = new Mp();
 
     /**
-     * 获取联机单例。
+     * Gets the multiplayer singleton.
      *
-     * @return 返回值。
+     * @return the singleton.
      */
     public static Mp get() {
-        // skipcq: JAVA-S1049  联机状态机是全局可变单例，调用方均为本模组内部代码
+        // skipcq: JAVA-S1049  The multiplayer state machine is a global mutable singleton; all callers are internal to this mod
         return I;
     }
 
-    /** 默认联机端口。 */
+    /** Default multiplayer port. */
     public static final int DEFAULT_PORT = 28771;
-    /** 正式版固定服务器地址：玩家不需要手动输入。 */
+    /** Fixed server address for release builds: players never need to type it in. */
     public static final String DEFAULT_SERVER_ADDRESS = "47.109.62.104";
 
     /**
-     * 默认服务器地址；可用 {@code -Dmlpd.server=...} 覆盖（仅供本地测试）。
+     * Default server address; override with {@code -Dmlpd.server=...} (for local testing only).
      *
-     * @return 服务器地址。
+     * @return the server address.
      */
     public static String defaultServerAddress() {
         String override = System.getProperty("mlpd.server");
@@ -154,227 +154,230 @@ public class Mp {
     }
 
     /**
-     * 联机模块版本号：显示在联机菜单右下角，并记录在根目录《更新日志.txt》。
-     * 不得随意迭代：仅在用户明确指示“更新至某某版本”时修改，同时追加更新日志。
+     * Multiplayer module version: shown in the bottom right of the multiplayer menu and
+     * recorded in 《changelog.txt》 in the root directory.
+     * Do not bump this at will: only change it when the user explicitly says "update to version X",
+     * and append to the changelog at the same time.
      */
     public static final String MP_VERSION = "v0.2.0";
-    /** 最大人数：1 房主 + 3 访客（推荐上限，理由见 PROGRESS §10 多人适配） */
+    /** Max players: 1 host + 3 guests (recommended cap; see PROGRESS §10 for the multiplayer rationale) */
     public static final int MAX_PLAYERS = 4;
 
     /**
-     * 联机协议版本。线协议（帧类型/载荷格式）改动时必须递增；
-     * 双方版本不一致会拒绝连接，避免旧版本用不兼容的存档/协议混连。
+     * Multiplayer protocol version. Must be incremented whenever the wire protocol
+     * (frame types/payload format) changes; mismatched versions refuse to connect, so old
+     * clients cannot mix incompatible saves/protocols with new ones.
      */
     public static final int MP_PROTOCOL_VERSION = 17;
 
-    /** 连续多少个 PING 收不到 PONG 就判定连接中断（每 3 秒一次，约 15 秒） */
+    /** How many consecutive PINGs without a PONG before the connection is considered dead (one every 3 seconds, about 15 seconds) */
     private static final int PING_MISS_LIMIT = 5;
 
-    /** 版本握手超时（毫秒）：超时视为对方版本过旧或未完成握手。 */
+    /** Version handshake timeout (ms): on timeout the peer is treated as too old or as never having completed the handshake. */
     private static final long HANDSHAKE_TIMEOUT_MS = 5000L;
 
-    /** 房主进入新档后，等待访客在弹窗点击“确认”的最长时间（毫秒）。 */
+    /** How long the host waits, after entering a new save, for a guest to tap "confirm" in the popup (ms). */
     private static final long WORLD_RESET_CONFIRM_TIMEOUT_MS = 300_000L;
 
-    /** 他人最高分对局详情请求超时（毫秒）。 */
+    /** Timeout for requesting another player's best-run details (ms). */
     private static final long PROFILE_REQUEST_TIMEOUT_MS = 5000L;
 
-    /** 个人资料/房间状态中携带的徽章数量上限（防御异常数据）。 */
+    /** Max badges carried in a profile/room state (guards against malformed data). */
     private static final int MAX_PROFILE_BADGES = 256;
 
-    /** 死因名称（凶手/状态/物品名）的最大长度，防止异常数据撑大帧。 */
+    /** Max length of a death cause name (killer/status/item name), so malformed data cannot bloat frames. */
     private static final int MAX_DEATH_CAUSE_NAME = 64;
 
-    /** 死因类型：未知（只播报“死亡”）。 */
+    /** Death cause: unknown (just announce "died"). */
     public static final int DEATH_CAUSE_UNKNOWN = 0;
-    /** 死因类型：被某个角色（怪物/召唤物/弹体）击杀，name=凶手名。 */
+    /** Death cause: killed by a character (mob/summon/projectile); name = killer name. */
     public static final int DEATH_CAUSE_SLAIN = 1;
-    /** 死因类型：被烧死。 */
+    /** Death cause: burned to death. */
     public static final int DEATH_CAUSE_BURNED = 2;
-    /** 死因类型：被冻死。 */
+    /** Death cause: frozen to death. */
     public static final int DEATH_CAUSE_FROZEN = 3;
-    /** 死因类型：中毒/毒气。 */
+    /** Death cause: poison/toxic gas. */
     public static final int DEATH_CAUSE_POISONED = 4;
-    /** 死因类型：失血。 */
+    /** Death cause: blood loss. */
     public static final int DEATH_CAUSE_BLED = 5;
-    /** 死因类型：饥饿。 */
+    /** Death cause: starvation. */
     public static final int DEATH_CAUSE_STARVED = 6;
-    /** 死因类型：电击。 */
+    /** Death cause: electrocution. */
     public static final int DEATH_CAUSE_SHOCKED = 7;
-    /** 死因类型：坠落。 */
+    /** Death cause: falling. */
     public static final int DEATH_CAUSE_FELL = 8;
-    /** 死因类型：爆炸。 */
+    /** Death cause: explosion. */
     public static final int DEATH_CAUSE_EXPLODED = 9;
-    /** 死因类型：其他有名字的原因（陷阱/状态/物品等），name=原因名。 */
+    /** Death cause: another named reason (trap/status/item etc.); name = reason name. */
     public static final int DEATH_CAUSE_NAMED = 10;
 
-    /** 幽灵头顶血量条尺寸。 */
+    /** Size of the health bar above a ghost. */
     private static final float HP_BAR_WIDTH = 16f;
     private static final float HP_BAR_HEIGHT = 2f;
 
-        /** 联机角色：未连接 / 房主 / 访客。 */
+        /** Multiplayer role: not connected / host / guest. */
     public enum Role { NONE, HOST, CLIENT }
 
-        /** 当前角色。 */
+        /** Current role. */
     public volatile Role role = Role.NONE;
-        /** 联机状态文本（联机窗口显示）。 */
+        /** Multiplayer status text (shown in the multiplayer window). */
     public volatile String status = Messages.get(Mp.class, "status_disconnected");
-        /** 是否已连接（任一对端在线）。 */
+        /** Whether we are connected (any peer online). */
     public volatile boolean connected = false;
-        /** 最近一个 HELLO 的对端名字（兼容 1v1 显示）。 */
-    public volatile String peer = Messages.get(Mp.class, "default_player_name");   // 兼容 1v1 显示：最近一个 HELLO 的名字
+        /** Name of the most recent HELLO peer (kept for 1v1 display compatibility). */
+    public volatile String peer = Messages.get(Mp.class, "default_player_name");   // 1v1 compatibility: name of the most recent HELLO
 
-    /** 房主自己的 id；访客 id 由房主连接时分配（1..N） */
+    /** The host's own id; guest ids are assigned by the host on connect (1..N) */
     public static final int HOST_ID = 0;
 
     private ServerSocket server;
     private Thread worker;
     private volatile boolean running = false;
     private int nextGuestId = 1;
-    private volatile int myId = -1;         // 访客侧：房主分配的 id
+    private volatile int myId = -1;         // Guest side: id assigned by the host
 
-    /** 一个对端连接：房主侧有 N-1 个访客 peer，访客侧有房主 peer(0) 与其他访客 peer（按 id） */
-        /** 一个对端连接：房主侧为访客，访客侧为房主与其他访客。 */
+    /** One peer connection: the host side has N-1 guest peers, the guest side has the host peer(0) plus the other guest peers (by id) */
+        /** One peer connection: on the host side a guest, on the guest side the host plus other guests. */
     public static class Peer {
         int id = -1;
         Socket sock;
         DataInputStream in;
         DataOutputStream out;
         volatile String name = Messages.get(Mp.class, "default_player_name");
-        /** 是否已完成版本握手且双方兼容。 */
+        /** Whether the version handshake completed and both sides are compatible. */
         volatile boolean versionOk = false;
-        /** 是否已处理过 VERSION（成功或失败）。 */
+        /** Whether VERSION has already been handled (succeeded or failed). */
         volatile boolean versionChecked = false;
-        /** 版本不兼容/握手超时的具体原因（断开时保留给玩家看）。 */
+        /** Concrete reason for version incompatibility/handshake timeout (kept so the player can see why it disconnected). */
         volatile String versionError = null;
-        /** 对端当前血量/上限（-1=尚未收到 STATS）。 */
+        /** The peer's current/max HP (-1 = STATS not received yet). */
         volatile int hp = -1;
         volatile int ht = -1;
-        /** 对端最近一次上报的完整英雄 bundle（/list 点击与放大镜查看详情用；null=尚未收到）。 */
-        // skipcq: JAVA-E0027  只需引用跨线程可见：数组整体只在接收线程写入、渲染线程替换读取，元素发布后不再修改
+        /** The peer's most recently reported full hero bundle (used by /list taps and the magnifying glass; null = not received yet). */
+        // skipcq: JAVA-E0027  Only cross-thread visibility is needed: the array is written by the receive thread and read by the render thread after replacement, and elements are never modified once published
         volatile byte[] heroInfo = null;
-        /** 对端是否为管理员（房主授予）。 */
+        /** Whether the peer is an admin (granted by the host). */
         volatile boolean admin = false;
-        /** 对端资料：UUID（入房后由 PROFILE 帧上报）。 */
+        /** Peer profile: UUID (reported by the PROFILE frame after joining). */
         volatile String uuid = "";
-        /** 对端佩戴的徽章（最多 3 枚，入房后由 PROFILE 帧上报）。 */
+        /** Badges worn by the peer (up to 3, reported by the PROFILE frame after joining). */
         volatile List<Badges.Badge> badges = Collections.emptyList();
-        /** 对端已拥有的全部徽章（个人主页徽章页用；由 PROFILE 帧上报）。 */
+        /** All badges the peer owns (used by the badge page of their profile; reported by the PROFILE frame). */
         volatile List<Badges.Badge> allBadges = Collections.emptyList();
-        /** 对端历史最高分（含每日挑战；由 PROFILE 帧上报）。 */
+        /** The peer's all-time best score (daily challenges included; reported by the PROFILE frame). */
         volatile int highestScore = 0;
-        /** 房主开始新游戏导致的断开（不重复播报普通断线）。 */
+        /** Disconnect caused by the host starting a new game (so the plain disconnect is not announced twice). */
         volatile boolean worldEnded = false;
-        /** 房主换档后等待该访客保存旧英雄并回 WORLD_READY。 */
+        /** Waiting for this guest to save the old hero and send WORLD_READY after the host switched saves. */
         volatile boolean worldResetPending = false;
         volatile long worldResetAt = 0L;
-        /** 幽灵头顶的血量条（背景 + 填充）。 */
+        /** The health bar above the ghost (background + fill). */
         ColorBlock hpBg;
         ColorBlock hpFill;
-        HeroClass heroClass;                 // 对端职业（房主侧=访客的 HERO 帧；访客侧=房主 STATE 里捕获）
-        volatile int skin = -1;              // 对端皮肤 ID（HERO/ROOM_STATE 同步；-1=未知）
-        volatile int tier = -1;              // 对端精灵 tier（STATS 同步；含护甲外观；-1=未知）
-        /** 职业/皮肤变化：渲染线程下一帧重建幽灵精灵（网络线程只置位）。 */
+        HeroClass heroClass;                 // Peer class (host side = the guest's HERO frame; guest side = captured from the host's STATE)
+        volatile int skin = -1;              // Peer skin id (synced by HERO/ROOM_STATE; -1 = unknown)
+        volatile int tier = -1;              // Peer sprite tier (synced by STATS, including armor appearance; -1 = unknown)
+        /** Class/skin change: rebuild the ghost sprite on the next render frame (the network thread only sets the flag). */
         volatile boolean spriteDirty = false;
-        boolean gotState = false;            // 房主侧：是否已给该访客发过 STATE
+        boolean gotState = false;            // Host side: whether STATE has been sent to this guest
         Hero remote;
         HeroSprite remoteSprite;
-        RenderedTextBlock nameLabel;         // 幽灵正上方的名字
+        RenderedTextBlock nameLabel;         // The name directly above the ghost
         int remotePos = -1;
         int remoteDepth = -1;
         int remoteBranch = -1;
         boolean remoteStale = false;
-        volatile boolean kicked = false;     // 房主侧：已被 /kick 请离
-        volatile int rttMs = -1;             // 房主侧：到该访客的延迟（-1=未知）
+        volatile boolean kicked = false;     // Host side: removed by /kick
+        volatile int rttMs = -1;             // Host side: latency to this guest (-1 = unknown)
         volatile boolean pingTimeout = false;
-        /** 连续多少个 PING 没有回应（用于判定网络断开）。 */
+        /** How many consecutive PINGs went unanswered (used to decide the connection is dead). */
         final AtomicInteger pingMisses = new AtomicInteger(0);
         volatile int pingToken = 0;
         volatile long pingSentAt = 0L;
-        boolean joinedGame = false;          // 已播报过「加入了游戏」（首次位置同步时置位）
+        boolean joinedGame = false;          // Whether "joined the game" has been announced (set on the first position sync)
     }
 
-    /** /list 的一行数据 */
-        /** /list 的一行玩家信息。 */
+    /** One /list row */
+        /** One /list player row. */
     public static class PlayerInfo {
-        /** 标识 id。 */
+        /** Identifier. */
         public int id;
-        /** 玩家名。 */
+        /** Player name. */
         public String name;
-        /** 职业。 */
+        /** Class. */
         public HeroClass heroClass;
-        /** 皮肤索引（-1=未知）。 */
+        /** Skin index (-1 = unknown). */
         public int skin = -1;
-        /** 精灵 tier（含护甲外观；-1=未知）。 */
+        /** Sprite tier (including armor appearance; -1 = unknown). */
         public int tier = -1;
-        /** 是否房主。 */
+        /** Whether this is the host. */
         public boolean isHost;
-        /** 是否自己。 */
+        /** Whether this is yourself. */
         public boolean isSelf;
-        /** 到该对端的延迟（毫秒，-1=未知）。 */
+        /** Latency to this peer (ms, -1 = unknown). */
         public int rttMs = -1;
-        /** 是否超时。 */
+        /** Whether it timed out. */
         public boolean timeout;
-        /** 所在层数（-1=未知）。 */
+        /** Floor (-1 = unknown). */
         public int depth = -1;
-        /** 分支（0=主线）。 */
+        /** Branch (0 = main line). */
         public int branch;
-        /** 当前血量（-1=未知）。 */
+        /** Current HP (-1 = unknown). */
         public int hp = -1;
-        /** 血量上限（-1=未知）。 */
+        /** Max HP (-1 = unknown). */
         public int ht = -1;
-        /** 是否管理员。 */
+        /** Whether an admin. */
         public boolean isAdmin;
     }
 
-    /** 房主广播给访客的延迟信息（访客 /list 用来显示其他访客的延迟） */
-        /** RTT_INFO 中的一条延迟记录。 */
+    /** Latency info the host broadcasts to guests (guests use it in /list to show other guests' latency) */
+        /** One latency record in RTT_INFO. */
     public static class RttRec {
-        /** 标识 id。 */
+        /** Identifier. */
         public int id;
-        /** 到该对端的延迟（毫秒，-1=未知）。 */
+        /** Latency to this peer (ms, -1 = unknown). */
         public int rttMs = -1;
-        /** 是否超时。 */
+        /** Whether it timed out. */
         public boolean timeout;
     }
 
-        /** RTT_INFO 帧载荷。 */
+        /** RTT_INFO frame payload. */
     public static class RttInfoPayload {
-        /** 延迟记录列表。 */
+        /** Latency record list. */
         public List<RttRec> recs;
     }
 
-    /** DEATH 帧载荷：死亡玩家 id + 死因类型 + 死因名称。 */
+    /** DEATH frame payload: dead player id + death cause type + death cause name. */
     public static class DeathPayload {
-        /** 死亡玩家 id（房主为 0）。 */
+        /** Dead player id (the host is 0). */
         public int id;
-        /** 死因类型，见 {@code DEATH_CAUSE_*}。 */
+        /** Death cause type, see {@code DEATH_CAUSE_*}. */
         public int kind = DEATH_CAUSE_UNKNOWN;
-        /** 死因名称（已本地化；不需要名称的类型为空串）。 */
+        /** Death cause name (already localized; empty string for types that need no name). */
         public String name = "";
     }
 
-    /** 房间内一名玩家的只读快照（开局前使用，不依赖 Dungeon.hero）。 */
+    /** Read-only snapshot of one player in the room (used before the run starts, does not depend on Dungeon.hero). */
     public static class RoomPlayerInfo {
-        /** 玩家 id（房主为 0）。 */
+        /** Player id (the host is 0). */
         public final int id;
-        /** 玩家名。 */
+        /** Player name. */
         public final String name;
-        /** 房间内选择的职业；null=尚未选择。 */
+        /** Class picked in the room; null = not picked yet. */
         public final HeroClass heroClass;
-        /** 皮肤索引（-1=未知，显示时按职业当前设置兜底）。 */
+        /** Skin index (-1 = unknown; falls back to the class's current setting when displayed). */
         public final int skin;
-        /** 是否房主。 */
+        /** Whether this is the host. */
         public final boolean isHost;
-        /** 展示用 UUID（与每日挑战一致）。 */
+        /** Display UUID (same as for daily challenges). */
         public final String uuid;
-        /** 佩戴的徽章（0~3 枚）。 */
+        /** Badges worn (0 to 3). */
         public final List<Badges.Badge> badges;
-        /** 已拥有的全部徽章（个人主页徽章页用）。 */
+        /** All badges owned (used by the badge page of their profile). */
         public final List<Badges.Badge> allBadges;
-        /** 是否管理员（房主也可由 localAdmin 标记；通常访客使用）。 */
+        /** Whether an admin (the host may also be flagged through localAdmin; normally used by guests). */
         public final boolean isAdmin;
-        /** 历史最高分（含每日挑战）。 */
+        /** All-time best score (daily challenges included). */
         public final int highestScore;
 
         RoomPlayerInfo(int id, String name, HeroClass heroClass, int skin, boolean isHost,
@@ -402,23 +405,23 @@ public class Mp {
         }
     }
 
-    /** 房间当前选择的存档。 */
+    /** The save currently selected in the room. */
     public static class RoomSaveInfo {
-        /** 是否已选择存档。 */
+        /** Whether a save has been selected. */
         public final boolean selected;
-        /** 存档槽位（未选择时为 -1）。 */
+        /** Save slot (-1 when nothing is selected). */
         public final int slot;
-        /** 世界种子（未选择时为 Long.MIN_VALUE）。 */
+        /** World seed (Long.MIN_VALUE when nothing is selected). */
         public final long seed;
-        /** 是否新档（尚未写入磁盘）。 */
+        /** Whether this is a new save (not yet written to disk). */
         public final boolean isNew;
-        /** 房主在该房间使用的职业；已有存档时来自存档。 */
+        /** Class the host uses in this room; taken from the save when one exists. */
         public final HeroClass hostClass;
-        /** 层数（已有存档时来自存档）。 */
+        /** Floor (taken from the save when one exists). */
         public final int depth;
-        /** 英雄等级（已有存档时来自存档）。 */
+        /** Hero level (taken from the save when one exists). */
         public final int level;
-        /** 是否已经开过一局（用于「继续对局」文案）。 */
+        /** Whether a run has already been started (used for the "continue run" wording). */
         public final boolean started;
 
         RoomSaveInfo(boolean selected, int slot, long seed, boolean isNew,
@@ -434,23 +437,23 @@ public class Mp {
         }
     }
 
-    /** 一个访客世界缓存（mp_world_<seed>/ + mp_hero_<seed>.dat）。 */
+    /** One guest world cache (mp_world_<seed>/ + mp_hero_<seed>.dat). */
     public static class GuestCacheInfo {
-        /** 房主世界种子。 */
+        /** Host world seed. */
         public final long seed;
-        /** 当时的房主名；旧缓存可能为空。 */
+        /** Host name at the time; may be empty in old caches. */
         public String hostName;
-        /** 访客所选英雄职业；旧缓存可能为空。 */
+        /** Hero class the guest picked; may be empty in old caches. */
         public HeroClass heroClass;
-        /** 创建时间（毫秒）；旧缓存回退为文件修改时间。 */
+        /** Creation time (ms); old caches fall back to the file modification time. */
         public long createdAt;
-        /** 最近游玩时间（毫秒）。 */
+        /** Last played time (ms). */
         public long lastPlayed;
-        /** 是否有持久世界目录。 */
+        /** Whether a persistent world directory exists. */
         public boolean hasWorld;
-        /** 是否有访客英雄档。 */
+        /** Whether a guest hero save exists. */
         public boolean hasHero;
-        /** 是否是当前世界/房间选中种子（不可删除）。 */
+        /** Whether this is the seed selected for the current world/room (cannot be deleted). */
         public boolean current;
 
         GuestCacheInfo(long seed) {
@@ -458,17 +461,17 @@ public class Mp {
         }
     }
 
-    /** 大厅房间列表的一行。 */
+    /** One row of the lobby room list. */
     public static class RoomListing {
-        /** 6 位房间号。 */
+        /** Six digit room number. */
         public final String code;
-        /** 当前人数（含房主）。 */
+        /** Current player count (host included). */
         public final int players;
-        /** 人数上限。 */
+        /** Player cap. */
         public final int maxPlayers;
-        /** 房主名。 */
+        /** Host name. */
         public final String hostName;
-        /** 房间是否设置了密码。 */
+        /** Whether the room has a password set. */
         public final boolean locked;
 
         RoomListing(String code, int players, int maxPlayers, String hostName,
@@ -499,203 +502,203 @@ public class Mp {
     private long lastStatsTime = 0L;
     private long lastHeroInfoTime = 0L;
     private volatile boolean kickedByHost = false;
-    /** 访客本机是否被房主授予管理员权限。 */
+    /** Whether the host granted this machine admin rights. */
     private volatile boolean localAdmin = false;
-    /** 房主当前所在世界的标识（curSlot:seed），用于检测死亡后“重新开始”换档。 */
+    /** Identifier of the world the host is currently in (curSlot:seed), used to detect a save switch after death and "restart". */
     private volatile String hostWorldKey = null;
-    /** 本机这次死亡是否已经播报过（复活/进新档后复位）。 */
+    /** Whether this machine has already announced this death (reset after revival or entering a new save). */
     private volatile boolean localDeathAnnounced = false;
-    /** 访客正在从旧世界切到房主新世界（防止旧场景暂停时把旧英雄写到新种子）。 */
+    /** The guest is switching from the old world to the host's new world (so a paused old scene cannot write the old hero into the new seed). */
     private volatile boolean enteringNewWorld = false;
 
-    private StatePayload pendingState;        // 选职业期间暂存的最新 STATE
-    private WndHeroClassSelect classWindow;   // 职业选择窗口（断连时自动关掉）
-    private volatile WndHostNewGame hostNewGamePrompt;   // 房主进入新档：等待访客确认
-        /** 玩家名持久化文件名。 */
+    private StatePayload pendingState;        // Latest STATE held while the class is being picked
+    private WndHeroClassSelect classWindow;   // Class pick window (closed automatically on disconnect)
+    private volatile WndHostNewGame hostNewGamePrompt;   // Host entered a new save: waiting for guests to confirm
+        /** Player name persistence file name. */
     public static final String MP_NAME_FILE = "mp_name.txt";
 
-    private long worldSeed = Long.MIN_VALUE;  // 当前世界的种子：访客英雄按世界分档
+    private long worldSeed = Long.MIN_VALUE;  // Seed of the current world: guest heroes are saved per world
 
-    /** 访客联机临时世界槽位：故意放在普通存档 1..MAX_SLOTS 之外，主界面永远不会列出 */
+    /** Guest temporary world slot for multiplayer: deliberately outside normal saves 1..MAX_SLOTS so the main menu never lists it */
     private static final int GUEST_TEMP_SLOT = 99;
 
-    /** 是否为访客专用的隐藏临时槽（不是玩家自己的存档）。 */
+    /** Whether this is the guest-only hidden temporary slot (not one of the player's own saves). */
     public static boolean isGuestTempSlot(int slot) {
         return slot == GUEST_TEMP_SLOT;
     }
-    /** 访客英雄档里英雄子 bundle 的键：嵌套写入（自带类名），可直接放回游戏存档 */
+    /** Key of the hero sub-bundle inside a guest hero save: written nested (with its own class name) so it can go straight back into a game save */
     private static final String MP_HERO = "hero";
-    /** 访客英雄档里记录的所在层/分支（重连时校验上次位置是否仍可用） */
+    /** Floor/branch recorded in a guest hero save (so we can check on reconnect whether the old position is still usable) */
     private static final String MP_DEPTH = "mp_depth";
     private static final String MP_BRANCH = "mp_branch";
-    /** 访客英雄档里保存的快捷栏快照（占位物品 + 槽位技能选择） */
+    /** Quickslot snapshot saved in a guest hero save (placeholder items + per-slot ability choice) */
     private static final String MP_QUICKSLOT = "mp_quickslot";
-    /** 访客英雄档里保存的探图数据（visited/mapped 按层分键）：临时世界退出即删，探图必须自己留档 */
+    /** Explored-map data saved in a guest hero save (visited/mapped keyed per floor): the temporary world is deleted on exit, so the map must be kept separately */
     private static final String MP_EXPLORED = "mp_explored_";
-    /** 访客缓存元数据：房主名、创建时间、最近游玩时间、英雄职业（写在 mp_hero_<seed>.dat 顶层）。 */
+    /** Guest cache metadata: host name, creation time, last played time, hero class (stored at the top level of mp_hero_<seed>.dat). */
     private static final String MP_CACHE_HOST = "mp_cache_host";
     private static final String MP_CACHE_CREATED = "mp_cache_created";
     private static final String MP_CACHE_PLAYED = "mp_cache_played";
     private static final String MP_CACHE_HERO = "mp_cache_hero";
-    /** 大同步线的楼层快照目录前缀；稳定线不存在，删除缓存时一并清理。 */
+    /** Directory prefix for floor snapshots of the big-sync line; it does not exist on the stable line and is cleaned up with the caches. */
     private static final String MP_SYNC_PREFIX = "mp_sync_";
-    /** STATE 的 game bundle 里附带的“初始世界包”：第0层初始 game.dat + 各层初始层档。 */
+    /** "Initial world pack" attached to the STATE game bundle: floor 0 starting game.dat plus each floor's starting level save. */
     private static final String MP_INIT_WORLD = "mp_init_world";
-    /** 房主存档目录下的初始快照子目录。 */
+    /** Initial snapshot subdirectory under the host's save directory. */
     private static final String MP_INIT_DIR = "mp_init";
-    /** 访客自己的持久世界目录前缀（按房主世界种子分档）。 */
+    /** Prefix of the guest's own persistent world directory (one per host world seed). */
     private static final String MP_WORLD_PREFIX = "mp_world_";
-    /** 访客端保留的最近房主世界数量；更早的 mp_hero_/mp_world_ 视为失效并清理。 */
+    /** How many recent host worlds a guest keeps; older mp_hero_/mp_world_ files are treated as stale and cleaned up. */
     private static final int MP_KEEP_SEEDS = 4;
     private static final String MP_INIT_GAME = "game";
     private static final String MP_INIT_LEVELS = "levels";
-    /** 当前 Dungeon.hero 是否属于已进入的联机世界（防止把单人或过期英雄写入访客档） */
+    /** Whether the current Dungeon.hero belongs to the multiplayer world we joined (so a solo or stale hero is not written to the guest save) */
     private boolean guestWorldActive = false;
-    /** 访客当前使用的是否为“从房主初始快照创建的持久世界”（断线不删，存到 mp_world_<seed>/）。 */
+    /** Whether the guest is currently using a "persistent world created from the host's initial snapshot" (kept on disconnect, stored in mp_world_<seed>/). */
     private boolean guestWorldPersistent = false;
-    /** 房主首次生成楼层时暂存深度/分支；switchLevel 完成后由 onLevelSwitched 消费。 */
+    /** Depth/branch stashed when the host first generates a floor; consumed by onLevelSwitched once switchLevel finishes. */
     private int pendingFreshDepth = -1;
     private int pendingFreshBranch = -1;
-    /** 访客英雄档存在但读不出来：首次加入前先备份旧档，避免直接覆盖丢数据 */
+    /** A guest hero save exists but cannot be read: back up the old file before joining so data is not silently overwritten */
     private boolean guestHeroUnreadable = false;
-    /** 访客最近一次在本机世界中的位置（内存缓存；房主退出/重进时优先于可能滞后的英雄档） */
+    /** The guest's most recent position in the local world (in-memory cache; preferred over a possibly stale hero save when the host leaves and returns) */
     private volatile int lastGuestPos = -1;
     private volatile int lastGuestDepth = -1;
     private volatile int lastGuestBranch = -1;
     private volatile long lastGuestWorldSeed = Long.MIN_VALUE;
-    /** 访客本次会话每层探图缓存：depth_branch -> Bundle{visited,mapped}。 */
+    /** This session's per-floor explored-map cache for the guest: depth_branch -> Bundle{visited,mapped}. */
     private final HashMap<Integer, Bundle> guestExplored = new HashMap<>();
     private long lastExploredSnapshot = 0L;
-    /** Android 端最后一次看到的本地英雄血量（用于兜底触发受击红屏）。 */
+    /** Last local hero HP seen on Android (fallback trigger for the damage red flash). */
     private int lastHeroHp = -1;
 
-    private String myName;                    // 本机玩家名（联机窗口可设置，mp_name.txt 持久化）
-    /** 是否服务器模式（A 模式：经大厅配对，房主权威不变）。 */
+    private String myName;                    // Local player name (settable in the multiplayer window, persisted to mp_name.txt)
+    /** Whether we are in server mode (mode A: matched through the lobby, host stays authoritative). */
     private volatile boolean serverMode = false;
-    /** 服务器地址（不含端口）。 */
+    /** Server address (without port). */
     private volatile String serverAddress = null;
-    /** 服务器数据端口（房主从 ROOM 响应获得；初值用字面量避免单例早于常量初始化）。 */
+    /** Server data port (the host gets it from the ROOM response; the initial value is a literal so the singleton can initialise before the constant). */
     private volatile int serverDataPort = 28772;
-    /** 当前房间号（房主开房成功后 / 访客加入时）。 */
+    /** Current room number (after the host creates a room / when a guest joins). */
     private volatile String roomCode = null;
-    /** 房主设置的房间密码；空串=无密码（只影响之后加入的访客）。 */
+    /** Room password set by the host; empty string = no password (only affects guests joining later). */
     private volatile String roomPassword = "";
-    /** 服务器模式：大厅控制连接（房主）或等待配对连接（访客）。 */
+    /** Server mode: lobby control connection (host) or waiting for a match connection (guest). */
     private volatile Socket lobbySocket;
-    /** 房主控制连接的输出流（与心跳共用，避免并发写字节交错）。 */
+    /** Output stream of the host control connection (shared with the heartbeat so concurrent writes cannot interleave bytes). */
     private volatile DataOutputStream lobbyOut;
 
-    // ---------------------------------------------------------------- 房间预开局状态（大厅/房间界面）
+    // ---------------------------------------------------------------- Pre-run room state (lobby/room UI)
 
-    /** 房间当前存档快照（直接 new，不能引用靠后的 static 常量：Mp 单例在类顶部先初始化）。 */
+    /** Snapshot of the save currently selected in the room (constructed with new; it cannot reference a later static constant because the Mp singleton initialises at the top of the class). */
     private volatile RoomSaveInfo roomSave =
             new RoomSaveInfo(false, -1, Long.MIN_VALUE, false, null, 0, 1, false);
-    /** 房间玩家列表快照（房主端权威，访客端来自 ROOM_STATE）。 */
+    /** Roster snapshot for the room (authoritative on the host, taken from ROOM_STATE on guests). */
     private volatile List<RoomPlayerInfo> roomRoster = Collections.emptyList();
-    /** 房间 UI 版本号：变化时场景重建列表/刷新按钮。 */
+    /** Room UI version: when it changes the scene rebuilds the list/refreshes buttons. */
     private final AtomicInteger roomUiVersion = new AtomicInteger();
-    /** 房主端：roster/存档变化后需要广播。 */
+    /** Host side: roster/save changed and needs broadcasting. */
     private volatile boolean roomStateDirty = false;
     private volatile long lastRoomStateSent = 0L;
-    /** 房间场景 PING 计时（GameScene 之外也要保活）。 */
+    /** Room scene PING timer (keepalive is needed outside GameScene too). */
     private volatile long lastRoomPingTime = 0L;
-    /** 房主在房间内选择的职业（新档用）。 */
+    /** Class the host picked in the room (for a new save). */
     private volatile HeroClass hostRoomClass = null;
-    /** 访客自己在房间内选择的职业（新档/无存档时用）。 */
+    /** Class the guest picked in the room (for a new save / when there is no save). */
     private volatile HeroClass guestRoomClass = null;
-    /** guestRoomClass 对应的存档种子，避免误用到别的世界。 */
+    /** Save seed matching guestRoomClass, so it is not used against another world by mistake. */
     private volatile long guestRoomClassSeed = Long.MIN_VALUE;
-    /** 访客在该世界种子下已有英雄档：锁定选择英雄。 */
+    /** The guest already has a hero save for this world seed: lock the hero choice. */
     private volatile boolean guestRoomHeroLocked = false;
     private volatile long guestLockCacheSeed = Long.MIN_VALUE;
     private volatile boolean guestLockCacheValid = false;
     private volatile HeroClass guestLockCacheClass = null;
-    /** 最近一次发给房主的房间职业，避免 ROOM_STATE 周期重发时刷屏。 */
+    /** Room class last sent to the host, so periodic ROOM_STATE resends do not spam. */
     private volatile long lastRoomHeroSentSeed = Long.MIN_VALUE;
     private volatile HeroClass lastRoomHeroSent = null;
-    /** 房间模式：正在选择存档（StartScene）。 */
+    /** Room mode: choosing a save (StartScene). */
     private volatile boolean selectingRoomSave = false;
-    /** 房间模式：正在为新档配置职业/种子；>=0 表示待写入的存档槽。 */
+    /** Room mode: configuring class/seed for a new save; >= 0 is the save slot to write. */
     private volatile int roomNewGameSlot = -1;
-    /** 房间新档配置：进入 HeroSelectScene 前的本机规则快照，配置结束后恢复。 */
+    /** Room new-save setup: snapshot of local rules taken before entering HeroSelectScene and restored afterwards. */
     private volatile Bundle roomRulesBackup = null;
-    /** 房间新档配置：房主在 HeroSelectScene 里实际选择的规则（只用于本房间，不写全局）。 */
+    /** Room new-save setup: rules the host actually picked in HeroSelectScene (used for this room only, never written globally). */
     private volatile boolean roomRulesCaptured = false;
     private volatile int roomRulesChallenges = 0;
     private volatile Conducts.ConductStorage roomRulesDlcs = null;
     private volatile Difficulty.HardStorage roomRulesDifficulty = null;
-    /** 新建档在 Dungeon.init() 后需要复位的 overrideSeed。 */
+    /** overrideSeed that a new save must reset after Dungeon.init(). */
     private volatile boolean roomSeedPending = false;
-    /** 新建档首次进入 GameScene 时需要落盘一次。 */
+    /** A new save must be written to disk the first time it enters GameScene. */
     private volatile boolean pendingRoomSaveWrite = false;
-    /** 房间列表缓存与请求状态。 */
+    /** Room list cache and request state. */
     private volatile List<RoomListing> roomList = Collections.emptyList();
     private final AtomicInteger roomListVersion = new AtomicInteger();
     private volatile boolean roomListLoading = false;
     private volatile String roomListError = null;
     private volatile long lastRoomListRequest = 0L;
-    /** 访客端：上一次 ROOM_STATE 的内容签名，避免每 2 秒重建 UI。 */
+    /** Guest side: content signature of the last ROOM_STATE, so the UI is not rebuilt every 2 seconds. */
     private volatile String roomStateSignature = "";
 
-    // ---------------------------------------------------------------- 个人资料（个人设置/个人主页）
+    // ---------------------------------------------------------------- Profile (settings/profile page)
 
-    /** 本机资料（懒加载；大厅与房间共用）。 */
+    /** Local profile (lazily loaded; shared by lobby and rooms). */
     private volatile MpProfile myProfile = null;
-    /** 访客端：本机资料有变化，等待发给房主。 */
+    /** Guest side: the local profile changed and is waiting to be sent to the host. */
     private volatile boolean profileDirty = true;
     private volatile long lastProfileSent = 0L;
-    /** 按需请求的最高分对局记录（targetId → Record；null 表示已确认无记录）。 */
+    /** Best-run records requested on demand (targetId -> Record; null means we confirmed there is no record). */
     private final Object profileLock = new Object();
     private final HashMap<Integer, Rankings.Record> profileRecords = new HashMap<>();
     private final HashSet<Integer> profileRecordsLoaded = new HashSet<>();
     private final HashMap<Integer, Long> profileRequestAt = new HashMap<>();
-    /** 待联机大厅显示的提示（避免场景切换竞态导致弹窗丢失）。 */
+    /** Message waiting to be shown in the multiplayer lobby (so a scene switch race cannot drop the popup). */
     private volatile String pendingLobbyMessage = null;
-    /** 聊天窗口是否打开（防止按键重入）。 */
+    /** Whether the chat window is open (prevents key re-entry). */
     public volatile boolean chatOpen = false;
     private volatile MpChatWindow chatWindow;
-    private StyledButton chatButton;          // 局内聊天按钮（Mp 自己挂在 GameScene 上）
-    /** 聊天按钮右下角的未读条数角标（背景 + 数字）。 */
+    private StyledButton chatButton;          // In-game chat button (Mp attaches its own to GameScene)
+    /** Unread count badge in the bottom right of the chat button (background + number). */
     private ColorBlock chatUnreadBadgeBg;
     private RenderedTextBlock chatUnreadBadge;
-    /** 角标当前显示的文本，避免每帧重建文本。 */
+    /** Text the badge currently shows, so the text is not rebuilt every frame. */
     private String chatUnreadBadgeText = "";
-    /** 聊天窗口关闭时收到的未读消息条数（自己的消息不计入）。 */
+    /** Number of unread messages received while the chat window was closed (your own messages do not count). */
     private final AtomicInteger unreadChat = new AtomicInteger();
-    /** 上一次统计未读时用的英雄对象：换新档/重新开始后清空未读。 */
+    /** Hero object used for the last unread count: clearing unread state when switching saves or restarting. */
     private Hero lastChatHeroForUnread;
-    /** 上一次广播的职业/皮肤，用于局内改皮肤时补发 HERO 帧。 */
+    /** Class/skin from the last broadcast, used to resend a HERO frame when the skin changes mid-run. */
     private int lastSentSkin = Integer.MIN_VALUE;
     private HeroClass lastSentSkinClass;
-    /** 玩家列表按钮右上角的在线人数角标（绿色气泡，常亮）。 */
+    /** Online player count badge in the top right of the player list button (green bubble, always visible). */
     private ColorBlock playerCountBadgeBg;
     private RenderedTextBlock playerCountBadge;
     private String playerCountBadgeText = "";
 
     private StyledButton playListButton;
 
-    // ---------------------------------------------------------------- 聊天记录（仅本机内存）
+    // ---------------------------------------------------------------- Chat history (this machine's memory only)
 
-    /** 聊天记录最多保留的条数。 */
+    /** Max number of chat entries kept. */
     public static final int CHAT_MAX_LINES = 200;
-    /** 自己发送的聊天。 */
+    /** Chat sent by yourself. */
     public static final int CHAT_TYPE_SELF = 0;
-    /** 其他玩家发送的聊天。 */
+    /** Chat sent by other players. */
     public static final int CHAT_TYPE_OTHER = 1;
-    /** 系统/特殊事件（命令反馈等）。 */
+    /** System/special events (command feedback and so on). */
     public static final int CHAT_TYPE_SYSTEM = 2;
 
-    /** 一条聊天记录。 */
+    /** One chat entry. */
     public static final class ChatLine {
-        /** 单调递增的序号（用于窗口增量刷新）。 */
+        /** Monotonically increasing sequence number (used for incremental window refresh). */
         public final long id;
-        /** 发送者名字。 */
+        /** Sender name. */
         public final String name;
-        /** 聊天内容。 */
+        /** Chat content. */
         public final String text;
-        /** 本机时间 HH:mm:ss。 */
+        /** Local time HH:mm:ss. */
         public final String time;
-        /** 类型：{@link #CHAT_TYPE_SELF}/{@link #CHAT_TYPE_OTHER}/{@link #CHAT_TYPE_SYSTEM}。 */
+        /** Type: {@link #CHAT_TYPE_SELF}/{@link #CHAT_TYPE_OTHER}/{@link #CHAT_TYPE_SYSTEM}. */
         public final int type;
 
         ChatLine(long id, String name, String text, String time, int type) {
@@ -709,37 +712,37 @@ public class Mp {
 
     private final ArrayList<ChatLine> chatLines = new ArrayList<>();
     private long chatNextId = 1L;
-    /** 聊天记录版本号：窗口每帧比较它决定是否刷新。 */
+    /** Chat history version: the window compares it every frame to decide whether to refresh. */
     private volatile long chatVersion = 0L;
 
-    // ---------------------------------------------------------------- 左上角联机日志（聊天 + 联机消息）
+    // ---------------------------------------------------------------- Top-left multiplayer log (chat + multiplayer messages)
 
-    /** 左上角联机日志最多保留的条数。 */
+    /** Max number of entries kept in the top-left multiplayer log. */
     public static final int MPLOG_MAX_LINES = 5;
-    /** 普通联机信息（白色）。 */
+    /** Ordinary multiplayer info (white). */
     public static final int MPLOG_INFO = 0;
-    /** 特殊联机事件（金色）。 */
+    /** Special multiplayer events (gold). */
     public static final int MPLOG_EVENT = 1;
-    /** 错误/负面消息（红色）。 */
+    /** Error/negative messages (red). */
     public static final int MPLOG_NEGATIVE = 2;
-    /** 正面消息（绿色）。 */
+    /** Positive messages (green). */
     public static final int MPLOG_POSITIVE = 3;
-    /** 警告（橙色）。 */
+    /** Warnings (orange). */
     public static final int MPLOG_WARNING = 4;
-    /** 自己发送的聊天（粉色）。 */
+    /** Chat sent by yourself (pink). */
     public static final int MPLOG_CHAT_SELF = 10;
-    /** 其他玩家的聊天（紫色）。 */
+    /** Chat from other players (purple). */
     public static final int MPLOG_CHAT_OTHER = 11;
-    /** 系统聊天（金色）。 */
+    /** System chat (gold). */
     public static final int MPLOG_CHAT_SYSTEM = 12;
 
-    /** 一条左上角联机日志。 */
+    /** One top-left multiplayer log entry. */
     public static final class MpLogLine {
-        /** 单调递增序号。 */
+        /** Monotonically increasing sequence number. */
         public final long id;
-        /** 显示文本。 */
+        /** Display text. */
         public final String text;
-        /** 颜色类型。 */
+        /** Colour type. */
         public final int type;
 
         MpLogLine(long id, String text, int type) {
@@ -753,17 +756,17 @@ public class Mp {
     private long mpLogNextId = 1L;
     private volatile long mpLogVersion = 0L;
     private MpGameLog mpLogPane;
-    /** ROOM_EVENT 事件：某玩家已返回房间。 */
+    /** ROOM_EVENT event: a player has returned to the room. */
     static final int ROOM_EVENT_RETURNED = 1;
-    /** ROOM_EVENT 事件：某玩家已从第 0 层重生（事件 id = 该玩家）。 */
+    /** ROOM_EVENT event: a player has respawned from floor 0 (event id = that player). */
     static final int ROOM_EVENT_REBIRTH = 2;
 
-    // ---------------------------------------------------------------- 开房
+    // ---------------------------------------------------------------- Creating a room
 
     /**
-     * 开房：在指定端口监听，等待访客加入（房主权威）。
+     * Create a room: listen on the given port and wait for guests to join (the host stays authoritative).
      *
-     * @param port 参数。
+     * @param port the port to listen on.
      */
     public synchronized void host(int port) {
         disconnect();
@@ -773,16 +776,16 @@ public class Mp {
         running = true;
         worker = new Thread(() -> {
             try {
-                // skipcq: JAVA-S1011  局域网游戏数据走明文 TCP，不传账号/敏感信息；TLS 会破坏联机协议兼容性
+                // skipcq: JAVA-S1011  LAN game data uses plain TCP and carries no accounts or sensitive information; TLS would break multiplayer protocol compatibility
                 server = new ServerSocket(port);
                 status = Messages.get(Mp.class, "status_host_waiting", localIp(), port);
                 while (running) {
                     Socket s = server.accept();
                     synchronized (peers) {
                         if (peers.size() >= MAX_PLAYERS - 1) {
-                            // 先告诉对方"房间已满"，再优雅断开。
-                            // 不能直接 close：客户端已发 HELLO，socket 接收缓冲有未读数据时
-                            // close 容易发 RST，把刚写的 FULL 帧一起丢掉，客户端只看到"连接中断"。
+                            // Tell the peer "room is full" first, then disconnect gracefully.
+                            // Do not just close: the client has already sent HELLO, and with unread bytes in
+                            // the socket receive buffer a close tends to send RST, which drops the FULL frame we
                             try {
                                 DataOutputStream out = new DataOutputStream(s.getOutputStream());
                                 writeFrame(out, Proto.FULL, new byte[0]);
@@ -822,13 +825,13 @@ public class Mp {
         worker.start();
     }
 
-    // ---------------------------------------------------------------- 加入
+    // just wrote and leaves the client seeing only "connection lost".
 
     /**
-     * 加入房间：支持 address 或 address:port，等待房主 STATE 后进入关卡。
+     * Join a room: accepts address or address:port, then waits for the host's STATE to enter the level.
      *
-     * @param address 参数。
-     * @param defaultPort 参数。
+     * @param address the address to join.
+     * @param defaultPort the port to use when the address has none.
      */
     public synchronized void join(String address, int defaultPort) {
         disconnect();
@@ -847,7 +850,7 @@ public class Mp {
                     host = host.substring(0, idx).trim();
                 }
                 if (host.isEmpty()) throw new IOException(Messages.get(Mp.class, "error_empty_address"));
-                // skipcq: JAVA-S1011  同上：联机协议为明文 TCP，与房主端保持一致
+                // skipcq: JAVA-S1011  As above: the multiplayer protocol is plain TCP, matching the host side
                 Socket s = new Socket();
                 s.connect(new InetSocketAddress(host, port), 8000);
                 addClientPeer(s);
@@ -857,7 +860,7 @@ public class Mp {
                 final String msg = Messages.get(Mp.class, "msg_connect_failed", detail);
                 status = msg;
                 connected = false;
-                running = false;   // 连接失败：让版本握手超时线程直接退出，避免 5 秒后覆盖失败原因
+                running = false;   // Connection failed: stop the version handshake timeout thread so it cannot overwrite the failure reason 5 seconds later
                 Game.runOnRenderThread(() -> {
                     if (ShatteredPixelDungeon.scene() != null) {
                         ShatteredPixelDungeon.scene().add(new WndMessage(msg));
@@ -1158,7 +1161,7 @@ public class Mp {
         return roomUiVersion.get();
     }
 
-    // ---------------------------------------------------------------- 个人资料（个人设置/个人主页）
+    // ---------------------------------------------------------------- Profile (settings/profile page)
 
     /**
      * 本机资料（懒加载；大厅与房间共用）。
@@ -6331,7 +6334,7 @@ public class Mp {
     public static class StatePayload {
         /** 层数。 */
         public int depth;
-        /** 分支（0=主线）。 */
+        /** Branch (0 = main line). */
         public int branch;
         /** 游戏存档字节。 */
         public byte[] game;
@@ -6373,7 +6376,7 @@ public class Mp {
     public static class AdminPayload {
         /** 玩家 id。 */
         public int id;
-        /** 是否管理员。 */
+        /** Whether an admin. */
         public boolean admin;
     }
 
@@ -6641,11 +6644,11 @@ public class Mp {
 
         /** POS 帧载荷。 */
     public static class PosPayload {
-        /** 标识 id。 */
+        /** Identifier. */
         public int id;
         /** 层数。 */
         public int depth;
-        /** 分支（0=主线）。 */
+        /** Branch (0 = main line). */
         public int branch;
         /** 格子位置。 */
         public int pos;
@@ -6809,9 +6812,9 @@ public class Mp {
 
         /** HERO 帧载荷：id + 职业 + 皮肤。 */
     public static class HeroPayload {
-        /** 标识 id。 */
+        /** Identifier. */
         public int id;
-        /** 职业。 */
+        /** Class. */
         public HeroClass cls;
         /** 皮肤索引（-1=旧载荷未携带）。 */
         public int skin = -1;
@@ -6859,11 +6862,11 @@ public class Mp {
     /** 聊天帧：名字长度 + 名字 + 内容（房主原样转发，显示格式全端统一）；JOIN 解码复用 id 字段 */
         /** CHAT 帧载荷：名字 + 内容。 */
     public static class ChatPayload {
-        /** 标识 id。 */
+        /** Identifier. */
         public int id;
-        /** 玩家名。 */
+        /** Player name. */
         public String name;
-        /** 聊天内容。 */
+        /** Chat content. */
         public String text;
     }
 
