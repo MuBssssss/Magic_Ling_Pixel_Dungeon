@@ -122,32 +122,32 @@ public class vm0_9_X_Changes {
 
     public static void add_V0980_Changes(ArrayList<ChangeInfo> changeInfos ) {
 
-        ChangeInfo changes = new ChangeInfo("Lost-失落古墓-敬请期待-Tomb", true,"");
+        ChangeInfo changes = new ChangeInfo("Lost - Lost Tomb - coming soon - Tomb", true,"");
         changes.hardlight(0xCCCCCC);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.SHPX), "开篇寄语",
-                "由衷感谢大家一路陪伴、支持魔绫像素地牢！\n" +
-                        "在前作古堡外传沉淀开发经验后，全新外传篇章企划正式启动——失落古墓。\n\n" +
-                        "这座宏伟的哥特式陵寝曾矗立地表，却因一场浩劫深埋地底。永恒无光的死寂圣堂、布满裂痕的石廊间，亡魂与畸变怪物四处游荡，深埋地下的真相等待冒险者前来发掘。"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.SHPX), "Opening words",
+                "Thank you all for walking with us and supporting Magic Ling Pixel Dungeon!\n" +
+                        "After the experience we built up on the Castle side story, a brand new side chapter is officially in the works - the Lost Tomb.\n\n" +
+                        "This grand gothic mausoleum once stood on the surface, but a catastrophe buried it deep underground. Between the eternal, lightless hall of silence and the cracked stone corridors, wraiths and twisted monsters roam, waiting for adventurers to uncover the truth buried below."));
 
-        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.SPELLSWORD, 1), "新登场英雄：魔剑士",
-                "全新可玩英雄，将随同冒险者一同深入危机四伏的失落古墓，并肩对抗地底亡灵。"));
+        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.SPELLSWORD, 1), "New hero: Spellblade",
+                "A brand new playable hero who descends into the perilous Lost Tomb alongside the adventurer to stand against the undead below."));
 
         changes.addButton(new ChangeButton(new Image(Assets.Environment.TILES_PLACE, 48, 80, 16
-                , 16), "场景美术",
-                "为本篇外传量身打造全套古墓像素美术资源：\n" +
-                        "整体采用冷灰幽蓝的哥特像素画风，极致渲染永不见天日的地底陵寝压抑氛围，敬请期待古墓外传章节。"));
+                , 16), "Scene art",
+                "A full set of tomb pixel art made to measure for this chapter:\n" +
+                        "Cold grey and deep blue gothic pixels, tuned to render the crushing atmosphere of a mausoleum that has never seen daylight. Look forward to the Lost Tomb chapter."));
 
-        changes.addButton(new ChangeButton( new WispSprite(), "古墓章节专属怪物",
-                "失落古墓区域将实装若干区域独有的亡灵魔物，以及多个新Boss\n" +
-                        "敬请期待古墓外传章节，更多未知敌人后续逐步披露。"));
+        changes.addButton(new ChangeButton( new WispSprite(), "Mobs exclusive to the tomb",
+                "The Lost Tomb region will feature several area-exclusive undead monsters, plus a number of new bosses\n" +
+                        "Look forward to the Lost Tomb chapter - more unknown enemies will be revealed as we go."));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), "全篇原创配乐",
-                "整个失落古墓篇章配备专属原创背景音乐，由首席作曲犬罗全权创作。烘托地底古墓孤寂阴森的探索氛围。"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), "Fully original soundtrack",
+                "The whole Lost Tomb chapter has its own original background music, composed entirely by lead composer Quanluo, to set the lonely, eerie mood of exploring a tomb underground."));
 
-        changes.addButton(new ChangeButton(new Image(Icons.get(Icons.NEWS)), "后续开发预告",
-                "失落古墓外传正在稳步推进开发，更多场景、怪物、专属武器与剧情内容将陆续放出，敬请期待后续版本情报！"));
+        changes.addButton(new ChangeButton(new Image(Icons.get(Icons.NEWS)), "Development roadmap",
+                "The Lost Tomb side story is steadily in development. More scenes, monsters, exclusive weapons and story content will be revealed, so watch for news of future versions!"));
 
         changes = new ChangeInfo("v0.9.8.0", true, "");
         changes.hardlight(Window.TITLE_COLOR);
@@ -157,184 +157,184 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(NetIcons.get(NetIcons.PLAYERS), ("多人联机 v0.2"),
-                ("…地牢的门从来不止为一个人打开。\n\n" +
-                        "当另一支火把在走廊尽头亮起，你会知道——这一次，深渊里还有同行者。\n\n" +
-                        "愿你们的火把，在同一座地牢里能够照亮彼此。\n" +
+        changes.addButton(new ChangeButton(NetIcons.get(NetIcons.PLAYERS), ("Multiplayer v0.2"),
+                ("...the dungeon door never opened for just one person.\n\n" +
+                        "When another torch lights up at the end of the corridor, you will know - this time, someone else is down here with you.\n\n" +
+                        "May your torches light each other in the same dungeon.\n" +
                         "\n" +
-                        "——联机功能开发者：knox"),
+                        "- Multiplayer developer: knox"),
                         (
-                        "一、在大厅相遇\n\n" +
-                        "从标题界面点击「联机」，即可进入联机大厅。\n" +
-                        "想当房主的人点击右上角「开房」，服务器会分配一个六位房间号；\n" +
-                        "把房间号告诉同伴，他们点「加入房间」输入即可，也可以直接点击列表里的房间加入；\n房主还可以设置密码来上锁房间。\n" +
-                        "一个房间最多容纳四人：一名房主，三名访客。"),
-                ("二、出发之前\n\n" +
-                 "「个人设置」里可以修改名字、查看自己的身份标识与历史最高分，并佩戴最多三枚徽章。徽章页会列出你已解锁的全部徽章，点击徽章可以查看说明。房间里的同伴也能看到你的徽章与最高分。\n\n" +
-                 "房主在房间里选择存档：可以继续一段已有的冒险，也可以在原版新建界面里配置职业、种子与挑战，再回到房间。\n\n" +
-                 "访客需要选择自己的英雄。若你在这个世界已有英雄，系统会直接沿用；如果没有，则需要先选一个职业。每位访客的英雄与背包完全独立。\n\n" +
-                 "房主点下「开始游戏」或「继续对局」后，房间里的同伴会一起进入地牢。"),(
-                        "三、在地牢里\n\n" +
-                        "队友会以同行者的形象出现在同一层。只有当你与对方互相在视野内时，才能看见彼此的身影；走出视野，身影便隐入黑暗。\n\n" +
-                        "位置、所在楼层与血量会实时同步。背包、装备、快捷栏和天赋则各归各人所有，互不影响。\n\n" +
-                        "目前版本中，怪物、战斗与地面掉落由各自的世界独立结算；你们同步的是位置、血量、聊天与联机事件，以及按世界种子保存的个人进度。\n\n" +
-                                "所以，队友不会替你打怪，也不会与你争抢同一件战利品——但你们可以互相报点、提醒危险，在同一座地牢里并肩前行。"),(
-                                "四、指令技巧\n\n" +
-                                "A.聊天\n" +
-                                "按 T 键，或点击聊天按钮，可以打开聊天窗口。房间与对局共用同一个聊天窗，保留本次会话最近两百条消息；离开房间或断开连接后会清空。"+
-                                "房间里有房间日志，对局中左上角会有联机日志，显示最近的聊天与联机事件；\n" +
-                                "左下角则仍是原本的游戏事件栏。\n" +
-                                "B.指令\n" +
-                                "/list　查看当前队伍：职业、名字、血量、所在层与延迟。点击任意玩家，可以查看对方的英雄详情——天赋、装备、状态与物品。 用\n" +
-                                "放大镜点击队友的身影，也能打开同样的详情。\n" +
-                                "/kick 玩家名　房主可用，将一名玩家请离房间。\n" +
-                                "/op 玩家名、/dop 玩家名　房主可用，授予或撤销管理员。管理员也可以使用 /kick。\n"),(
-                                "五、轮回再战\n\n" +
-                                "有玩家倒下时，所有人都会看到播报。\n\n" +
-                                "房主倒下时，同伴会收到消息并等待。房主开启新一局后，同伴会跟随进入新的世界；若这是一个新的世界种子，就需要重新选择职业。\n\n" +
-                                "从菜单里可以回到房间。房主点「返回房间」后，同伴也会一同回到房间；在房间里点「继续对局」，便可再次出发。若你已有这个世界的本地进度，也可以先在房间点「进入游戏」，自行出发。\n\n" +
-                                "访客退出或重连时，自己的英雄与探索进度会按世界保存。回到同一个世界，就能从上次的位置继续。"),
-                ("六、常见问题\n\n" +
-                        "看不见队友时，先确认你们是否在同一层，以及是否进入了彼此的视野。\n\n" +
-                        "队友暂时不动、不攻击，并不是掉线——当前版本的怪物与战斗由各自的世界结算，队友同步的是位置、血量与消息。\n\n" +
-                        "重连后需要重新选择职业，通常是因为房主换了新的世界种子。\n\n" +
-                        "手机放后台超过约十五秒可能会掉线，重新加入房间即可继续。")
+                        "1. Meeting in the hall\n\n" +
+                        "Tap \"Multiplayer\" on the title screen to enter the multiplayer hall.\n" +
+                        "Anyone who wants to host taps \"Create Room\" in the top right and the server assigns a six digit room number;\n" +
+                        "share that number with your friends, who tap \"Join Room\" and enter it, or simply tap a room in the list; hosts can also set a password to lock the room.\n" +
+                        "A room holds up to four people: one host and three visitors."),
+                ("2. Before setting off\n\n" +
+                 "In \"Profile\" you can change your name, view your identity and personal best score, and wear up to three badges. The badge page lists every badge you have unlocked, and tapping one shows its description. Your companions in the room can see your badges and best score too.\n\n" +
+                 "The host picks a save in the room: continue an existing adventure, or configure class, seed and challenges in the original new game screen and then come back to the room.\n\n" +
+                 "Visitors pick their own hero. If you already have a hero in this world it is reused; if not, you choose a class first. Each visitor's hero and backpack are completely independent.\n\n" +
+                 "When the host taps \"Start Game\" or \"Continue Run\", everyone in the room enters the dungeon together."),(
+                        "3. Inside the dungeon\n\n" +
+                        "Teammates appear on the same floor as fellow travellers. You can only see each other while you are both inside each other's sight; step out and the figure fades into the dark.\n\n" +
+                        "Position, floor and HP sync in real time. Backpack, equipment, quickslot and talents belong to each player and are unaffected by others.\n\n" +
+                        "In the current version, mobs, combat and floor drops are resolved separately in each player's world; what you share is position, HP, chat and multiplayer events, plus personal progress saved per world seed.\n\n" +
+                                "So your teammates will not fight mobs for you and will not compete for the same loot - but you can call out positions, warn each other of danger, and walk the same dungeon side by side."),(
+                                "4. Commands and tips\n\n" +
+                                "A. Chat\n" +
+                                "Press T, or tap the chat button, to open the chat window. Rooms and runs share one chat window that keeps the last two hundred messages of this session; leaving the room or disconnecting clears it."+
+                                "Rooms have a room log, and during a run the top left shows a multiplayer log with recent chat and multiplayer events;\n" +
+                                "the bottom left is still the usual game event log.\n" +
+                                "B. Commands\n" +
+                                "/list - shows the current party: class, name, HP, floor and ping. Tap any player to see their hero details - talents, equipment, status and items. Use the\n" +
+                                "magnifying glass on a teammate's figure to open the same details.\n" +
+                                "/kick name - host only, removes a player from the room.\n" +
+                                "/op name and /dop name - host only, grant or revoke admin. Admins can also use /kick.\n"),(
+                                "5. Falling and going again\n\n" +
+                                "When a player goes down, everyone sees the announcement.\n\n" +
+                                "If the host goes down, companions get a message and wait. Once the host starts a new run, they follow into the new world; if it is a new world seed, they must pick a class again.\n\n" +
+                                "You can return to the room from the menu. After the host taps \"Return to Room\", companions come back to the room too; tap \"Continue Run\" in the room to set off again. If you already have local progress in this world, you can tap \"Enter Game\" in the room and set off on your own.\n\n" +
+                                "When a visitor leaves or reconnects, their hero and exploration progress are saved per world. Return to the same world and you pick up where you left off."),
+                ("6. FAQ\n\n" +
+                        "If you cannot see a teammate, first check that you are on the same floor and inside each other's sight.\n\n" +
+                        "A teammate standing still or not attacking is not a disconnect - in this version mobs and combat are resolved in each player's own world, and teammates sync position, HP and messages.\n\n" +
+                        "Having to pick a class again after reconnecting usually means the host switched to a new world seed.\n\n" +
+                        "Putting the phone in the background for more than about fifteen seconds may disconnect you; just rejoin the room and carry on.")
         ));
 
-        changes.addButton(new ChangeButton(new Image(new PinkLingSprite()), ("新系统：每日狩猎"),
-                ("每日挑战正式开放。\n\n" +
-                        "1.挑战内容将于北京时间 08:00（UTC 00:00）准时刷新。\n" +
-                        "2.非当日完成的游戏同样可以记录成绩并正常上传，但你不能同时开启两次每日挑战。想开启新的挑战你必须先结算旧的每日挑战。\n" +
-                        "3.每日挑战的挑战数与难度完全随机，同一日只有第一次挑战分数有效。可以重复进行挑战，但后续的分数不会参与排名。\n" +
-                        "4.每日挑战进度达到15层/25层时将得到额外的钴币奖励。竞技榜单分为日榜和周榜。")));
+        changes.addButton(new ChangeButton(new Image(new PinkLingSprite()), ("New system: Daily Hunt"),
+                ("Daily challenges are now open.\n\n" +
+                        "1.Challenges refresh at 08:00 Beijing time (UTC 00:00).\n" +
+                        "2.Runs finished on other days still record and upload their score normally, but you cannot have two daily challenges open at once. To start a new one you must first settle the old daily challenge.\n" +
+                        "3.The challenge count and difficulty of a daily challenge are completely random, and only your first run of the day counts. You may retry, but later scores do not enter the ranking.\n" +
+                        "4.Reaching floor 15/25 in a daily challenge grants extra cobalt coins. Leaderboards are split into daily and weekly.")));
 
 
         Image img = new Image(Assets.Sprites.CRIMSON);
         img.frame(0, 0, 28, 22);
         img.scale.set(0.8f);
-        changes.addButton(new ChangeButton(img, ("新皮肤：缚命猩红"),
-                ("混沌无序笼罩世界，教会计划落空之后，“世界” 把所有人标定为高危实体。她早已不在意这份定论。命运的桎梏锁不住她，她踏猩红而行，亲手撕碎这场缄默的审判。\n\n获得方式：通关任意难度的BossRush(除开发者模式)")));
+        changes.addButton(new ChangeButton(img, ("New skin: Fatebound Crimson"),
+                ("Chaos has swallowed the world, and after the church's plan failed, \"the world\" branded everyone a high-risk entity. She stopped caring about that verdict long ago. The shackles of fate cannot hold her; she walks in crimson and tears this silent trial apart with her own hands.\n\nHow to get it: clear Boss Rush on any difficulty (except developer mode)")));
 
-        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,32,16,16,16), ("极影铃虹-第三转职"),
-                (       "幽冥猎手：" +
-                        "_-_ 幽冥之力将暗影斗篷强化为幽冥斗篷，其可以提供更强大持久的隐身能力。\n" +
-                        "_-_ 相比暗影斗篷，幽冥斗篷每点充能最大持续回合提升至5，且受到神器充能效果时，每回合回复的充能提升至0.5。\n" +
-                        "_-_ 幽冥斗篷的使用不再消耗时间。\n\n" +
-                        "_-_ 幽冥漫步：\n"+
-                        "_-_ +1：幽冥斗篷每点充能提供_6回合隐身_时长\n" +
-                        "_-_ +2：幽冥斗篷在装备时提供_12点潜行值_\n" +
-                        "_-_ +3：幽冥斗篷在连续消耗至少_2点充能_后，解除使用后_返还1点充能_\n"),(
-                        "_-_ 片影惊鸿：\n"+
-                        "_+1：_幽冥猎手击杀单位后获得_6%全伤害加成_，持续5回合。若使用近战和投掷武器击杀敌人，则额外获得_2回合隐身_。\n\n" +
-                        "_+2：_幽冥猎手击杀单位后获得_9%全伤害加成_，持续5回合。若使用近战和投掷武器击杀敌人，则在+1基础上，额外获得_2回合极速_。\n\n" +
-                        "_+3：_幽冥猎手击杀单位后获得_12%全伤害加成_，持续5回合。若使用近战和投掷武器击杀敌人，则在+2基础上，再额外获得_10回合净化屏障_。\n\n" +
-                        "伤害加成与持续时间可以无限叠加。"),(
-                        "_-_ 血雾掩身：\n"+
-                        "_+1：_通过伏击击杀敌人时，将溢出伤害转化为永久护盾，至多累积_15点_。护盾存在时，获得_0~当前护盾值_的防御。\n\n" +
-                        "_+2：_通过伏击击杀敌人时，将溢出伤害转化为永久护盾，至多累积_20点_。护盾存在时，获得_0~当前护盾值_的防御。\n\n" +
-                        "_+3：_通过伏击击杀敌人时，将溢出伤害转化为永久护盾，至多累积_25点_。护盾存在时，获得_0~当前护盾值_的防御。"),(
-                        "_-_ 厉鬼扼喉\n"+
-                        "_+1：_伏击时，武器伏击修正提高_10%_。\n\n" +
-                        "_+2：_伏击时，武器伏击修正提高_15%_。\n\n" +
-                        "_+3：_伏击时，武器伏击修正提高_20%_。\n\n" +
-                        "有关于伏击修正的机制，可到地牢探索指南中“伏击”条目查看。")));
+        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,32,16,16,16), ("Swift Shadow Linghong - third class"),
+                (       "Nether Hunter:" +
+                        "_-_ Nether power strengthens the Shadow Cloak into the Nether Cloak, granting stronger and longer lasting invisibility.\n" +
+                        "_-_ Compared to the Shadow Cloak, the Nether Cloak lasts up to 5 turns per point of charge, and artifact charging effects restore 0.5 charge per turn.\n" +
+                        "_-_ Using the Nether Cloak no longer costs time.\n\n" +
+                        "_-_ Nether Stride:\n"+
+                        "_-_ +1: each point of Nether Cloak charge grants _6 turns of invisibility_\n" +
+                        "_-_ +2: the Nether Cloak grants _12 stealth_ while equipped\n" +
+                        "_-_ +3: after spending at least _2 points of charge_ in a row, the Nether Cloak _refunds 1 charge_ when its use ends\n"),(
+                        "_-_ Fleeting Shadow:\n"+
+                        "_+1:_ killing a unit grants _6% bonus to all damage_ for 5 turns. Kills with melee or thrown weapons also grant _2 turns of invisibility_.\n\n" +
+                        "_+2:_ killing a unit grants _9% bonus to all damage_ for 5 turns. Kills with melee or thrown weapons also grant _2 turns of Haste_ on top of +1.\n\n" +
+                        "_+3:_ killing a unit grants _12% bonus to all damage_ for 5 turns. Kills with melee or thrown weapons also grant _10 turns of Purifying Barrier_ on top of +2.\n\n" +
+                        "Damage bonuses and durations stack without limit."),(
+                        "_-_ Blood Mist Veil:\n"+
+                        "_+1:_ killing with a sneak attack converts overkill damage into permanent shield, up to _15 points_. While the shield holds you gain defense from _0 up to the current shield value_.\n\n" +
+                        "_+2:_ killing with a sneak attack converts overkill damage into permanent shield, up to _20 points_. While the shield holds you gain defense from _0 up to the current shield value_.\n\n" +
+                        "_+3:_ killing with a sneak attack converts overkill damage into permanent shield, up to _25 points_. While the shield holds you gain defense from _0 up to the current shield value_."),(
+                        "_-_ Wraith's Grasp\n"+
+                        "_+1:_ during sneak attacks, weapon sneak attack bonus is raised by _10%_.\n\n" +
+                        "_+2:_ during sneak attacks, weapon sneak attack bonus is raised by _15%_.\n\n" +
+                        "_+3:_ during sneak attacks, weapon sneak attack bonus is raised by _20%_.\n\n" +
+                        "For how the sneak attack bonus works, see the \"Sneak attack\" entry in the dungeon exploration guide.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,0,0,16,16), ("狂战领主-天赋重做"),
-                (       "_-_ 苦痛刻痕→盛怒反击（重做）\n" +
-                        "_-_ 盛怒反击：狂战领主每受到当前区域数-1物理伤害，积累1/2/3%怒气。\n" +
+        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,0,0,16,16), ("Berserk Lord - talent rework"),
+                (       "_-_ Pain Scratch -> Wrathful Riposte (rework)\n" +
+                        "_-_ Wrathful Riposte: for every current region - 1 physical damage the Berserk Lord takes, they build 1/2/3% rage.\n" +
                         "\n" +
-                        "_-_ 狂热施法→暴走铠身（重做）\n" +
-                        "_-_ 暴走铠身：狂战领主目前每拥有85/70/55%怒气，装备的武器和护甲便视为拥有+1虚拟等级。")));
+                        "_-_ Fervent Casting -> Rampage Armor (rework)\n" +
+                        "_-_ Rampage Armor: for every 85/70/55% rage the Berserk Lord currently has, equipped weapons and armor count as having +1 virtual level.")));
 
-        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,16,0,16,16), ("角斗之王-天赋优化"),
-                (       "娴熟技艺→终极一击（增强）\n" +
-                        "终极一击：\n" +
-                        "角斗之王在释放终结技时可立刻获得+1/2/3连击数，该天赋还会根据等级提供额外效果。\n" +
-                        "+1:释放终结技所需最低连击降低至5。\n" +
-                        "+2:释放终结技后，破损纹章的护盾立刻回复至\n" +
-                        "最大值。\n" +
-                        "+3：释放终结技后，角斗之王获得10回合巨力。\n" +
-                        "巨力：你的力量暂时变为原来的2倍。"),
-                        ("以战养战（增强）\n" +
-                        "若角斗之王在使用战技后的4回合内使用了终结技，角斗之王获得+1/2/3连击与0/1/2回合激素涌动。\n" +
-                        "若角斗之王在使用终结技后的4回合内使用了战技，角斗之王获得+1/2/3连击与0/1/2回合激素涌动。\n" +
+        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,16,0,16,16), ("Gladiator King - talent improvements"),
+                (       "Masterful Skill -> Final Blow (buff)\n" +
+                        "Final Blow:\n" +
+                        "The Gladiator King gains +1/2/3 combo the moment they use a finisher, and the talent grants further effects by level.\n" +
+                        "+1: the minimum combo needed to use a finisher drops to 5.\n" +
+                        "+2: after using a finisher, the Broken Emblem shield instantly recovers to\n" +
+                        "its maximum.\n" +
+                        "+3: after using a finisher, the Gladiator King gains 10 turns of Mighty Force.\n" +
+                        "Mighty Force: your Strength is temporarily doubled."),
+                        ("Fight to Feed the Fight (buff)\n" +
+                        "If the Gladiator King uses a finisher within 4 turns of a combat skill, they gain +1/2/3 combo and 0/1/2 turns of Adrenaline Surge.\n" +
+                        "If the Gladiator King uses a combat skill within 4 turns of a finisher, they gain +1/2/3 combo and 0/1/2 turns of Adrenaline Surge.\n" +
                         "\n" +
-                        "连击预谋（新增）\n" +
-                        "当角斗之王发起一次攻击时，如果此时没有连击，则本次攻击角斗之王的连击数额外+1/2/3。")));
+                        "Combo Premeditation (new)\n" +
+                        "When the Gladiator King starts an attack with no combo built up, that attack grants an extra +1/2/3 combo.")));
 
-        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,32,0,16,16), ("敕灵天女-重做"),
-                ("一、废除\n\n" +
-                        "_-_ 法师之手控制器的“瞬移”“攻击”\n" +
-                        "_-_ 法师之手的近战与自主施法能力\n" +
-                        "_-_ 法师之手攻击/受击为敕灵天女施加敌意效果\n" +
-                        "_-_ 法师之手的全buff免疫\n"), (
-                        "二、新增\n\n" +
-                        "_-_ 如果条件允许，法师之手会在敕灵天女施法后对同一目标进行追加施法（不触发魔弹特效），法师之手不会主动索敌目标。\n" +
-                        "_-_ 当你获得法杖充能效果时，法师之手上装备的法杖也可以享受效果带来的增益。\n"), (
-                        "三、更改\n\n" +
-                        "_-_ 法师之手的ai由近战ai更改为跟随ai。\n" +
-                        "_-_ 法师之手不再受击传送，而是改为受到伤害时会扣除手上法杖1点充能，如果充能是0的话再次受到伤害则法师之手消散，进入10回合召唤冷却。\n"),(
-                        "四、优化\n\n" +
-                        "_-_ 法师之手的法杖使用逻辑\n" +
-                        "_-_ 重新召唤限制更小，增加召唤失败提示\n" +
-                        "_-_ 法师之手的法杖将存储在法师之手控制器中，现在即使法师之手消散后重进存档也不会丢失法杖了")));
+        changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,32,0,16,16), ("Celestial Maiden - rework"),
+                ("1. Removed\n\n" +
+                        "_-_ the Mage Hand controller's \"teleport\" and \"attack\"\n" +
+                        "_-_ the Mage Hand's melee and self-casting abilities\n" +
+                        "_-_ the Mage Hand applying hostility to the Celestial Maiden on attacking or being hit\n" +
+                        "_-_ the Mage Hand's immunity to all buffs\n"), (
+                        "2. Added\n\n" +
+                        "_-_ When possible, the Mage Hand follows up on the same target after the Celestial Maiden casts (without triggering Magic Missile effects). The Mage Hand does not pick targets on its own.\n" +
+                        "_-_ When you gain wand charging effects, the wand held by the Mage Hand benefits from them too.\n"), (
+                        "3. Changed\n\n" +
+                        "_-_ The Mage Hand's AI changed from melee AI to follow AI.\n" +
+                        "_-_ The Mage Hand no longer teleports when hit; instead, taking damage drains 1 charge from the wand it holds. If there is no charge left, the next hit dissipates the Mage Hand and starts a 10 turn summon cooldown.\n"),(
+                        "4. Improved\n\n" +
+                        "_-_ the Mage Hand's wand use logic\n" +
+                        "_-_ resummoning restrictions are looser, and a failure message is shown\n" +
+                        "_-_ the Mage Hand's wand is stored in the Mage Hand controller, so it is no longer lost if the hand dissipates and you reload the save")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.8.0：\n\n" +
-                        "_-_ 修复电子烟在装备并卸下后，受影响的动物类敌人会永久的转化为友方单位\n" +
-                        "_-_ 修复破碎之环封锁物品时需要花费一回合，这会导致在极端情况下会被一直连击\n" +
-                        "_-_ 优化荆棘斗篷红色闪烁强度\n" +
-                        "_-_ 修复万事通徽章无法完成战斗巫女\n" +
-                        "_-_ 优化查询器查种的种子复制\n"+
-                        "_-_ 修复在有人物光效的时候 ，局内切换皮肤会清理不干净光效，导致这些光效被留在原地\n"),(
-                        "_-_ 修复艾诺琳娜在使用铲子武技在商人物品上挖出宝箱并打开后可以免费带走下面的商品\n" +
-                        "_-_ 修复武道宗师在将轻音铃铛装备到副手再切换到主手时无法触发轻音\n" +
-                        "_-_ 修复天界画笔在充能>2时，退出重新存档充能会降低到2\n" +
-                        "_-_ 修复29层的与刻耳柏洛斯对话后出现的幽寂在对话完后实际并没有消失，原位置没有人但是可以继续对话，再次对话就会导致崩溃\n" +
-                        "_-_ 修复异果无条件自爆\n"),(
-                                "_-_ 修复了盗贼T2天赋“地形感知”不能检测魔绫新增隐藏房间的异常\n" +
-                                        "_-_ 修复萨卡班甲鱼楼层在极端情况下的无法正常开始游戏\n" +
-                                        "_-_ 修复手起刀落天赋部分情况下无效\n"+
-                                        "_-_ 修复排行榜分数排序异常，并优化分数显示进行了优化。")));
+                ("V0.9.8.0:\n\n" +
+                        "_-_ Fixed e-cigarettes permanently converting affected animal enemies into allies after being equipped and removed\n" +
+                        "_-_ Fixed the Shattered Ring costing a turn to block items, which could get you comboed forever in extreme cases\n" +
+                        "_-_ Toned down the red flashing of the Cloak of Thorns\n" +
+                        "_-_ Fixed the Know-It-All badge not completing for the Battle Shrine Maiden\n" +
+                        "_-_ Improved seed copying in the Seed Finder lookup\n"+
+                        "_-_ Fixed switching skins mid-run failing to clean up effect glows, leaving them stuck on the ground\n"),(
+                        "_-_ Fixed Honorata digging a chest out of a merchant's goods with the shovel ability and then taking the goods underneath for free\n" +
+                        "_-_ Fixed the Martial Master failing to trigger Soft Chime when moving the Soft Chime Bell from offhand to main hand\n" +
+                        "_-_ Fixed the Celestial Brush dropping back to 2 charge after saving with more than 2\n" +
+                        "_-_ Fixed the Stillness that appears after talking to Cerberus on floor 29 not actually vanishing once the dialogue ends - nobody is there, but you can talk again, and doing so crashes the game\n" +
+                        "_-_ Fixed the Strange Fruit self-destructing unconditionally\n"),(
+                                "_-_ Fixed the Rogue tier 2 talent Terrain Awareness not detecting the hidden rooms added by Magic Ling\n" +
+                                        "_-_ Fixed the Sakaban Fish floor occasionally being unable to start the game properly\n" +
+                                        "_-_ Fixed the Swift Slash talent sometimes having no effect\n"+
+                                        "_-_ Fixed leaderboard score ordering and improved the score display.")));
 
-        changes.addButton(new ChangeButton( new TalentIcon(Talent.PSIONIC_STRIDE), "敕灵天女-天赋重做",
-                "多样打击——灵能步伐\n" +
-                        "灵能步伐：敕灵天女或法师之手每次施法后，敕灵天女和法师之手均获得1/2/3回合极速。这个效果有30/25/20回合冷却时间。敕灵天女和法师之手可以分别触发一次，同时触发时时长叠加，两者触发的冷却时间独立计算\n" +
+        changes.addButton(new ChangeButton( new TalentIcon(Talent.PSIONIC_STRIDE), "Celestial Maiden - talent rework",
+                "Versatile Strikes -> Psionic Step\n" +
+                        "Psionic Step: after each cast by the Celestial Maiden or her Mage Hand, both gain 1/2/3 turns of Haste. This has a 30/25/20 turn cooldown. The Maiden and the Hand can each trigger it separately, durations stack when both trigger, and the cooldowns are tracked separately\n" +
                         "\n" +
-                        "魔力补偿——循环往复\n" +
-                        "循环往复：法师之手每施法4次，为敕灵天女提供1/2/3回合法杖充能效果。\n" +
+                        "Mana Recompense -> Cycles\n" +
+                        "Cycles: every 4 casts by the Mage Hand grants the Celestial Maiden 1/2/3 turns of wand charging\n" +
                         "\n" +
-                        "有形之手——双重存在\n" +
-                        "双重存在：法师之手每3/2/1次施法后敕灵天女可以不消耗回合释放1次任意法杖。触发该天赋时的施法不会使法师之手追加施法。\n" +
+                        "Tangible Hand -> Twin Presence\n" +
+                        "Twin Presence: after every 3/2/1 casts by the Mage Hand, the Celestial Maiden may use any one wand without spending a turn. Casts triggered this way do not make the Mage Hand follow up.\n" +
                         "\n" +
-                        "魔力汲取——灵能加速\n" +
-                        "灵能加速：法师之手上的法杖获得额外50/100/150%充能速度。"));
+                        "Mana Siphon -> Psionic Acceleration\n" +
+                        "Psionic Acceleration: the wand held by the Mage Hand recharges 50/100/150% faster."));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项优化"),
-                ("_-_ 【药水癔症】：缚足药剂不再会在本层存在血色哨位时恢复极速药剂的效果\n" +
-                 "_-_ 优化了莲娜与商人之主的部分文本\n" +
-                 "_-_ 地牢探索指南中“伏击”条目新增对伏击修正属性的介绍\n" +
-                 "_-_ 优化魔法火把的文本标蓝异常\n" +
-                        "_-_ 部分UI迭代优化，部分素材迭代更新")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc improvements"),
+                ("_-_ [Potion Hysteria]: the Binding Potion no longer restores Potion of Haste effects while a Blood Sentinel is on the floor\n" +
+                 "_-_ Improved some of Lena's and the Merchant Lord's text\n" +
+                 "_-_ The \"Ambush\" entry in the dungeon exploration guide now explains the ambush bonus stat\n" +
+                 "_-_ Fixed blue-highlighting text errors in the Magic Torch description\n" +
+                        "_-_ Various UI and asset updates")));
 
-        changes.addButton( new ChangeButton(new TalentIcon(Talent.BLOODLINE_BOON), "天赋调整",
-                "一、排山倒海调整：\n" +
-                        "_-_ 排山倒海移至狂战领主专属天赋\n\n" +
-                        "二、其他调整\n" +
-                        "_-_ 【新】血脉加护：\n" +
-                        "蕾零安洁的纹章每回合额外回复1/2/3点护盾，纹章还会增加4/8/12点护盾上限。\n" +
-                        "该天赋被其他人获得时，改为每回合获得1点护盾，最多累计6/8/10点。\n\n" +
-                        "_-_ 生息之矢：\n" +
-                        "现在射在普通的草上也会生出高草\n\n" +
-                        "_-_ 隐蔽技巧：\n" +
-                        "提供的潜行值由1/4→1/2降低至1/6→1/4" ));
+        changes.addButton( new ChangeButton(new TalentIcon(Talent.BLOODLINE_BOON), "Talent changes",
+                "1. Overwhelming Force changes:\n" +
+                        "_-_ Overwhelming Force moved to the Berserk Lord's exclusive talents\n\n" +
+                        "2. Other changes\n" +
+                        "_-_ [New] Bloodline Ward:\n" +
+                        "Leiling Anjie's Emblem restores 1/2/3 extra shield per turn, and the Emblem gains 4/8/12 extra shield capacity.\n" +
+                        "If someone else takes this talent it instead grants 1 shield per turn, stacking up to 6/8/10.\n\n" +
+                        "_-_ Living Arrow:\n" +
+                        "shooting ordinary grass now also grows high grass\n\n" +
+                        "_-_ Stealth Technique:\n" +
+                        "the stealth it grants drops from 1/4 -> 1/2 to 1/6 -> 1/4" ));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOPAZ), ("戒指调整"),
-                ("奥术之戒升级成长回调到未削弱版本。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOPAZ), ("Ring changes"),
+                ("The Ring of Arcana upgrade scaling has been reverted to the pre-nerf version.")));
     }
 
     public static void add_V0970_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -347,183 +347,183 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：英文(EN)"),
-                ("英文翻译更新，目前覆盖率为99.65%，感谢英文翻译组团队。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: English (EN)"),
+                ("The English translation has been updated and now covers 99.65%. Thanks to the English translation team.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：俄文(RU)"),
-                ("俄文翻译更新，目前覆盖率为99.72%，感谢俄文翻译组团队。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: Russian (RU)"),
+                ("The Russian translation has been updated and now covers 99.72%. Thanks to the Russian translation team.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：葡萄牙语(PTBR)"),
-                ("葡萄牙语翻译更新，但目前覆盖率较低，仅7%，但还是非常感谢葡萄牙翻译组团队。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: Portuguese (PTBR)"),
+                ("The Portuguese translation has been updated, though coverage is still low at only 7%. Many thanks to the Portuguese translation team all the same.")));
 
         Image img = new Image(Assets.Sprites.BUNNY);
         img.frame(0, 0, 20, 22);
         img.scale.set(0.8f);
-        changes.addButton (new ChangeButton (img, "新皮肤：霓虹兔姬",
-                "售价-1000钴币\n\n原稿：白菜\n\n绘制：Noah-7385 & Daniel-Calan\n\n在另一个时间线上，并没有这些魔法与诅咒，取而代之的是现代科技与无限的可能。霓虹喧嚣之下，她不再披甲征战，细品这来之不易的人间烟火。"));
+        changes.addButton (new ChangeButton (img, "New skin: Neon Bunny",
+                "Price: 1000 cobalt coins\n\nOriginal design: Baicai\n\nArt: Noah-7385 & Daniel-Calan\n\nOn another timeline there is no magic or curse, only modern technology and endless possibility. Amid the neon clamour she no longer dons armor to fight, but savours this hard-won human world."));
 
-        changes.addButton( new ChangeButton(new Image(Assets.Environment.TERRAIN_FEATURES, 32, 128, 16, 16), "新植物：金菊花",
-                "自重阳节版本开始，上线一种新的植物——金菊花，作为魔绫的第19种植物。\n" +
+        changes.addButton( new ChangeButton(new Image(Assets.Environment.TERRAIN_FEATURES, 32, 128, 16, 16), "New plant: Golden Chrysanthemum",
+                "Starting with the Double Ninth Festival version a new plant goes live - the Golden Chrysanthemum, Magic Ling's 19th plant.\n" +
                         "\n" +
-                        "——被踩踏时，长寿的祝福会庇佑踩踏者一段时间"));
+                        "- when stepped on, a blessing of longevity protects whoever trod on it for a while"));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.WHITE_BAST), "白浪刺剑重做",
-                ("【主要技能】：\n\n空灵：被动技能，装备白浪刺剑时，所有敌人在漂浮时会被持续施加麻痹（麻痹消失时立刻再次施加，永控），攻击命中时使敌人漂浮1回合，冷却7回合。\n\n弑羽：被动技能，对处于空中的敌人造成物理伤害时无视其50%%防御力。攻击未命中或被格挡后立刻追加一次额外的攻击（不消耗回合），无法连续触发。\n\n判决：主动技能，使以自身为中心八格范围内所有不处于空中的敌人漂浮2回合，随后对这一范围内的敌人各进行3次必中攻击。\n这个技能需要30点充能来开启，每次攻击（无需命中）获得1点，处于空中的敌人死亡时获得4点。"),
-                ("【武技：风袭】：\n\n" +
-                        "艾诺琳娜可用白浪刺剑对1格内的敌人使出_风袭_。使得目标浮空一回合并对其进行两次必定命中的攻击。\n\n该技能会消耗 2 点充能。"
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.WHITE_BAST), "White Wave Rapier rework",
+                ("[Main skills]:\n\nEthereal: passive. While the White Wave Rapier is equipped, every enemy is continually paralysed while levitating (reapplied the moment paralysis ends, an unbreakable lock), and hitting an enemy makes it levitate for 1 turn. 7 turn cooldown.\n\nFeather Slayer: passive. Physical damage dealt to airborne enemies ignores 50%% of their defense. After a miss or a block the rapier immediately makes one extra attack (costing no turn); this cannot chain.\n\nVerdict: active. Levitates every enemy that is not already airborne in the eight tiles around you for 2 turns, then makes 3 guaranteed hits on each of them. This skill needs 30 charge to activate; each attack (hit or miss) grants 1 charge, and airborne enemies dying grant 4."),
+                ("[Ability: Wind Strike]:\n\n" +
+                        "Honorata can use the White Wave Rapier to perform _Wind Strike_ on an enemy within 1 tile, levitating the target for one turn and making two guaranteed hits.\n\nThe skill costs 2 charge."
                 )));
 
 
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_MARIGOLD), "新种子：金菊花之种",
-                "与金菊花配套上线的种子。"));
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_MARIGOLD), "New seed: Golden Chrysanthemum Seed",
+                "The seed released alongside the Golden Chrysanthemum."));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_POTION), "新药剂：瓶装菊酒",
-                "与金菊花配套上线的药剂，此药剂无法自然生成，但可以通过炼金合成，详情可查阅炼金表。\n" +
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_POTION), "New potion: Bottled Chrysanthemum Wine",
+                "The potion released alongside the Golden Chrysanthemum. It cannot spawn naturally, but can be brewed with alchemy - see the alchemy table for details.\n" +
                         "\n" +
-                        "该物品可在商人处购买。"));
+                        "This item can be bought from merchants."));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_EXC_POTION), "新合剂：酒精合剂",
-                "与金菊花配套上线的合剂。\n" +
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_EXC_POTION), "New elixir: Alcohol Elixir",
+                "The elixir released alongside the Golden Chrysanthemum.\n" +
                         "\n" +
-                        "该物品可在商人处购买。"));
+                        "This item can be bought from merchants."));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_WORLD_POTION), "新特殊物品：传世佳酿",
-                "与金菊花配套上线的活动物品，仅在重阳节和部分活动期间可使用相应的炼金配方制作。\n" +
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARIGOLD_WORLD_POTION), "New special item: Heirloom Brew",
+                "The event item released alongside the Golden Chrysanthemum. It can only be brewed with the matching alchemy recipe during the Double Ninth Festival and some other events.\n" +
                         "\n" +
-                        "商人会以极高的价格收购此物品。"));
+                        "Merchants buy this item at a very high price."));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARGOLD_TR), "新飞镖：金菊飞镖",
-                "与金菊花配套上线的新飞镖。\n" +
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MARGOLD_TR), "New dart: Golden Chrysanthemum Dart",
+                "A new dart released alongside the Golden Chrysanthemum.\n" +
                         "\n" +
-                        "这些飞镖上涂着一种用金菊花制成的药物，命中友方会产生短暂的寿菊庇佑，对敌方掷出则会造成一段时间的眩晕。"));
+                        "These darts are coated in a drug made from the flower: hitting an ally grants a brief chrysanthemum blessing, while throwing them at enemies causes dazed for a while."));
 
-        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MOTO_FIRE), "新物品：莫洛托夫鸡尾酒",
-                "与金菊花配套上线的新物品，投掷出会产生5x5范围的爆燃区域。\n" +
+        changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MOTO_FIRE), "New item: Molotov Cocktail",
+                "A new item released alongside the Golden Chrysanthemum. Thrown, it creates a 5x5 burning area.\n" +
                         "\n" +
-                        "更多细节可通过物品图鉴查看。"));
+                        "See the item catalogue for more details."));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WASH_CRIME), ("涤罪调整"),
-                ("修复涤罪的生成怨灵时选址的问题以及残废不生效的问题，且怨灵上限增至5，生成概率修正为（30+5*武器等级）%")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WASH_CRIME), ("Absolution changes"),
+                ("Fixed where Absolution places its wraiths and fixed the cripple not applying; the wraith cap is now 5 and the spawn chance is (30 + 5 * weapon level)%")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CHALLANEESICON_12), ("药水癔症v0.5"),
-                ("_-_ 挑衅药剂→显影药剂\n" +
-                        "_-_ 效果更改：使5回合内全层敌怪获得英雄视野。（以新buff“显影”来实现）\n" +
-                        "_-_ 断腿药剂→缚足药剂（仅文本修改）" )));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CHALLANEESICON_12), ("Potion Hysteria v0.5"),
+                ("_-_ Taunt Potion -> Revealing Potion\n" +
+                        "_-_ Effect changed: for 5 turns every enemy on the floor gains the hero's sight. (Implemented with a new \"Reveal\" buff.)\n" +
+                        "_-_ Broken Leg Potion -> Binding Potion (text only)" )));
 
 
-        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("动态物品贴图：V0.2"),
-                ("结合恶魔的像素地牢动画原理，进行了优化，现在不会出现整个item的图显示在地牢中的渲染异常。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("Dynamic item sprites: V0.2"),
+                ("Drawing on how Shattered Pixel Dungeon animates, this has been improved and the whole item sprite should no longer be drawn incorrectly in the dungeon.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("查种器-V4.4"),
-                ("_-_ 1.修复查戒和一些小的异常\n" +
-                        "_-_ 2.修复分析器异常")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("Seed Finder - V4.4"),
+                ("_-_ 1.Fixed ring lookups and some minor errors\n" +
+                        "_-_ 2.Fixed the analyser")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("功能优化"),
-                ("_-_ 新增功能优化：多物品快捷栏\n" +
-                        "_-_ 部分页面的一些小问题修复\n" +
-                        "_-_ 改动界面现在支持搜索关键词\n" +
-                        "_-_ 莲娜抢劫战斗后对话文本新增双打与暴怒两种情况")));
-
-        changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.7.1：\n\n" +
-                        "_-_ 修复镜像，虹卫的特殊皮肤兼容问题\n" +
-                        "_-_ 修复莲娜试炼通过后索要商店物品仍然跑路的问题\n" +
-                        "_-_ 修复查种无澪反而查种不一致的异常问题\n" +
-                        "_-_ 修复天痕粘咕地图卡死问题\n" +
-                        "_-_ 优化更新记录的搜索栏\n" +
-                        "_-_ 修复鹰眼远视的视野问题"+
-                        "_-_ 修复黄饿状态下自然生命恢复失效\n"),
-                (
-                        "_-_ 修复十字弩可能在部分怪物上概率掉落\n" +
-                                "_-_ 修复“放入时选择”时，多技能装备在卸下后再装备会清理快捷栏的问题，老魔杖和提灯在“使用时选择”下不进行多技能快捷栏判定\n" +
-                                "_-_ 修复了其他角色获取隐蔽技巧不生效的问题\n" +
-                                "_-_ 修复了地形感知不正确发现隐藏房间的问题\n" +
-                                "_-_ 优化了精英突变的生成文本，使其不在进入新楼层时刷屏影响其他文本消息\n" +
-                                "_-_ 修复部分特殊卷轴可以参与嬗变导致部分天赋无限生效的问题\n" +
-                                "_-_ 优化白浪刺剑施加麻痹的逻辑（修复了施加过久的麻痹的问题，但浮空后立即施加麻痹暂未实现(也就是说敌人浮空的一瞬间仍热会完成其本回合将要进行的行动)）")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Feature improvements"),
+                ("_-_ New improvement: multi-item quickslots\n" +
+                        "_-_ Fixed some minor issues on some pages\n" +
+                        "_-_ The changes window now supports keyword search\n" +
+                        "_-_ Lena's post-robbery dialogue gained two new cases: double-hit and enraged")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.7.0：\n\n" +
-                        "_-_ 修正深海骑士的锚特效：全面净化合剂同款效果→魔皇草同款效果\n" +
-                        "_-_ 法师之手部分逻辑处理优化\n" +
-                        "_-_ 修复安卓粒子效果过多导致的LMKD异常\n" +
-                        "_-_ 修复了树痕在无充能的情况下，艾诺琳娜不能将其放入快捷栏的问题\n" +
-                        "_-_ 修复清道夫夺舍问题\n" +
-                        "_-_ 修复鬼磷魔杖的战法效果召唤的亡魂残躯-鬼磷概率导致崩溃的问题\n" +
-                        "_-_ 修复使用放大镜察看墨菲厄斯时崩溃的问题\n" +
-                        "_-_ 修复墨菲厄斯战最后守护宇宙之心阶段跳过波次太快可能导致修复世界之柱次数丢失，进而导致卡关的问题"),
+                ("V0.9.7.1:\n\n" +
+                        "_-_ Fixed skin compatibility for Mirror Image and the Rainbow Guard\n" +
+                        "_-_ Fixed Lena still running off after you pass her trial and ask for shop items\n" +
+                        "_-_ Fixed seed lookups disagreeing when Mio is absent\n" +
+                        "_-_ Fixed the Tianhen Goo map freezing\n" +
+                        "_-_ Improved the search bar in the changelog\n" +
+                        "_-_ Fixed Eagle Eye farsight vision"+
+                        "_-_ Fixed natural health regeneration failing while starving\n"),
                 (
-                        "_-_ 修复久住npc偶现卡墙的问题\n" +
-                        "_-_ 修复在楼层封锁时使用回溯之书会导致文本缺失的问题\n" +
-                        "_-_ 修正：狗哨召唤的小狗现在会在玩家长久不移动时正确消失。\n" +
-                        "_-_ 修正：给归返秘卷加上子层限制。\n" +
-                        "_-_ 修复真结局使玩家进入遗物状态通关，导致藏品分丢失的问题。\n" +
-                        "_-_ 修复猫娘cosplay藏品会异常主动激活boss的问题。\n" +
-                        "_-_ 修复血月魔盾猎人能够踢掉诅咒物品的问题。\n" +
-                        "_-_ 修复甲鱼层使用未祝福的重生十字架没有遗物生成的问题。\n" +
-                        "_-_ 修复回溯之书在非抢劫层传送目标地点异常的问题。\n" +
-                        "_-_ 修复抢劫后普通商人会离开，但不会带走商品的问题。"
+                        "_-_ Fixed the Crossbow sometimes dropping from certain mobs\n" +
+                                "_-_ Fixed multi-ability equipment clearing quickslots when unequipped and re-equipped while set to \"choose on insert\"; old wands and lanterns no longer use multi-ability quickslot logic under \"choose on use\"\n" +
+                                "_-_ Fixed Stealth Technique not working for other classes\n" +
+                                "_-_ Fixed Terrain Awareness finding hidden rooms incorrectly\n" +
+                                "_-_ Improved the Elite Mutation message so it no longer floods the log on entering a new floor and crowds out other messages\n" +
+                                "_-_ Fixed some special scrolls being transmutable and making some talents apply forever\n" +
+                                "_-_ Improved the White Wave Rapier paralysis logic (fixed paralysis lasting too long, though applying it the instant a target becomes airborne is not implemented yet - in other words an enemy still completes its turn as it starts to levitate)")));
+
+        changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+                ("V0.9.7.0:\n\n" +
+                        "_-_ Fixed the Deep Sea Knight's anchor effect: from Full Purification Elixir to Demon Emperor Grass\n" +
+                        "_-_ Improved some Mage Hand logic\n" +
+                        "_-_ Fixed an LMKD error caused by too many Android particle effects\n" +
+                        "_-_ Fixed Honorata being unable to put Tree Scar in the quickslot while it has no charge\n" +
+                        "_-_ Fixed the Scavenger body-snatching issue\n" +
+                        "_-_ Fixed a crash from the Hollow Wraith - Ghostfire sometimes summoned by the Ghostfire Wand's Battlemage effect\n" +
+                        "_-_ Fixed a crash when examining Morpheus with the magnifying glass\n" +
+                        "_-_ Fixed skipping waves too fast in the final phase of Morpheus, where you guard the Heart of the Universe, losing Pillar of the World repairs and softlocking the fight"),
+                (
+                        "_-_ Fixed a resident NPC occasionally getting stuck inside a wall\n" +
+                        "_-_ Fixed using the Tome of Return while the floor is sealed causing missing text\n" +
+                        "_-_ Fixed: the puppy summoned by the Dog Whistle now disappears properly when the player stands still for a long time.\n" +
+                        "_-_ Fixed: added a sub-floor restriction to the Scroll of Return.\n" +
+                        "_-_ Fixed the true ending putting the player into a relic state on completion and losing the collectible score.\n" +
+                        "_-_ Fixed the catgirl cosplay collectible wrongly activating the boss on its own.\n" +
+                        "_-_ Fixed the Blood Moon Aegis Hunter being able to kick away cursed items.\n" +
+                        "_-_ Fixed unblessed ankhs on the Sakaban floor not producing a relic.\n" +
+                        "_-_ Fixed the Tome of Return teleporting to the wrong place outside robbery floors.\n" +
+                        "_-_ Fixed regular merchants leaving after a robbery without taking their goods with them."
                 )));
 
 
-        changes.addButton(new ChangeButton(new ItemSprite(new HellButterfly()), ("炼狱赤蝶"),
-                (       "修正炼狱赤蝶错误地将小boss以常规单位计的问题。现在炼狱赤蝶对于小Boss怪物的效果等同对boss单位的效果。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new HellButterfly()), ("Purgatory Red Butterfly"),
+                (       "Fixed the Purgatory Red Butterfly counting mini-bosses as regular units. Its effect on mini-bosses now matches its effect on bosses.")));
 
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOPAZ), ("部分戒指调整"),
-                ("改变了奥术之戒、能量之戒升级时的成长速度，现在他们的成长更加平滑。在低等级时他们的效果更好，相应地，高等级时它们的效果更弱了。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOPAZ), ("Some ring changes"),
+                ("The upgrade scaling of the Ring of Arcana and Ring of Energy was changed, and it is smoother now. Both are stronger at low levels and, correspondingly, weaker at high levels.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new BottleWraith()), ("瓶装怨灵"),
-                (       "现在在任意果子层将不再生成怨灵。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new BottleWraith()), ("Bottled Wraith"),
+                (       "No wraiths will spawn on any Fruit floor now.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new MolotovCocktail()), ("莫托洛夫鸡尾酒"),
-                (       "莫托洛夫鸡尾酒将不可分解为炼金能量。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new MolotovCocktail()), ("Molotov Cocktail"),
+                (       "The Molotov Cocktail can no longer be broken down into alchemical energy.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new FreeCrack()), ("空间残片"),
-                (       "优化空间残片，现在在传送前将会进行预警。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new FreeCrack()), ("Shard of Space"),
+                (       "The Shard of Space was improved and now gives a warning before teleporting you.")));
 
-        changes.addButton(new ChangeButton(new Image(new MageHandSprite()), ("法师之手"),
-                ("_-_ 现在无论是使用老法杖还是法杖，均会触发敌意符石的效果")));
+        changes.addButton(new ChangeButton(new Image(new MageHandSprite()), ("Mage Hand"),
+                ("_-_ Using either old wands or wands now triggers hostility runestones")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.G_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.HUNTRESS, 7), ("颐莲梅錵-自然仙子"),
-                ("经组内评估，自然仙子当前版本较为弱势，为此重做该子职业。\n\n" +
-                        "_-_ 自然仙子被动效果新增：\n" +
-                        "_-_ 可以直接使用种子来获得增益 （点击种子新增按钮“联结”），如果联结的种子为腐莓，则不会消耗。 \n\n" +
-                        "_-_ 抵近射击增强：\n" +
-                        "_-_ 效果由原来的-30%/-10% +10%修改为-30%/0%/+30%。"),
-                (       "_-_ 新天赋: 生息之矢 \n" +
-                        "_-_ 当自然仙子射箭击中地面时，在原地生成高草， 这个效果有25/20/15回合冷却时间。" +
-                        "\n若被动恢复效果被禁用或英雄长时间内没有获 得经验，此天赋只会长出枯草。"
+        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.HUNTRESS, 7), ("Yilian Meihua - Nature Sprite"),
+                ("The team judged the Nature Sprite to be weak in the current version, so the subclass has been reworked.\n\n" +
+                        "_-_ New passive effect:\n" +
+                        "_-_ seeds can be used directly to gain their benefit (tap the new \"Bind\" button on a seed). If the bound seed is a Rotten Berry, it is not consumed. \n\n" +
+                        "_-_ Point Blank buffed:\n" +
+                        "_-_ the effect changed from -30%/-10% +10% to -30%/0%/+30%."),
+                (       "_-_ New talent: Living Arrow \n" +
+                        "_-_ when the Nature Sprite's arrow hits the ground, high grass grows where it lands. 25/20/15 turn cooldown.\n" +
+                        "\nIf passive regeneration is disabled or the hero gains no XP for a long time, this talent only grows withered grass."
                 ),(
-                "天赋调整：\n\n" +
-                        "持久药液→萃药秘术 \n" +
-                        "自然仙子的涂药飞镖拥有2/3/4倍耐久值，并且 必定命中。（不会被闪避，但仍然会被精神集中 格挡)\n\n" +
-                        "露水护体→细叶裁剪 通过联结获得的增益效果时长变为原来的 1.3/1.5/1.7倍。 \n"
+                "Talent changes:\n\n" +
+                        "Lasting Potion -> Essence Extraction \n" +
+                        "The Nature Sprite's coated darts have 2/3/4 times the durability and always hit. (They cannot be dodged, but can still be blocked by Focus.)\n\n" +
+                        "Dewshield -> Fine Pruning: benefits gained through Bind last 1.3/1.5/1.7 times as long. \n"
         )));
 
-        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.ROGUE, 7), ("极影铃虹-T2天赋优化"),
-                (       "_-_ 广域搜索→敏锐直觉：\n" +
-                        "_-_ +1 极影铃虹自动发现隐藏门和隐藏陷阱的概率+50%\n" +
-                        "_-_ +2 极影铃虹自动发现隐藏门和隐藏陷阱的概率+100% \n\n" +
-                        "_-_ 无声步伐→隐蔽技巧：\n" +
-                        "_-_ +1 极影铃虹获得等级/4的潜行 \n" +
-                        "_-_ +2 极影铃虹获得等级/2的潜行 \n\n" +
-                        "_-_ 行窃预知→地形感知：\n" +
-                        "_-_ +1 极影铃虹有75%的概率知道有无隐藏房，如果知道了，有25%的概率直接揭示隐藏房的位置 \n" +
-                        "_-_ +2 极影铃虹有100%的概率知道有无隐藏房，如果知道了，有50%概率直接揭示隐藏房的位置"
+        changes.addButton(new ChangeButton(HeroSprite.avatar(HeroClass.ROGUE, 7), ("Swift Shadow Linghong - tier 2 talent improvements"),
+                (       "_-_ Wide Search -> Keen Instinct:\n" +
+                        "_-_ +1: Swift Shadow Linghong has +50% chance to spot hidden doors and hidden traps automatically\n" +
+                        "_-_ +2: Swift Shadow Linghong has +100% chance to spot hidden doors and hidden traps automatically \n\n" +
+                        "_-_ Silent Step -> Stealth Technique:\n" +
+                        "_-_ +1: Swift Shadow Linghong gains stealth equal to level/4 \n" +
+                        "_-_ +2: Swift Shadow Linghong gains stealth equal to level/2 \n\n" +
+                        "_-_ Thieving Premonition -> Terrain Awareness:\n" +
+                        "_-_ +1: Swift Shadow Linghong has a 75% chance to know whether a hidden room exists, and if so a 25% chance to reveal its location outright \n" +
+                        "_-_ +2: Swift Shadow Linghong has a 100% chance to know whether a hidden room exists, and if so a 50% chance to reveal its location outright"
                 )
         ));
     }
@@ -538,153 +538,153 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BLESS_SCROLL), ("开发者模式v0.9"),
-                ("1、投掷武器现在可以调用附魔/诅咒接口\n" +
-                        "2、状态效应器正式上线")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BLESS_SCROLL), ("Developer mode v0.9"),
+                ("1. Thrown weapons can now use the enchantment/curse interface\n" +
+                        "2. Status effectors are now live")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("查种器-V4.3"),
-                ("1.新版查种器上线，特别感谢少前制作组的帮忙\n" +
-                        "2.并发查种线程，进一步优化查种效率\n" +
-                        "3.更加智能的查种，对+1仪式短剑不再只查+1，而是保底+1")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("Seed Finder - V4.3"),
+                ("1.The new Seed Finder is live. Special thanks to the Girls' Frontline team for their help\n" +
+                        "2.Concurrent seed searching, for better lookup speed\n" +
+                        "3.Smarter lookups: the Ritual Dagger is no longer only searched at +1, but guaranteed at +1 or better")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORESTCROSSBOW), ("新传说武器：森林弓"),
-                ("修复了一些Bug，正式上线，欢迎使用！")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORESTCROSSBOW), ("New legendary weapon: Forest Bow"),
+                ("A few bugs were fixed and it is now live. Enjoy!")));
 
-        changes.addButton(new ChangeButton(new FireCrystalSprites(), ("暴怒莲娜"),
-                ("暴怒状态下的莲娜有以下变化：\n" +
-                        "_—_ 业火之路：\n"+
-                        "莲娜周围盘旋磷火，可以蒸发水地块\n" +
-                        "莲娜可以召唤 劫罪者 与 雪凛守卫\n\n" +
-                        "_-_ 红莲业火：\n" +
-                        "莲娜可以召唤红莲业火，该技能为全屏伤害。该技能需要在莲娜蓄力完成摧毁两个浊焰核心才能阻止。" +
-                        "否则将直接扣减目标的血量到五分之一，如果目标低于五分之一血量，则直接斩杀\n\n" +
-                        "_-_ 怒焰焚天：\n" +
-                        "莲娜在三阶段将可以对一个大范围的三角区域释放磷火\n\n" +
-                        "_-_ 生命链接：\n" +
-                        "莲娜可以与召唤的怪物建立生命链接，分担受到的伤害\n\n" +
-                        "_-_ 双面夹击：\n" +
-                        "莲娜可以立刻召唤两个怪物在目标附近\n\n" +
-                        "_-_ 火球术：\n" +
-                        "莲娜可以远程发射磷火火球")));
+        changes.addButton(new ChangeButton(new FireCrystalSprites(), ("Enraged Lena"),
+                ("While enraged, Lena changes as follows:\n" +
+                        "_—_ Path of Karma Fire:\n"+
+                        "Ghostfire circles Lena and can evaporate water tiles\n" +
+                        "Lena can summon Sinners and Snowfrost Guardians\n\n" +
+                        "_-_ Red Lotus Karma Fire:\n" +
+                        "Lena can summon the Red Lotus Karma Fire, a full screen attack. It can only be stopped by destroying two Murkflame Cores while she charges." +
+                        "Otherwise it instantly cuts the target to one fifth of their HP, or executes them outright if they are already below that\n\n" +
+                        "_-_ Wrathflame:\n" +
+                        "In phase three Lena can cover a large triangular area in ghostfire\n\n" +
+                        "_-_ Life Link:\n" +
+                        "Lena can link with summoned mobs so they share the damage she takes\n\n" +
+                        "_-_ Pincer:\n" +
+                        "Lena can instantly summon two mobs next to her target\n\n" +
+                        "_-_ Fireball:\n" +
+                        "Lena can throw ghostfire fireballs from range")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND), ("神偷腕套"),
-                ("神偷袖章改名，并强势回归。" +
-                        "\n\n以下为魔绫特殊调整：\n\n" +
-                        "_-_ 如果偷窃物品失败，且是普通商人，首次将立刻传送到峡谷，并且莲娜将会直接变成暴怒状态。后续偷窃失败商人会直接跑路。\n\n" +
-                        "_-_ 如果是其他商人，偷窃失败会直接跑路\n" +
-                        "_-_ 奈亚子,卡戎,落白商店无法被偷取")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND), ("Master Thief Bracers"),
+                ("The Master Thief Brassard has been renamed and is back stronger than ever." +
+                        "\n\nThe following Magic Ling adjustments apply:\n\n" +
+                        "_-_ If a theft fails against a regular merchant, the first time you are instantly teleported to the Canyon and Lena turns enraged immediately. Later failed thefts make merchants run off.\n\n" +
+                        "_-_ Against other merchants, a failed theft makes them run off immediately\n" +
+                        "_-_ Nyazaki, Charon and the Luobai Shop cannot be robbed")));
 
-        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("抢劫事件-暴怒莲娜"),
+        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("Robbery event - Enraged Lena"),
                 (
-                        "双打近期大量玩家反馈较为困难，经评估决斗，加入暴怒莲娜，和双打是两个分支\n" +
-                        "如果遭遇暴怒状态的莲娜，则必定不会触发双打。\n\n" +
-                        "_-_ 本局偷窃过物品（神偷袖章&赌神手套）+30%概率\n" +
-                        "_-_ 本局殴打商人+30%概率\n" +
-                        "_-_ 本局击败过冬玲+40%概率\n" +
-                        "如果遭遇了暴怒莲娜，将在战前看见警告文本：\n" +
-                        "周围的空气越来越热……\n\n" +
-                                "并且现在 双打/暴怒 打完后 必定掉落升级卷轴+1012个金币。")));
+                        "Players have reported at length that the double fight is too hard. On review, Enraged Lena has been added as a separate branch from the double fight\n" +
+                        "If you run into an enraged Lena, the double fight will never trigger.\n\n" +
+                        "_-_ +30% chance if you stole something this run (Master Thief Brassard & Gambler's Gloves)\n" +
+                        "_-_ +30% chance if you beat up a merchant this run\n" +
+                        "_-_ +40% chance if you defeated Dongling this run\n" +
+                        "If you run into an enraged Lena you see a warning before the fight:\n" +
+                        "The air around you grows hotter and hotter...\n\n" +
+                                "Also, the double fight and the enraged fight now always drop a Scroll of Upgrade plus 1012 gold.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH,new ItemSprite.Glowing(0x0)), ("磐岩调整"),
-                ("磐岩刻印一直处于尴尬场景，经组内评估后，改为磐岩诅咒。\n\n" +
-                        "磐岩诅咒沉重的魔法包裹了整个铠甲让穿戴者无法闪避，但是穿戴者的每点闪避会使其获得 0.75% 受伤减免，与其它减伤效果共同计算后的最终减伤至多不超过 75%")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH,new ItemSprite.Glowing(0x0)), ("Bedrock changes"),
+                ("Bedrock Glyph has always been in an awkward spot, so on review it has become Bedrock Curse.\n\n" +
+                        "Bedrock Curse wraps the whole suit in heavy magic that stops the wearer from dodging, but each point of evasion the wearer has grants 0.75% damage reduction, combined with other reductions and capped at 75% total")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new ElixirOfDragonKing()), ("新药剂：龙王之怒"),
-                (       "饮用后，这瓶秘药会使饮用者的血管里充斥着磷火的力量。这个效果能让引用者对全部火焰完全免疫，并且还能通过物理攻击使用磷火点燃敌人。\n\n" +
-                        "合成方式：龙王吐息合剂 + 10炼金能量")));
+        changes.addButton(new ChangeButton(new ItemSprite(new ElixirOfDragonKing()), ("New brew: Dragon King's Wrath"),
+                (       "Once drunk, this elixir fills the drinker's veins with the power of ghostfire. It makes them completely immune to all fire, and lets their physical attacks set enemies alight with ghostfire.\n\n" +
+                        "Recipe: Dragon King Breath Elixir + 10 alchemical energy")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new GhostLingElixir()), ("新药剂：鬼磷秘药"),
-                ("结合了磷火的不稳定性质，和无序结晶与升级卷轴的强大力量。你可以使用鬼磷秘药来冲刷3x3范围内的投掷武器/近战武器/护甲。如果对英雄使用，在上述基础之上，英雄还会获得8回合无敌。\n\n" +
-                        "合成方式：无序结晶 + 升级卷轴 + 磷火药剂 + 8炼金能量")));
+        changes.addButton(new ChangeButton(new ItemSprite(new GhostLingElixir()), ("New brew: Ghostfire Elixir"),
+                ("Combining the volatile nature of ghostfire with the power of Chaos Crystals and Scrolls of Upgrade. Use it to wash thrown weapons, melee weapons or armor in a 3x3 area. Used on the hero, they also get 8 turns of invulnerability on top.\n\n" +
+                        "Recipe: Chaos Crystal + Scroll of Upgrade + Ghostfire Potion + 8 alchemical energy")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.EXOTIC_AZURE), ("龙王吐息合剂"),
-                ("现在没有附魔效果了，是火龙吐息合剂的上位替代。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.EXOTIC_AZURE), ("Dragon King Breath Elixir"),
+                ("It no longer applies an enchantment; it is the upgraded version of Fire Dragon Breath Elixir.")));
 
-        changes.addButton(new ChangeButton(new ShopkeeperSprite(), ("普通商人"),
-                ("普通商人现在会警告玩家一次，然后关店跑路。")));
+        changes.addButton(new ChangeButton(new ShopkeeperSprite(), ("Regular merchants"),
+                ("Regular merchants now warn the player once, then shut up shop and run off.")));
 
-        changes.addButton(new ChangeButton(new SliceGirlSprite(), "常规分数系统",
-                "【矮人将军】\n" +
-                        "- 崩山斩如果中心命中英雄：-200分\n" +
-                        "- 吃到无用之盾：-100分\n" +
-                        "- 击败Boss：+7500分\n\n" +
-                        "【莲娜】\n" +
-                        "- 击败Boss：从之前的1000*（当前楼层/5） 改为3000*（当前楼层/5）"));
+        changes.addButton(new ChangeButton(new SliceGirlSprite(), "Regular scoring",
+                "[Dwarven General]\n" +
+                        "- Mountain Splitter hitting the hero in the centre: -200 points\n" +
+                        "- Taking the Useless Shield: -100 points\n" +
+                        "- Defeating the boss: +7500 points\n\n" +
+                        "[Lena]\n" +
+                        "- Defeating the boss: from 1000 * (current floor / 5) to 3000 * (current floor / 5)"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KINGHTSTABBINGSWORD), "迅捷骑士刺剑",
-                "优化骑士刺剑逻辑，修复该藏品会让镜像等单位一回合内无限攻击的问题。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KINGHTSTABBINGSWORD), "Swift Knight Rapier",
+                "Improved the knight rapier logic and fixed this collectible letting Mirror Images and similar units attack endlessly in one turn."));
 
         Image ss =new ShubNiggurathSprite();
         ss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(ss, ("莎布·尼古拉丝"),
-                "由于本版本无敌，已回调到V0.9.5.1版本"));
+        changes.addButton(new ChangeButton(ss, ("Shub-Niggurath"),
+                "It was invincible this version, so it has been reverted to V0.9.5.1"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORCE_CUBE), ("投掷武器调整"),
-                (       "_-_ 自然生成的投掷武器有概率获得等级升级、诅咒或附魔\n" +
-                        "_-_ 等级升级会一次性提升一组投掷武器，而非仅单个\n" +
-                        "_-_ 耐久升级收益下调：原每级+3倍耐久 → 修改为每级+1.5倍耐久\n" +
-                        "_-_ 升级后将完全恢复耐久；投掷武器现在可被附魔与施加诅咒\n" +
-                        "_-_ 自然生成概率（无残魔密卷加成）：\n" +
-                        "等级加成：\n" +
-                        "_-_ +0：80.00%\n" +
-                        "_-_ +1：≈15.24%\n" +
-                        "_-_ +2：≈4.44%\n" +
-                        "_-_ +3：≈0.32%\n" +
-                        "其他加成：\n" +
-                        "_—_ 诅咒：15%，正向附魔：7%，白板：78%")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORCE_CUBE), ("Thrown weapon changes"),
+                (       "_-_ Naturally spawned thrown weapons can now roll level upgrades, curses or enchantments\n" +
+                        "_-_ A level upgrade raises a whole stack of thrown weapons, not just one\n" +
+                        "_-_ Durability scaling reduced: from +3x durability per level to +1.5x per level\n" +
+                        "_-_ Upgrading fully restores durability, and thrown weapons can now be enchanted and cursed\n" +
+                        "_-_ Natural spawn odds (without Remnant Scroll bonuses):\n" +
+                        "Level bonus:\n" +
+                        "_-_ +0: 80.00%\n" +
+                        "_-_ +1: ~15.24%\n" +
+                        "_-_ +2: ~4.44%\n" +
+                        "_-_ +3: ~0.32%\n" +
+                        "Other bonuses:\n" +
+                        "_—_ cursed: 15%, positively enchanted: 7%, plain: 78%")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项优化"),
-                ("_-_ 消息折叠功能进一步优化\n" +
-                        "_-_ 部分UI迭代优化，部分素材迭代更新")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc improvements"),
+                ("_-_ Message collapsing improved further\n" +
+                        "_-_ Various UI and asset updates")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.6.3：\n\n" +
-                        "_-_ 修复森林弩与神射伤害不叠加\n" +
-                        "_-_ 修复暴怒火魔女抢劫优先级问题\n" +
-                        "_-_ 修复投掷武器相同属性可能无法成组\n" +
-                        "_-_ 修复澪导致的种子异常\n" +
-                        "_-_ 修复飞镖自带附魔或存在等级\n" +
-                        "_-_ 修复宇宙之心可能出现负数的异常\n" +
-                        "_-_ 修复动态物品贴图异常\n" +
-                        "_-_ 未署名的邀请函现在不能丢弃\n" +
-                        "_-_ 修复极端情况下萨卡班甲鱼楼层死锁"),
-                ("V0.9.6.2：\n\n" +
-                        "_-_ 修复一种载体的回合异常问题\n" +
-                        "_-_ 修复全尺寸UI无响应问题\n" +
-                        "_-_ 修复视野为null的崩溃\n" +
-                        "_-_ 修复多线程查种的一些异常"),
-                ("V0.9.6.1：\n\n" +
-                        "_-_ 修复二代武器描述部分逻辑判定问题\n" +
-                        "_-_ 修复高灯火包含诅咒的问题\n" +
-                        "_-_ 修复动态素材渲染异常\n" +
-                        "_-_ 修复孤城古神处使用未祝福的十字架时间加速依旧不会停止的问题\n" +
-                        "_-_ 修复投掷武器有等级的不会自动补全在快捷栏的问题\n" +
-                        "_-_ 修复投掷武器因为使用武器的附魔逻辑导致的诅咒频率过高")));
+                ("V0.9.6.3:\n\n" +
+                        "_-_ Fixed the Forest Crossbow and Sharpshooter damage not stacking\n" +
+                        "_-_ Fixed the enraged Fire Witch robbery priority\n" +
+                        "_-_ Fixed identical thrown weapons sometimes not stacking\n" +
+                        "_-_ Fixed seed errors caused by Mio\n" +
+                        "_-_ Fixed darts spawning with enchantments or levels\n" +
+                        "_-_ Fixed the Heart of the Universe occasionally going negative\n" +
+                        "_-_ Fixed the dynamic item sprite issue\n" +
+                        "_-_ The Unsigned Invitation can no longer be dropped\n" +
+                        "_-_ Fixed a deadlock on the Sakaban Fish floor in extreme cases"),
+                ("V0.9.6.2:\n\n" +
+                        "_-_ Fixed a turn order bug with one carrier\n" +
+                        "_-_ Fixed the full size UI becoming unresponsive\n" +
+                        "_-_ Fixed a crash when the field of view was null\n" +
+                        "_-_ Fixed some multithreaded seed lookup errors"),
+                ("V0.9.6.1:\n\n" +
+                        "_-_ Fixed some logic checks in second generation weapon descriptions\n" +
+                        "_-_ Fixed high lights containing a curse\n" +
+                        "_-_ Fixed dynamic sprite rendering issues\n" +
+                        "_-_ Fixed time acceleration not stopping after using an unblessed ankh at the Ancient God in Lonely City\n" +
+                        "_-_ Fixed levelled thrown weapons not auto-filling the quickslot\n" +
+                        "_-_ Fixed thrown weapons being cursed far too often due to the weapon enchantment logic")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.G_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new DriedRose()), ("干枯玫瑰调整"),
-                (       "经过测试评估，玫瑰现在从45回合改为150回合，对于正常玩家已可支持。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new DriedRose()), ("Withered Rose changes"),
+                (       "After testing, the rose goes from 45 turns to 150 turns, which normal players can live with.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new WandOfAnmy()), ("共生法杖调整"),
-                (       "祝福现在不止一区可用，前三区均可使用。\n\n" +
-                        "但不能再嬗变，不能拆，不能放炼金炉，不能灌注")));
+        changes.addButton(new ChangeButton(new ItemSprite(new WandOfAnmy()), ("Symbiosis Staff changes"),
+                (       "The blessing is no longer limited to the Sewers; the first three regions all work.\n\n" +
+                        "However it can no longer be transmuted, disassembled, put in the alchemy pot or infused")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new YanStudyingPaperOne()), ("言的研究手稿 一"),
-                (       "现在该藏品会让药水挎包无法被丢弃。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new YanStudyingPaperOne()), ("Yan's Research Manuscript I"),
+                (       "This collectible now makes the potion holster undroppable.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new WandOfGodIce()), ("冬灵霜殇法杖"),
-                ("大冰杖现在不会立刻直接冰冻水上的敌人，不过在水上的敌人冻伤效率会翻倍")));
+        changes.addButton(new ChangeButton(new ItemSprite(new WandOfGodIce()), ("Winter Spirit Frostfall Staff"),
+                ("The great ice wand no longer freezes enemies on water instantly, though frostbite builds twice as fast on enemies standing in water")));
     }
 
     public static void add_V0960_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -692,148 +692,148 @@ public class vm0_9_X_Changes {
         ChangeInfo changes = new ChangeInfo("v0.9.6.0", true, "");
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
-        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "开发者的话",
-                "v0.9.6.0 — 完成于 2026-09-21 23:59\n\n" +
-                        "距离上次更新已经过了一个月。目前对于古墓的开发仍在进行中，但不影响本次更新的内容之丰富！\n" +
-                        "本次更新的重点是武器大迭代与投掷武器整体修改，与此同时，数目不少的优化等你发现。\n" +
-                        "另外，不久后将会迎来中秋+绫的生日+国庆三重奏，部分限时活动将会返场，更多福利将会通过兑换码予以发放，祝大家玩得高兴！\n\n" +
-                        "——MLPD主开发：JDSALing\n" +
-                        "翻译：久住"));
+        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "A word from the developer",
+                "v0.9.6.0 - finished 2026-09-21 23:59\n\n" +
+                        "It has been a month since the last update. Work on the Tomb is still ongoing, but that has not stopped this update from being a big one!\n" +
+                        "This update focuses on the big weapon overhaul and the thrown weapon rework, alongside plenty of smaller improvements for you to find.\n" +
+                        "Also, the Mid-Autumn Festival, Ling's birthday and National Day trio is coming soon, some limited-time events will return, and more perks will be handed out by redeem code. Have fun!\n\n" +
+                        "- MLPD lead developer: JDSALing\n" +
+                        "Translation: Jiuzhu"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "new"), false, null);
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WATER_SWORD), ("破碎武器迭代-第二轮"),
-                ("15个破碎武器将得到替换，老存档将自动同步。\n" +
-                        "具体请参考下方列表：\n\n" +
-                        "T2-武器组：\n" +
-                        "_-_ 长匕首-->弑君\n" +
-                        "_-_ 短柄镰-->尖刺轮盘"),
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WATER_SWORD), ("Broken weapon overhaul - round two"),
+                ("15 broken weapons are being replaced, and old saves will sync automatically.\n" +
+                        "See the list below:\n\n" +
+                        "T2 weapons:\n" +
+                        "_-_ Long Dagger -> Kingslayer\n" +
+                        "_-_ Short Sickle -> Spiked Wheel"),
                 (
-                "T3-武器组：\n" +
-                        "_-_ 弯刀-->滴落者\n" +
-                        "_-_ 圆盾-->诅咒之刃\n" +
-                        "_-_ 筝盾-->迅捷剑"
+                "T3 weapons:\n" +
+                        "_-_ Scimitar -> Dripper\n" +
+                        "_-_ Round Shield -> Cursed Blade\n" +
+                        "_-_ Kite Shield -> Rapier"
                 ),
                 (
-                 "T4-武器组：\n" +
-                        "_-_ 链枷-->驱魔重锤\n" +
-                        "_-_ 长剑-->断生者\n" +
-                        "_-_ 战斧-->万象之杖\n" +
-                        "_-_ 武士刀-->晨星\n" +
-                        "_-_ 暗杀之刃-->德诺尔镰刀\n" +
-                        "_-_ 十字弩-->指南剑"
+                 "T4 weapons:\n" +
+                        "_-_ Flail -> Exorcist Maul\n" +
+                        "_-_ Longsword -> Lifesever\n" +
+                        "_-_ Battle Axe -> Staff of All\n" +
+                        "_-_ Katana -> Morningstar\n" +
+                        "_-_ Assassin's Blade -> Dernor's Scythe\n" +
+                        "_-_ Crossbow -> Compass Sword"
                 ),(
-                "T5-武器组：\n" +
-                        "_-_ 巨剑-->门板\n" +
-                        "_-_ 白檩剑-->深海骑士的锚\n" +
-                        "_-_ 巨斧-->末日节杖\n" +
-                        "_-_ 战镰-->钉入矛"
+                "T5 weapons:\n" +
+                        "_-_ Greatsword -> Door Slab\n" +
+                        "_-_ White Beam Sword -> Deep Sea Knight's Anchor\n" +
+                        "_-_ Greataxe -> Doom Sceptre\n" +
+                        "_-_ War Scythe -> Nailed Spear"
                 )
 
         ));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("新音乐：冥河惊魂"),
-                ("作者：禊-misogi-\n\n为古堡-刻耳柏洛斯全新音乐，欢迎欣赏。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("New music: Styx Terror"),
+                ("By Misogi\n\nBrand new music for the Castle's Cerberus. Enjoy.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("查种器-V4.0"),
-                ("1.强力搜查模式重做，现在支持多线程查种\n" +
-                        "2.优化查种线程，现在不会因为线程堵塞卡死渲染")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("Seed Finder - V4.0"),
+                ("1.Power Search has been rebuilt and now supports multithreaded seed searching\n" +
+                        "2.Improved the seed lookup threads so a stalled thread no longer freezes rendering")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DOGSTICK), ("新道具：狗哨"),
-                ("获得-再摸亿下-隐藏徽章后在商店中有概率生成。\n" +
-                        "可以召唤小刻耳柏洛斯，目前可以狗叫敌人，但无实质伤害。\n\n" +
-                        "不过对于宠物系统已有一些制作思路，将在未来版本实装，敬请期待。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DOGSTICK), ("New item: Dog Whistle"),
+                ("Chance to appear in shops once you have the Pet Me A Billion More Times hidden badge.\n" +
+                        "Summons a Little Cerberus that can bark at enemies, though it does no real damage yet.\n\n" +
+                        "We do have some ideas for a pet system, so expect it in a future version.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHOVEL), ("新武器：铲子"),
-                ("二阶，力量需求12\n" +
-                        "初始2-15，成长1-3\n" +
-                        "在使用此武器击杀敌人后，有（20+3*等级）%概率在那个位置生成一堆残骸，手持此武器时打开坟墓不会生成怨灵。\n" +
-                        "挖掘生者的坟墓。\n"),(
-                        "武技：寻宝。\n" +
-                                "消耗2充能，在原地发掘一个普通宝箱。发掘时有5%概率发掘出可以直接打开的金宝箱！每一层至多被寻宝5次。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHOVEL), ("New weapon: Shovel"),
+                ("Tier 2, 12 Strength\n" +
+                        "2-15 base, growth 1-3\n" +
+                        "Killing an enemy with this weapon has a (20 + 3 * level)% chance to leave a pile of remains there, and no wraiths spawn when you open graves while holding it.\n" +
+                        "Digs up the graves of the living.\n"),(
+                        "Ability: Treasure Hunt.\n" +
+                                "Costs 2 charge to dig up a regular chest on your tile. There is a 5% chance to dig up a golden chest you can open right away! At most 5 digs per floor.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.VOID_SWORD), ("新武器：虚空剑"),
-                ("四阶，力量需求15\n" +
-                        "初始6-30，成长2-5\n" +
-                        "在进行攻击后，立刻将视野内可达位置中的一名随机敌人吸引至身前。\n" +
-                        "这把剑身中传来强大的吸引力，仿佛你正置身死寂的黑洞之中。"),
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.VOID_SWORD), ("New weapon: Void Sword"),
+                ("Tier 4, 15 Strength\n" +
+                        "6-30 base, growth 2-5\n" +
+                        "After each attack it instantly pulls a random reachable enemy in sight to the tile in front of you.\n" +
+                        "A powerful pull emanates from the blade, as if you stood inside a silent black hole."),
                 (
-                        "武技：奇点坍缩，消耗所有充能（至少3点），\n" +
-                        "在指定位置放置1个奇点，奇点会持续定身5*5范围内的敌人，每多消耗3充能使生效范围扩大一圈，\n" +
-                        "并且每回合会使范围内的所有敌人和物品向奇点方向强制位移一格。\n" +
-                        "奇点每回合都会摧毁与他相邻或重叠的物品，接触奇点的非boss单位会直接死亡并且不提供经验，\n" +
-                        "接触奇点的boss单位会受到（30+10*lv）真实伤害随后减少奇点30回合持续时间。\n" +
-                        "释放时消耗的每点充能使奇点存在最大时间+6回合。")));
+                        "Ability: Singularity Collapse, costs all charge (at least 3),\n" +
+                        "places a singularity at the target tile that roots enemies in a 5x5 area. Every 3 extra charge spent widens the area by one ring,\n" +
+                        "and each turn every enemy and item in range is forced one tile toward the singularity.\n" +
+                        "Each turn the singularity destroys adjacent or overlapping items; non-boss units touching it die instantly and grant no XP,\n" +
+                        "while boss units touching it take (30 + 10 * lv) true damage and then cut 30 turns off its duration.\n" +
+                        "Each point of charge spent on casting adds 6 turns to its maximum duration.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("新系统：动态贴图"),
-                ("潜伏三年，精心研究，好吧，就是物品动画终于横空出世了。\n\n本次实装有支援信号套组，炸弹剑\n\n非常得炫酷。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("New system: dynamic sprites"),
+                ("Three years in the making and carefully researched - all right, item animations are finally here.\n\nThis version ships with the Support Signal Kit and the Bomb Sword.\n\nExtremely cool.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("新系统：效果百科"),
-                ("在图鉴中新增效果百科，可以查询目前已有的可见Buff，和魔绫地牢游戏中使用的Buff数量总统计。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("New system: effect codex"),
+                ("A new effect codex in the catalogue lists every visible buff currently in the game, plus the total count of buffs used in Magic Ling Pixel Dungeon.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("错误报告V3登场"),
-                ("新增专门针对于安卓的ANR异常捕获，方便更快追踪无响应问题的产生缘由。\n\n注意：安卓ANR异常和桌面端无响应是两个东西，ANR无法追踪桌面端的问题，如你在电脑发生卡死，请联系制作组团队询问解决。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("Error Report V3"),
+                ("Added Android-specific ANR capture to make unresponsive issues easier to trace.\n\nNote: Android ANRs and desktop freezing are two different things - ANRs cannot trace desktop problems. If the PC version freezes, contact the team instead.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new AikeLaier.Seed()), ("闪电花调整"),
-                (       "_-_ 闪电花现在回复血量的恢复至调整为最大血量的10%向上取整\n" +
-                        "_-_ 闪电花与辉耀飞镖现在对我方怪物造成精英化效果时该效果存在500回合的时间限制\n" +
-                        "_-_ 闪电花现在在自然之履中充能从10%调整为35%后才可使用")));
+        changes.addButton(new ChangeButton(new ItemSprite(new AikeLaier.Seed()), ("Lightning Flower changes"),
+                (       "_-_ Lightning Flower healing changed to 10% of max HP, rounded up\n" +
+                        "_-_ When the Lightning Flower or Radiant Dart makes one of your mobs elite, that effect now lasts at most 500 turns\n" +
+                        "_-_ The Lightning Flower in Nature's Tread now needs 35% charge instead of 10% before it can be used")));
 
-        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("抢劫事件调整优化"),
-                ("_-_ 商人领主的商店现在售价为玩家当前最高探索深度\n" +
-                        "_-_ 商人领主的商店现在刷新为 350 + 250 x 刷新次数，首次相当于0，然后后续依次+1\n" +
-                        "_-_ 击败浊焰魔女莲娜后，后续抢劫事件将不再参与前线地图，将会直接到特殊场地，进行快捷选择与战斗\n" +
-                        "_-_ 现在净化飞镖不能破除莲娜的护盾")));
+        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("Robbery event improvements"),
+                ("_-_ The Merchant Lord's shop now prices items off your deepest progress\n" +
+                        "_-_ The Merchant Lord's shop restocking now costs 350 + 250 x restocks, counting the first as 0 and adding one each time\n" +
+                        "_-_ After defeating the Murkflame Witch Lena, later robberies no longer use the frontline map and go straight to a special arena for quick choices and combat\n" +
+                        "_-_ Purification Darts can no longer break Lena's shield")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new WashCrime()), ("涤罪调整"),
-                ("击杀层数上限提升至 100，同层数攻速与附加伤害下调；亡魂属性上限提高，高击杀层数下召唤物的属性将更强。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new WashCrime()), ("Absolution changes"),
+                ("Max kill stacks raised to 100, with attack speed and bonus damage per stack reduced; wraith stat caps raised, so summons are stronger at high stacks.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("徽章优化"),
-                ("13个原隐藏徽章经组内评判，认为可移除出隐藏徽章组。\n\n" +
-                        "已在老版本获取的玩家，将在新版本自动迁移到常规徽章组。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("Badge improvements"),
+                ("On review, 13 former hidden badges were judged fit to leave the hidden badge group.\n\n" +
+                        "Anyone who earned them on an older version is migrated to the regular badge group automatically.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项优化"),
-                ("_-_ 徽章现在可分页显示，不再像之前那样挤在一起\n" +
-                        "_-_ 除低版本安卓，其他高版本安卓强制使用全屏模式\n" +
-                        "_-_ 魔绫现在携带非密码TAG，可修复魅族无法截图录屏，和部分设备调出安全键盘的问题\n" +
-                        "_-_ 翻译界面现在可查看当前语言翻译进度，以百分比显示\n" +
-                        "_-_ 由于早期难度设计和现阶段设计冲突问题，经组内讨论后，简单模式已移除\n" +
-                        "_-_ PC端全尺寸回归并修复了Bug，PC玩家将可以在游玩中得到更好的体验\n" +
-                        "_-_ 部分UI迭代优化，部分素材迭代更新")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc improvements"),
+                ("_-_ Badges now page properly instead of crowding together\n" +
+                        "_-_ All recent Android versions except the very old ones are forced into fullscreen mode\n" +
+                        "_-_ Magic Ling now ships a non-password TAG, fixing Meizu screenshot and screen recording, and the secure keyboard problem on some devices\n" +
+                        "_-_ The translation screen now shows progress for the current language as a percentage\n" +
+                        "_-_ Because early difficulty design conflicts with current design, Easy mode has been removed after team discussion\n" +
+                        "_-_ Full size mode is back on PC with its bugs fixed, so PC players get a better experience\n" +
+                        "_-_ Various UI and asset updates")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.6.0：\n\n" +
-                        "_-_ 修复部分界面的继承导致的严重游戏崩溃问题\n" +
-                        "_-_ 修复破碎之环的一些优先级判定导致的严重游戏崩溃问题\n" +
-                        "_-_ 修复Bzmdr的礼物在矮人将军处不重置的问题\n" +
-                        "_-_ 修复孤城古神处使用未祝福的十字架时间加速依旧不会停止的问题\n" +
-                        "_-_ 修复全尺寸显示模式背包上方界面可以穿透的问题\n" +
-                        "_-_ 修复奥术附魔无法对鬼磷附魔生效的问题\n" +
-                        "_-_ 修复久住NPC会导致的严重游戏崩溃问题"),
+                ("V0.9.6.0:\n\n" +
+                        "_-_ Fixed serious crashes caused by inherited UI state\n" +
+                        "_-_ Fixed serious crashes caused by some Shattered Ring priority checks\n" +
+                        "_-_ Fixed Bzmdr's gift not resetting at the Dwarven General\n" +
+                        "_-_ Fixed time acceleration not stopping after using an unblessed ankh at the Ancient God in Lonely City\n" +
+                        "_-_ Fixed the UI above the backpack being click-through in full size mode\n" +
+                        "_-_ Fixed Arcane enchantment not working on Ghostfire enchantment\n" +
+                        "_-_ Fixed serious crashes caused by the Jiuzhu NPC"),
                 (
-                        "_-_ 修复子层Boss重置问题\n" +
-                                "_-_ 修复6选3房间重置后错误保留的问题\n" +
-                                "_-_ 优化拟态之王浮空buff清除的时序，现在会延后\n" +
-                                "_-_ 修复拟态王极端情况下死亡的遗物背包坐标错误问题\n" +
-                                "_-_ 修复护甲生成器部分ID不一致的问题\n" +
-                                "_-_ 修复网络兑换码加载时间过长导致游戏卡住的问题\n" +
-                                "_-_ 修复支援信号套组刷弹药的问题\n" +
-                                "_-_ 修复棱光，灵壤，冲击波成长bug，修复电子烟阵营问题\n" +
-                                "_-_ 修复在还未准备好游戏界面时渲染子控件导致崩溃"),
+                        "_-_ Fixed sub-floor boss resetting\n" +
+                                "_-_ Fixed the choose 3 of 6 room being wrongly kept after a reset\n" +
+                                "_-_ Improved the timing of the Mimic King's levitation buff removal; it now happens later\n" +
+                                "_-_ Fixed the wrong relic backpack coordinates when the Mimic King dies in extreme cases\n" +
+                                "_-_ Fixed some armor generator IDs not matching\n" +
+                                "_-_ Fixed the game hanging while online redeem codes loaded for too long\n" +
+                                "_-_ Fixed ammo farming with the Support Signal Kit\n" +
+                                "_-_ Fixed Prismatic Light, Spirit Soil and Shockwave growth bugs, and fixed e-cigarette faction issues\n" +
+                                "_-_ Fixed a crash from rendering child widgets before the game UI was ready"),
 
-                (       "_-_ 修复了天界画笔吞噬已装备物品时物品删除异常的问题\n" +
-                        "_-_ 现在金蝶升级机制在嬗变\"嬗变后仍是自身\"的物品时不再是删除原有物品返回相同物品了\n" +
-                        "_-_ 修复了支援信号套组金币电表倒转的问题\n" +
-                        "_-_ 修复了种子检索日志场景静态成员引用与退出时线程未中断导致的卡死/崩溃问题\n" +
-                        "_-_ 修复了日志界面关闭故事弹窗因场景强转崩溃的问题（WndStory越界强转修复）\n" +
-                        "_-_ 修复了魔能透视下怪物坐标越界导致游戏崩溃的问题（视野计算越界保护，仅作弊/调试开关开启时提示）\n" +
-                        "_-_ 修复敌法精英没有额外法伤减免的问题"
+                (       "_-_ Fixed items being deleted incorrectly when the Celestial Brush devours equipped items\n" +
+                        "_-_ The Gold Butterfly upgrade mechanic no longer deletes and re-returns the same item when transmuting into \"still itself\"\n" +
+                        "_-_ Fixed gold being drained instead of granted by the Support Signal Kit\n" +
+                        "_-_ Fixed the seed lookup log scene freezing or crashing from a stale static reference and a thread not being interrupted on exit\n" +
+                        "_-_ Fixed a crash when closing the story popup from the log screen (bad cast in WndStory)\n" +
+                        "_-_ Fixed a crash from mob coordinates going out of bounds under magical vision (bounds guard added, only reported with cheats/debug on)\n" +
+                        "_-_ Fixed Anti-Magic Elites not getting their extra spell damage reduction"
 
                 )));
 
@@ -842,76 +842,76 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new CelestialBrush()),("天界画笔"),(
-                "_-_ 全等级最大充能上限减少 1 点，可储存作画次数降低\n" +
-                        "_-_ Lv2 升级献祭所需牺牲生命上限由 15 上调至 20\n" +
-                        "_-_ 古焰之色的伤害上限下调，降低火焰锥形 AOE 爆发；伤害下限随等级提升小幅增加" +
-                        "_-_ 被动充能公式改动：画笔在接近满充能时回充速度提升；空充能状态下充能速度相比旧版变慢")));
+        changes.addButton(new ChangeButton(new ItemSprite(new CelestialBrush()),("Celestial Brush"),(
+                "_-_ Max charge reduced by 1 at all levels, so fewer paintings can be stored\n" +
+                        "_-_ The HP sacrifice needed for the level 2 upgrade went from 15 to 20\n" +
+                        "_-_ Ancient Flame Hue max damage lowered to reduce the cone AOE burst; min damage rises slightly with level" +
+                        "_-_ Passive charging formula changed: the brush recharges faster when nearly full, and slower than before when empty")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WHITE_BAST), ("白浪刺剑"),
-                ("成长梯度从3-7 降至 2-6。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WHITE_BAST), ("White Wave Rapier"),
+                ("Growth reduced from 3-7 to 2-6.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.THEDIED), ("肃杀"),
-                ("武技的闪现距离从5格下调至4格")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.THEDIED), ("Quell"),
+                ("The blink distance of the ability went from 5 tiles to 4")));
 
-        changes.addButton(new ChangeButton(new MiniSakaFishBossSprites(), ("盟友系统优化"),
-                ("鉴于部分玩家利用此机制对怪物（特别是财富）进行卡位，现添加如下限制：\n" +
-                        "盟友持续全自动行动满 45 回合时会立刻死亡。\n" +
+        changes.addButton(new ChangeButton(new MiniSakaFishBossSprites(), ("Ally system improvements"),
+                ("Since some players were using this mechanic to body-block mobs (especially the Wealth), the following restriction has been added:\n" +
+                        "An ally that acts on its own for 45 turns in a row dies immediately.\n" +
                         "\n\n" +
-                        "备注：若你在第 44 回合执行任意一次行动，该回合计数将重置。请记得主动操作，相关信息可参考盟友图鉴。")));
+                        "Note: if you take any action on turn 44, the counter resets. Remember to act yourself - see the ally catalogue for details.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new StoneOfAggression()), ("敌意符石"),
-                ("现在敌意符石对于Boss单位的效果减半。")));
+        changes.addButton(new ChangeButton(new ItemSprite(new StoneOfAggression()), ("Hostility Runestone"),
+                ("Hostility Runestones now have half the effect on bosses.")));
 
         changes.addButton(new ChangeButton(new ItemSprite(new YanStudyingPaperOne()), (new YanStudyingPaperOne().name()),
-                ("重写该藏品的实现，之前的逻辑有点问题。")));
+                ("Rewrote this collectible's implementation; the old logic had issues.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new KingBag()), ("背包调整"),
-                (       "_-_ 牛皮书袋移除，书籍现在纳入卷轴筒一同管理\n" +
-                        "_-_ 武甲背包移除，武甲现在纳入魔法筒一同管理\n" +
-                        "_-_ 所有背包容量都已统一为49格")));
+        changes.addButton(new ChangeButton(new ItemSprite(new KingBag()), ("Backpack changes"),
+                (       "_-_ The Leather Book Bag has been removed; books are now managed in the scroll holder\n" +
+                        "_-_ The armored backpack has been removed; armor is now managed in the magic holster\n" +
+                        "_-_ All backpack capacities are now a uniform 49 slots")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LONGSWORD), "部分系统优化",
-                  "_-_ 现在会计算英雄精英化（各类祝福）带来的增伤效果\n" +
-                            "_-_ 现在会在护甲结算前计算上述增伤效果\n" +
-                            "_-_ 现在玩家心魔损伤大于50时不会使得怪物的伤害也变成0.65倍\n" +
-                            "_-_ 现在奇怪的档案袋施加英雄祝福buff的回合数是200回合\n" +
-                            "_-_ 现在英雄祝福固定增伤至200%，固定减伤至50%\n" +
-                            "_-_ 现在敌人装备狂怒之戒不会使得攻速随狂怒之戒等级增加而降低，而是正常升高\n" +
-                            "_-_ 现在与精英化对应的祝福类buff作为攻击方增伤时在护甲结算前生效\n" +
-                            "_-_ 现在攻击方的魔女的低语-审判、纯洁的祝福-安息的伤害修正效果在护甲结算前生效"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LONGSWORD), "Some system improvements",
+                  "_-_ Hero elite effects (various blessings) now count toward damage bonuses\n" +
+                            "_-_ Those bonuses are now applied before armor is resolved\n" +
+                            "_-_ Inner demon damage above 50 no longer also multiplies mob damage by 0.65\n" +
+                            "_-_ The Strange Folder now applies the hero blessing buff for 200 turns\n" +
+                            "_-_ Hero blessings are now a flat 200% damage bonus and a flat 50% damage reduction\n" +
+                            "_-_ Enemies wearing a Ring of Fury no longer attack faster as the ring's level drops; they now speed up normally\n" +
+                            "_-_ Blessing buffs that mirror elite effects now apply before armor is resolved when attacking\n" +
+                            "_-_ The attacker's Witch's Whisper - Judgement and Blessing of Purity - Repose damage modifiers now apply before armor is resolved"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.G_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(new CelestialBrush()),("天界画笔"),(
-                "严冬之色的减速持续时间大幅提升，控场能力增强")));
+        changes.addButton(new ChangeButton(new ItemSprite(new CelestialBrush()),("Celestial Brush"),(
+                "Harsh Winter Hue's slow lasts far longer now, making it a much better control tool")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORCE_CUBE), ("投掷武器升级"),
-                (       "_-_ 自然生成投武会概率携带升级，诅咒和附魔\n" +
-                        "_-_ 升级会升级一组而不是现在的只升级一个\n" +
-                        "_-_ 升级耐久收益降低由_现在的升一级提升3倍耐久_降低至_升一级提升1.5倍耐久_\n" +
-                        "_-_ 现在升级将恢复全部耐久，投武现在可以被附魔和诅咒")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FORCE_CUBE), ("Thrown weapon upgrades"),
+                (       "_-_ Naturally spawned throwables can roll upgrades, curses and enchantments\n" +
+                        "_-_ An upgrade raises a whole stack instead of just one\n" +
+                        "_-_ Durability per level drops from _+3x for one level_ to _+1.5x for one level_\n" +
+                        "_-_ Upgrading now restores all durability, and throwables can now be enchanted and cursed")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.GOLDLANGGUN), ("黄金长枪"),
-                ("黄金长枪现在拥有祝福，用黄金长枪命中非相邻敌人时将会触发祝福buff")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.GOLDLANGGUN), ("Golden Spear"),
+                ("The Golden Spear now carries a blessing that triggers when you hit a non-adjacent enemy with it")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("支援信号套组"),(
-                "_-_ 现在套组使用后获得12/24/36/48层狙击手援护（对应套组等级0/1/2/3）\n" +
-                "_-_ 现在套组充能上限由固定1点改为初始1点，每升级额外提高1点（满级4点），升级时自动补满充能\n" +
-                "_-_ 现在信号弹每次装填恢复至当前充能上限，最终充能不超过上限\n" +
-                "_-_ 现在狩猎狂欢改为消耗剩余所有充能，每1点充能提供40回合效果（不再固定消耗3充能90回合）\n" +
-                "_-_ 现在狙击手的援护触发冷却由8回合缩短至4回合\n" +
-                "_-_ 现在狩猎狂欢每回合朝本层随机敌人发射霜冻/穿甲燃烧/电磁震荡箭，每个敌人每回合只会被1种箭选为目标，三种箭冷却同时进行且独立计算，优先级为霜冻>穿甲燃烧>电磁震荡，buff栏可查看三位狙击手具体冷却\n"),
+        changes.addButton(new ChangeButton(new ItemSprite(new DistressSignalNesting()), ("Support Signal Kit"),(
+                "_-_ Using the kit now grants 12/24/36/48 stacks of Sniper Support (kit level 0/1/2/3)\n" +
+                "_-_ Kit max charge changed from a fixed 1 to 1 at base, +1 per upgrade (4 at max), and upgrading tops it up\n" +
+                "_-_ Each flare reloads the kit to its current max charge without exceeding it\n" +
+                "_-_ Hunting Frenzy now consumes all remaining charge, each point giving 40 turns of effect (instead of a fixed 3 charge for 90 turns)\n" +
+                "_-_ Sniper Support cooldown shortened from 8 turns to 4\n" +
+                "_-_ Hunting Frenzy now fires Frost Slow, Armor-Piercing Incendiary or Electromagnetic Shock arrows at random enemies on the floor each turn. Each enemy can only be targeted by one arrow type per turn, the three cooldowns run in parallel and are tracked separately, priority is Frost > Incendiary > Shock, and the buff bar shows each sniper's cooldown\n"),
                 (
-                "_-_ 现在霜冻箭的冻伤时长调整为5回合\n" +
-                "_-_ 现在穿甲燃烧箭的点燃时长调整为2+套组等级回合\n" +
-                "_-_ 现在电磁震荡箭的电场持续3+套组等级回合，电场持续伤害系数为20/30/40/50%\n" +
-                "_-_ 现在信号弹配方不再消耗炼金能量\n" +
-                "_-_ 现在套组每次使用消耗500金币（信号弹与狩猎狂欢均消耗）\n" +
-                "_-_ 现在套组初始售价调整为500金币\n" +
-                "_-_ 现在套组无法在古堡区域(大于26层)使用，进入古堡区域或脱下/嬗变/被吞噬时提前结束狙击手的援护与狩猎狂欢buff")));
+                "_-_ Frost Slow arrows now chill for 5 turns\n" +
+                "_-_ Armor-Piercing Incendiary arrows now burn for 2 + kit level turns\n" +
+                "_-_ Electromagnetic Shock arrows leave a field for 3 + kit level turns, with a damage coefficient of 20/30/40/50%\n" +
+                "_-_ The flare recipe no longer costs alchemical energy\n" +
+                "_-_ Using the kit now costs 500 gold per use (both flares and Hunting Frenzy)\n" +
+                "_-_ The kit's base price is now 500 gold\n" +
+                "_-_ The kit cannot be used in the Castle (above floor 26); entering the Castle or unequipping, transmuting or devouring it ends Sniper Support and Hunting Frenzy early")));
 
     }
 
@@ -920,130 +920,130 @@ public class vm0_9_X_Changes {
         ChangeInfo changes = new ChangeInfo("v0.9.5.0", true, "");
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
-        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "开发者的话",
-                "v0.9.5.0 — 完成于 2026-08-14 13:45\n\n" +
-                        "没想到上次更新魔绫已经是两个月前的事了。近期，开发组一直在全力进行古墓内容的制作。\n" +
-                        "不过在路途中，我们结识了新的伙伴，同时，作为一次补充更新，这个版本我们将早期惊鸿杯的优胜创作全部实装，并完成了诸多bug修复与游戏优化。祝大家玩的愉快！\n\n" +
-                        "——MLPD主开发：JDSALing\n" +
-                        "翻译：久住"));
+        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "A word from the developer",
+                "v0.9.5.0 - finished 2026-08-14 13:45\n\n" +
+                        "Hard to believe the last Magic Ling update was two months ago. Lately the team has been working flat out on the Tomb.\n" +
+                        "Along the way we made new friends, and as a stopgap update this version ships every winning entry from the early Jinghong Cup, along with a pile of bug fixes and improvements. Enjoy!\n\n" +
+                        "- MLPD lead developer: JDSALing\n" +
+                        "Translation: Jiuzhu"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "new"), false, null);
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new KusumiSprites(), ("新NPC"),
-                ("神秘的少女，来历不详，履历不详……")));
+        changes.addButton(new ChangeButton(new KusumiSprites(), ("New NPC"),
+                ("A mysterious girl of unknown origin and unknown history...")));
 
-        changes.addButton(new ChangeButton(new KusumiMagicGirlSprites(), ("新NPC"),
-                ("神秘的少女，来历不详，履历不详……")));
+        changes.addButton(new ChangeButton(new KusumiMagicGirlSprites(), ("New NPC"),
+                ("A mysterious girl of unknown origin and unknown history...")));
 
-        changes.addButton(new ChangeButton(new ArchettoSprite(), "弦事件推进",
-                "弦近期似乎换上了新衣服……？"));
+        changes.addButton(new ChangeButton(new ArchettoSprite(), "Xian event progress",
+                "Xian seems to have new clothes lately...?"));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("新音乐：Ice Ruins"),
-                ("作者：禊-misogi-\n\n为三区全新音乐，欢迎欣赏。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("New music: Ice Ruins"),
+                ("By Misogi\n\nBrand new music for region three. Enjoy.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SOS_3), "新道具：支援信号套组",
-                ("一支由三位传奇狙击手组成的狙击小队在这一带兜售这些装备。当你点亮其中的水晶并向天燃放可用的信号弹时，她们便会在暗处助你一臂之力。出场费就是这个小盒的售价。\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SOS_3), "New item: Support Signal Kit",
+                ("A sniper squad of three legendary marksmen sells these kits around here. Light the crystal inside and fire a usable flare into the sky, and they will lend a hand from the shadows. Their booking fee is the price of this little box.\n" +
                         "\n" +
-                        "+0时：一个装有一颗魔法水晶的橡木盒。燃放信号弹之前记得先点亮水晶，不然不作数。\n" +
-                        "+1 等同于 +3 时：与标准版相比，除了木盒里的水晶变得更加透亮，木盒的边上还镶上了金色花纹。\n" +
-                        "+2 等同于 +7 时：精雕细琢的红木盒子，里面是躺在天鹅绒中的蓝色魔法水晶。\n" +
-                        "+3 等同于 +10 时：精雕细琢的水晶盒子，里面是躺在天鹅绒中的红色魔法水晶。盒盖的背面写着她们提供的白金典藏版特供隐藏套餐。\n" +
+                        "+0: an oak box holding a single magic crystal. Light the crystal before firing a flare or it does not count.\n" +
+                        "+1, same as +3: compared to the standard version the crystal is clearer and the box is edged with gold patterns.\n" +
+                        "+2, same as +7: a finely carved mahogany box with a blue magic crystal resting on velvet.\n" +
+                        "+3, same as +10: a finely carved crystal box with a red magic crystal on velvet. The inside of the lid lists the platinum collector's edition hidden package they offer.\n" +
                         "\n" +
-                        "这件道具仅能在商店以1500金币买到。在商店中与老板对话时可花500/1000/1500金币升级到+1/+2/+3。\n" +
+                        "This item can only be bought in shops for 1500 gold. Talk to the shopkeeper to upgrade it to +1/+2/+3 for 500/1000/1500 gold.\n" +
                         "\n" +
-                        "使用液火药剂+浮空药剂+炼金催化剂+5炼金能量可以合成信号弹，信号弹有填装按钮，可以填装进求救信号套组中。\n" +
+                        "Liquid Fire Potion + Levitation Potion + Alchemical Catalyst + 5 alchemical energy brews a flare, and flares have a load button that loads them into the kit.\n" +
                         "\n"),
                 (
-                        "求救信号套组仅有1充能，需要填装信号弹来充能。初始购买时带有1充能，每次购买升级获得一颗额外的信号弹。\n" +
+                        "The kit holds only 1 charge and is loaded with flares. It comes with 1 charge when bought, and each shop upgrade adds one extra flare.\n" +
                         "\n" +
-                        "使用后，获得6次/11次/17次/17次（0/+1/+2/+3）\"狙击手援护\"buff。\n" +
+                        "Using it grants 6/11/17/17 stacks (0/+1/+2/+3) of the \"Sniper Support\" buff.\n" +
                         "\n" +
-                        "狙击手援护：每15回合，你视野内的一名随机敌人将受到一次狙击伤害，伤害类型在三种中随机，伤害随所在层数成长。如果冷却结束后视野内没有敌人，则在下一次视野内出现敌人瞬间触发。\n" +
+                        "Sniper Support: every 15 turns a random enemy in your sight takes a sniper hit. The damage type is random among the three and scales with floor. If no enemy is in sight when the cooldown ends, it triggers the moment one appears.\n" +
                         "\n"),(
-                        "霜冻阻滞箭：造成（层数~10+层数/2）伤害与10回合霜冻效果。层数达到21时，翻转其上下限。\n" +
+                        "Frost Slow Arrow: deals (floor ~ 10 + floor/2) damage and 10 turns of frost. At floor 21 the bounds flip.\n" +
                         "\n" +
-                        "穿甲燃烧箭：造成（5+层数~10+层数）的伤害，无视护甲，并以磷火点燃敌人。\n" +
+                        "Armor-Piercing Incendiary Arrow: deals (5 + floor ~ 10 + floor) damage, ignores armor and sets the enemy alight with ghostfire.\n" +
                         "\n" +
-                        "电磁震荡箭：造成（层数~10+层数/2）伤害与落点5回合的电场。层数到达21时，翻转其上下限。\n" +
+                        "Electromagnetic Shock Arrow: deals (floor ~ 10 + floor/2) damage and leaves a 5 turn electric field at the impact point. At floor 21 the bounds flip.\n" +
                         "\n" +
-                        "求救信号套组升级到+3时，充能数提升到3点，装满以后可以同时燃放3颗信号弹，获得75回合\"狩猎狂欢\"buff。\n" +
+                        "When the kit is upgraded to +3 its charge rises to 3, and once loaded you can fire 3 flares at once for 75 turns of the \"Hunting Frenzy\" buff.\n" +
                         "\n" +
-                        "狩猎狂欢：每4/7/10回合，朝本层随机敌人发射霜冻阻滞箭/电磁震荡箭/穿甲燃烧箭，三者冷却同时进行并独立计算。你可以在buff栏详情中查看三位狙击手的具体冷却时间。")));
+                        "Hunting Frenzy: every 4/7/10 turns it fires Frost Slow / Electromagnetic Shock / Armor-Piercing Incendiary arrows at random enemies on the floor. All three cooldowns run in parallel and separately, and the buff details show each sniper's cooldown.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKY_PEN_PLUS), "新神器：天界画笔",
-                ("这支画笔散发着已然消逝的颜色，据说唯有它能画出失落的神明：因为神明死亡后，它身上的颜色也将无处可觅。\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKY_PEN_PLUS), "New artifact: Celestial Brush",
+                ("This brush radiates a colour that has already faded, and it is said only it can paint the lost gods - for once a god dies, its colour is nowhere to be found.\n" +
                         "\n" +
-                        "未满级：运用这支画笔本身的魔力能够创造一些\"画作\"，不过它目前的魔力尚未完全恢复。或许你应当献上你对过往的敬意……\n" +
-                        "满级：运用这支画笔本身的魔力能够创造一些\"画作\"，它目前的魔力已完全恢复。你已献上你的所有敬意，现在一切失落的颜色已再次出现于笔端。\n" +
+                        "Not maxed: the brush's own magic can create a few \"paintings\", but its power has not fully returned. Perhaps you should offer up your respect for the past...\n" +
+                        "Maxed: the brush's magic can create \"paintings\", and its power has fully returned. You have offered all your respect, and every lost colour now flows from the brush once more.\n" +
                         "\n" +
-                        "诅咒效果：鉴定物品速度减半，陷阱被动感知减半，正常视野下降1格。\n"),(
+                        "Cursed effect: identifying items is twice as slow, passive trap detection is halved, and normal sight is reduced by 1 tile.\n"),(
                         "\n" +
-                        "作画：\n" +
-                        "古焰之色——画笔释放出其中已逝的烈焰，释放火焰浪潮燃烧周围敌人。范围为同等级焰浪法杖，伤害为8~16*（1+神器实际等级），附加 1+神器实际等级/2 回合残废。\n" +
+                        "Painting:\n" +
+                        "Ancient Flame Hue - the brush releases the flames it has outlived, sending a wave of fire to burn nearby enemies. The range matches a Flamewave Staff of the same level, damage is 8~16 * (1 + the artifact's effective level), and it applies 1 + effective level/2 turns of cripple.\n" +
                         "\n" +
-                        "严冬之色——画笔释放出其中已逝的严冬，释放冰霜气息使敌人止步。在指定点释放暴风雪，使目标地点3*3范围内敌人陷入2+神器实际等级 回合迟缓；以射弹形式瞄准。\n" +
+                        "Harsh Winter Hue - the brush releases the winter it has outlived, exhaling frost that stops enemies in their tracks. Releases a blizzard at the target tile, slowing enemies in a 3x3 area for 2 + effective level turns; aimed as a projectile.\n" +
                         "\n" +
-                        "天际之色——画笔释放出其中已逝的梦境，释放梦境之影隐蔽自身。在自身周围产生暗夜迷雾，气体量为100+神器实际等级*25。\n" +
+                        "Skyline Hue - the brush releases the dream it has outlived, cloaking itself in the shadow of dreams. Creates night mist around you with a gas amount of 100 + effective level * 25.\n" +
                         "\n" +
-                        "使用：\n" +
-                        "画笔以充能方式储存能量，上限为3+实际等级，每（120-该神器实际等级*5-已损失充能*8）回合获得一层充能。每次作画固定消耗一点充能。\n" +
+                        "Use:\n" +
+                        "The brush stores energy as charge, up to 3 + effective level, gaining one charge every (120 - effective level*5 - lost charge*8) turns. Each painting costs exactly one charge.\n" +
                         "\n"),
                 (
-                        "实际等级上限为4，显示为+2/+5/+7/+10。\n" +
+                        "The effective level caps at 4 and displays as +2/+5/+7/+10.\n" +
                         "\n" +
-                        "升级：\n" +
-                        "画笔需要依次投入以下类型的物品以献上你的追忆——\n" +
-                        "1.一瓶冰爆魔药（画笔正在索取寒冷的回忆，请献上冰爆魔药）\n" +
-                        "2.一把带有至少+2升级的，被鉴定的，不低于2阶的非诅咒武器（画笔正在索取可怖的回忆，请献上精良的武器）\n" +
-                        "3.15点生命上限（画笔正在索取诞生前的回忆，请献上自己的一部分）\n" +
-                        "4.一件带有至少+2升级的，被鉴定的非诅咒戒指（画笔正在索取骄盛的回忆，请献上精良的戒指）\n" +
+                        "Upgrade:\n" +
+                        "The brush must be fed the following in order to offer up your memories -\n" +
+                        "1.An Ice Blast brew (the brush craves a memory of cold; offer an Ice Blast brew)\n" +
+                        "2.An identified, uncursed weapon of tier 2 or higher upgraded at least +2 (the brush craves a memory of dread; offer a fine weapon)\n" +
+                        "3.15 points of max HP (the brush craves a memory from before birth; offer a part of yourself)\n" +
+                        "4.An identified, uncursed ring upgraded at least +2 (the brush craves a memory of pride; offer a fine ring)\n" +
                         "\n" +
-                        "该神器每次升级会使玩家幻惑50回合，幻惑时再试图升级神器会显示\"你正陷入回忆中无法自拔，恐怕不能这样做了。\"\n" +
+                        "Each upgrade confuses the player for 50 turns, and trying to upgrade again while confused shows \"You are lost in memory and cannot bring yourself to do it.\"\n" +
                         "\n" +
-                        "神器充能：每回合充能0.1。")));
+                        "Artifact charging: 0.1 charge per turn.")));
 
-        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.MAGE, 13), "新皮肤：学院时光",
-                "售价1500钴币\n\n原稿：Priestess\n\n绘制：Noah-7385 & Daniel-Calan\n\n茉莉就读于法师学院时的制服，在校时，她是数一数二的魔法尖子生。传闻她常独自待在图书馆最深处，研读那些失传已久的古老法术……"));
+        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.MAGE, 13), "New skin: Academy Days",
+                "Price: 1500 cobalt coins\n\nOriginal design: Priestess\n\nArt: Noah-7385 & Daniel-Calan\n\nJasmine's uniform from her time at the mage academy, where she was one of the very best students. Rumor has it she spent her days alone in the deepest part of the library, studying long-lost ancient spells..."));
 
         changes.addButton( new ChangeButton( new TalentIcon(Talent.TESTED_HYPOTHESIS), Talent.TESTED_HYPOTHESIS.title(),
-                "法师T1天赋，实验假设天赋更换为 灵光一闪"));
+                "Mage tier 1 talent Experimental Hypothesis replaced with Flash of Insight"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.BEACON), "皮肤下架说明",
-                "由于 晚宴邀请 and 虔圣书徒 两款皮肤的画师单方面发狂，现制作组已与其永久解除合作，并永久移除所有与其有关的内容。\n" +
-                        "对喜爱这两款皮肤的玩家深表歉意，但这也是不可抗力的因素，对于此前已拥有晚宴邀请的玩家，将在版本更新后免费赠送新皮肤：学院时光。\n" +
-                        "对于此前已拥有虔圣书徒的玩家，将在更新后启动游戏后，自动发放500钴币。"));
+        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.BEACON), "Skin removal notice",
+                "Because the artist behind the Dinner Invitation and Devoted Scribe skins went off the rails on their own, the team has permanently ended the partnership and permanently removed everything connected to them.\n" +
+                        "We are deeply sorry to players who loved those two skins, but this was outside our control. Anyone who already owned Dinner Invitation will receive the new Academy Days skin free after the update.\n" +
+                        "Anyone who already owned Devoted Scribe will automatically be granted 500 cobalt coins when they launch the game after the update."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SCROLL_GOLD), ("金蝶模式V2.5"),
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SCROLL_GOLD), ("Gold Butterfly Mode V2.5"),
                 (
-                        "金蝶模式-V2.5\n\n" +
-                                "_-_ 优化金蝶神器嬗变，现在只能嬗变未装备的神器\n" +
-                                "_-_ 金蝶中与狐狸对话有概率获得全新特殊武器，开启特殊模式！")));
+                        "Gold Butterfly Mode - V2.5\n\n" +
+                                "_-_ Improved artifact transmutation in Gold Butterfly; only unequipped artifacts can be transmuted now\n" +
+                                "_-_ Talking to the fox in Gold Butterfly has a chance to grant a brand new special weapon and unlock a special mode!")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.5.0：\n\n" +
-                        "_-_ 修复白浪刺剑武技先前可以以墙体为目标使用，无限距离且不消耗充能的严重问题\n" +
-                        "_-_ 优化苍白花环新增特判：不会被拟态之王与浊焰魔女收走，防止利用该特性逃课成就\n" +
-                        "_-_ 修复携带bzm的礼物会导致开灯不增加视野的问题\n" +
-                        "_-_ 修复钻石大剑与轻音铃铛在乾坤宗师的\"伴生强化\"天赋下获取假升级的问题，虚拟等级仅显示，不再错误影响面板与实际效果\n" +
-                        "_-_ 修复魔女的印记——浊燃祝福效果异常的问题，描述为20%全伤减免，此前错误实现了免疫法术伤害，现已修正为正确的20%全伤减免\n" +
-                        "_-_ 修复灵魂卷轴部分设计问题 & 钻石大剑武技的异常问题\n"),
+                ("V0.9.5.0:\n\n" +
+                        "_-_ Fixed a serious bug where the White Wave Rapier ability could target walls, work at unlimited range and cost no charge\n" +
+                        "_-_ Added a check to the Pale Wreath: it can no longer be taken by the Mimic King or the Murkflame Witch, so this cannot be used to cheese achievements\n" +
+                        "_-_ Fixed carrying bzm's gift stopping lights from increasing your sight\n" +
+                        "_-_ Fixed the Diamond Greatsword and Soft Chime Bell gaining fake upgrades under the Grandmaster's \"Companion Strengthening\" talent; the virtual level is now display only and no longer wrongly affects stats or effects\n" +
+                        "_-_ Fixed the Witch's Mark - Murkflame Blessing effect; it is described as 20% damage reduction from all sources, but had wrongly implemented immunity to spell damage. It is now the correct 20% reduction\n" +
+                        "_-_ Fixed some design issues with the Scroll of Soul and a bug with the Diamond Greatsword ability\n"),
                 (
-                        "_-_ 修复莲娜Boss部分技能有可能卡死玩家的问题\n" +
-                        "_-_ 修复部分极端情况下寻路发生了存档永久崩溃问题，更新该版本进入存档将恢复正常\n" +
-                        "_-_ 修复在古堡全面搜查传送卡死在房间的问题，与0层一样，可以点击卡死固定传送回搜查入口点\n" +
-                        "_-_ 修复空间残片在古堡三大小游戏中生效导致的各种问题\n" +
-                        "_-_ 修复大冰杖在高等级因为移速减至100%卡死的严重问题\n" +
-                        "_-_ 修复艾诺琳娜部分技能可能导致游戏闪退的严重问题\n" +
-                        "_-_ 修复牧笛贴图尺寸对齐不一致的问题\n" +
-                                "_-_ 修复天赋-戒指强化-对部分神器无加成的异常")));
+                        "_-_ Fixed some Lena boss skills potentially softlocking players\n" +
+                        "_-_ Fixed pathfinding in extreme cases permanently corrupting a save; loading a save with this version restores it\n" +
+                        "_-_ Fixed getting stuck in a room during the Castle full search teleport; as on floor 0, tapping now teleports you back to the search entry point\n" +
+                        "_-_ Fixed the Shard of Space interacting with the three Castle minigames and causing various problems\n" +
+                        "_-_ Fixed a serious bug where the great ice wand softlocked the game at high levels by cutting speed to 100%\n" +
+                        "_-_ Fixed a serious bug where some Honorata skills could crash the game\n" +
+                        "_-_ Fixed misaligned sprite dimensions on the Reed Flute\n" +
+                                "_-_ Fixed the Ring Enhancement talent not applying to some artifacts")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "破碎之环-T3-加强",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "Shattered Ring - T3 - buffed",
                 Messages.get(BrokenRing.class,"desc")));
 
 
@@ -1051,15 +1051,15 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_CAPE), "荆棘斗篷",
-                "_-_ 物理直伤由等级削弱至等级/2\n" +
-                          "_-_ 荆棘力场范围由半径等级/2削弱至半径等级/4 _向上取整_\n" +
-                          "_-_ 隐身状态下开启荆棘力场会破除隐身状态"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_CAPE), "Cloak of Thorns",
+                "_-_ Direct physical damage reduced from level to level/2\n" +
+                          "_-_ Thorn force field radius reduced from level/2 to level/4, _rounded up_\n" +
+                          "_-_ Activating the thorn force field while invisible now breaks invisibility"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FAINT_GLIMMER), "无暇微光-T3-削弱",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FAINT_GLIMMER), "Flawless Glimmer - T3 - nerfed",
                 Messages.get(FaintGlimmer.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HELL_BUTTERFLY), "炼狱赤蝶-T3-削弱",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HELL_BUTTERFLY), "Purgatory Red Butterfly - T3 - nerfed",
                 Messages.get(HellButterfly.class,"desc")));
     }
 
@@ -1067,161 +1067,161 @@ public class vm0_9_X_Changes {
         ChangeInfo changes = new ChangeInfo("v0.9.4.8-9", true, "");
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
-        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "开发者的话",
-                "v0.9.4.8 — 完成于 2026-06-18 23:45\n\n" +
-                        "距离上次写下这段心里话，已经是2023年10月6日，一晃近三年时光匆匆而过。\n" +
-                        "曾经懵懂的大学生，如今也走过了许多路途——踏过祖国边疆，也穿梭于繁华都市。\n" +
-                        "沿途见识百态，尝过挫折与坎坷，但始终不愿停下脚步，像一株百折不挠的野草稳步前行。\n\n" +
-                        "回首望去，魔绫像素地牢早已从当初不起眼的小型模组，在地牢玩家圈子里拥有了属于自己的一席之地，这份成果让我由衷欣喜。\n" +
-                        "更让我倍感温暖的是，制作组的伙伴们不断汇聚，队伍愈发壮大：\n" +
-                        "Bzmdr、Kuzumi、Sotis、索托斯、手电\n" +
-                        "Daniel Calan、寄神、犬罗、小叶、Archetto等制作组的成员\n\n" +
-                        "还有每一位一路相伴的群友与玩家，你们是支撑魔绫持续走下去的全部动力。若无诸位，便没有如今的魔绫。\n\n" +
-                        "我今年即将年满23岁，或许再过数年，生活琐事会让我无法再像现在这样高频更新、活跃在社区。\n" +
-                        "但那一天尚且遥远，当下仍有无限值得珍惜的时光，愿我们都认真活好每一天。\n\n" +
-                        "本次更新周期偏长，在此向大家致歉，近期现实生活繁杂，挤占了大量开发时间。\n" +
-                        "本次更新内容体量虽不算庞大，但足够各位细细游玩。更新结束后，项目将正式转入「失落古墓」DLC的集中开发周期。\n" +
-                        "期待下次相见时，我们能在古墓版本再度畅谈。最后祝愿所有冒险者游玩愉快！\n\n" +
-                        "—— MLPD 主开发：JDSALing"));
+        changes.addButton(new ChangeButton(new Image("Ling.png", 0, 0, 16, 16), "A word from the developer",
+                "v0.9.4.8 - finished 2026-06-18 23:45\n\n" +
+                        "The last time I wrote one of these was 2023-10-06. Nearly three years have flown by.\n" +
+                        "The clueless student I was has come a long way - out to the country's borders and through its busiest cities.\n" +
+                        "I have seen every walk of life and tasted plenty of setbacks, but I never wanted to stop walking, pushing on like a weed that will not be trampled.\n\n" +
+                        "Looking back, Magic Ling Pixel Dungeon has grown from an unremarkable little mod into a name of its own in the dungeon community, and that genuinely delights me.\n" +
+                        "What warms me more is that the team keeps growing, with more and more people joining:\n" +
+                        "Bzmdr, Kuzumi, Sotis, Sothoth, Shoudian\n" +
+                        "Daniel Calan, Jishen, Quanluo, Xiaoye, Archetto and the rest of the team\n\n" +
+                        "And every group member and player who has come along with us - you are the whole reason Magic Ling keeps going. Without you there would be no Magic Ling as it is today.\n\n" +
+                        "I turn 23 this year, and in a few more years life may not leave me time to update this often or stay active in the community.\n" +
+                        "But that day is still far off and there is endless time worth treasuring now. May we all live each day well.\n\n" +
+                        "This update cycle ran long and I apologize - real life has been hectic lately and has eaten a lot of development time.\n" +
+                        "The update is not huge in volume, but there is plenty to dig into. Once it is out, the project moves into focused development of the Lost Tomb DLC.\n" +
+                        "When we next meet, I hope we can talk again over the Tomb version. Until then, happy exploring!\n\n" +
+                        "- MLPD lead developer: JDSALing"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "new"), false, null);
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ArchettoSprite(), "弦事件调整",
-                "现在给予弦珍贵的东西，将可以获得 _灵魂卷轴_。"));
+        changes.addButton(new ChangeButton(new ArchettoSprite(), "Xian event changes",
+                "Giving Xian something precious now grants a _Scroll of Soul_."));
 
-        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.BEACON), "新道具：梦想通讯器",
-                "完全隐藏道具，只能在异度时空获得（兑换码），可以在这里兑换任意一套时装皮肤。"));
+        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.BEACON), "New item: Dream Communicator",
+                "A fully hidden item that can only be obtained from another dimension (redeem code). It can be exchanged for any one outfit skin."));
 
-        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.SKIN_14), "新皮肤：女仆红狐",
-                "售价1500钴币\n\n作者：Priestess & 索托斯 & Daniel Calan\n\n炉边煮好了咖啡，主人，要不要来一杯歇歇？"));
+        changes.addButton (new ChangeButton (new ItemSprite(ItemSpriteSheet.SKIN_14), "New skin: Maid Red Fox",
+                "Price: 1500 cobalt coins\n\nCredits: Priestess & Sothoth & Daniel Calan\n\nThe coffee is ready by the fire - would master care for a cup and a rest?"));
 
-        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.DUELIST, 14), "新皮肤：埃及艳后",
-                "售价1500钴币\n\n作者：过街的白菜——人人喊吃 & 索托斯 & Daniel Calan\n\n大漠热风裹挟着金饰微光，绿洲的女王在此等候你的到来。"));
+        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.DUELIST, 14), "New skin: Cleopatra",
+                "Price: 1500 cobalt coins\n\nCredits: Baicai & Sothoth & Daniel Calan\n\nThe desert wind carries the glint of gold, and the queen of the oasis awaits you."));
 
-        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.DUELIST, 7), "武技实装・第二轮更新",
-                "以下新增武技武器：\n" +
-                        "国王大剑、倒悬的生命树、钻石大剑、丛林毒刺、白浪刺剑、烤鲱鱼、糯米大剑、五仁月饼、\n" +
-                        "红魔巨剑、尚方宝剑、煮熟的尚方宝剑、嗜血荆棘、炸弹匕首、肃杀、重型弩炮、涤罪、卡戎的船桨、寻觅长枪、龙鳞 \n\n" +
-                        "欢迎体验！"));
+        changes.addButton (new ChangeButton (HeroSprite.avatar (HeroClass.DUELIST, 7), "Weapon abilities - round two",
+                "The following weapons gained abilities:\n" +
+                        "King's Greatsword, Inverted Tree of Life, Diamond Greatsword, Jungle Sting, White Wave Rapier, Grilled Herring, Glutinous Greatsword, Five-Nut Mooncake,\n" +
+                        "Red Demon Greatsword, Imperial Sword, Cooked Imperial Sword, Bloodthirsty Thorns, Bomb Dagger, Quell, Heavy Ballista, Absolution, Charon's Oar, Seeking Spear, Dragon Scale \n\n" +
+                        "Enjoy!"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HHBlade), "新Boss专武：钻石大剑",
-                "在未击败拟态之王时，首次击杀必定获得。之后武器加入生成池，拟态之王也有小概率掉落。\n\n" +
-                        "武器数据：\n\n" +
-                        "拟态之王的佩剑，由钻石制成的大剑，漂亮而致命。\n" +
-                        "上面附带了一丝拟态之王的魔力，虽然在一定程度上限制了它，但似乎也带来了不错的效果\n" +
-                        "4阶，5-25，1-6成长，1.5延迟，2距，17力\n" +
-                        "对1距目标造成物理伤害并施加1/5伤害量回合数的中毒\n" +
-                        "对2距目标造成法术伤害并施加1/5伤害量回合数的流血\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HHBlade), "New boss weapon: Diamond Greatsword",
+                "Guaranteed on your first kill of the Mimic King if you have not beaten it yet. Afterwards it joins the spawn pool and the Mimic King has a small chance to drop it.\n\n" +
+                        "Weapon data:\n\n" +
+                        "The Mimic King's blade, a greatsword cut from diamond - beautiful and deadly.\n" +
+                        "A trace of the Mimic King's magic clings to it. That limits it somewhat, but it seems to bring a fine effect as well\n" +
+                        "Tier 4, 5-25, growth 1-6, 1.5 delay, 2 reach, 17 Strength\n" +
+                        "Deals physical damage to targets 1 tile away and applies poison for 1/5 of the damage in turns\n" +
+                        "Deals spell damage to targets 2 tiles away and applies bleeding for 1/5 of the damage in turns\n" +
                         "\n" +
-                        "无法增加攻击距离"));
+                        "Cannot gain extra attack range"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KING_SWORD), "新Boss专武：国王大剑",
-                "在矮人国王处未获得‘掣君无刃’成就时，首次完成该成就必定获得。之后武器加入生成池，矮人国王也有小概率掉落。\n\n" +
-                        "武器数据：\n\n" +
-                        "矮人国王的仪式用剑，对于矮人来说是一把十足的重剑，就算如此你挥舞它也需要费一番力气\n" +
-                        "对恶魔和精英敌人伤害增加50%\n" +
-                        "有40%+等级x5的概率对敌人造成5+等级/2回合易伤状态\n" +
-                        " 4阶17力，1-7成长，1.5延迟基础，10-35基础伤害\n" +
-                        "注：该武器为贤者之剑迭代，老存档将会自动同步！"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KING_SWORD), "New boss weapon: King's Greatsword",
+                "Guaranteed the first time you complete the \"Sovereign Without a Blade\" achievement at the Dwarf King, if you have not yet earned it. Afterwards it joins the spawn pool and the Dwarf King has a small chance to drop it.\n\n" +
+                        "Weapon data:\n\n" +
+                        "The Dwarf King's ceremonial blade. It is a true heavy sword for a dwarf, and even so it takes some effort to swing\n" +
+                        "Deals 50% more damage to demons and elites\n" +
+                        "Has a 40% + level x 5 chance to inflict vulnerable on the enemy for 5 + level/2 turns\n" +
+                        " Tier 4, 17 Strength, growth 1-7, 1.5 base delay, 10-35 base damage\n" +
+                        "Note: this weapon is an iteration of the Sage's Sword, and old saves sync automatically!"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.JUNGLE_SWORD), "新Boss专武：丛林毒刺",
-                "在未击败克璃诺斯-森林意志时，首次击杀必定获得。之后武器加入生成池，克璃诺斯-森林意志也有小概率掉落。\n\n" +
-                        "武器数据：\n\n" +
-                        "从克璃诺斯之果身上拆下的一根强壮枝条，蕴含了极强的毒性以及那些触手的力量。挥舞起来很顺手，不过却不怎么锋利\n" +
-                        "3阶，6-12，1-2成长，0.5延迟\n" +
-                        "1距，14力\n" +
-                        "每次攻击叠加(2LV+3)层中毒\n" +
-                        "当中毒层数叠加至目标最大生命值/3层时，对目标施加缠绕与失明，持续回合数与中毒层数相等\n" +
-                        "注：生命树也进行了重做"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.JUNGLE_SWORD), "New boss weapon: Jungle Sting",
+                "Guaranteed on your first kill of Clivus, Will of the Forest, if you have not beaten it yet. Afterwards it joins the spawn pool and Clivus has a small chance to drop it.\n\n" +
+                        "Weapon data:\n\n" +
+                        "A sturdy branch torn from the Fruit of Clivus, steeped in potent venom and the power of those tentacles. It swings nicely, though it is not especially sharp\n" +
+                        "Tier 3, 6-12, growth 1-2, 0.5 delay\n" +
+                        "1 reach, 14 Strength\n" +
+                        "Each attack stacks (2 LV + 3) poison\n" +
+                        "Once poison stacks reach a third of the target's max HP, the target is entangled and blinded for as many turns as it has poison stacks\n" +
+                        "Note: the Tree of Life was reworked as well"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_CAPE), ("神器重做：荆棘斗篷"),
-                ("升级同暗影斗篷(10%充能对应斗篷1充能)，主动使用，可主动关闭，充能百分比式\n" +
-                        "自然充能4t/1%，受到伤害额外加(本次伤害/2)%，神器充能1t/5%\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_CAPE), ("Artifact rework: Cloak of Thorns"),
+                ("Upgrades like the Shadow Cloak (10% charge equals 1 cloak charge), used actively, can be switched off, charge is percentage based\n" +
+                        "Natural charging 4t/1%, taking damage adds (that damage/2)%, artifact charging 1t/5%\n" +
                         "\n" +
-                        "使用时1t/5%的消耗\n" +
+                        "Use costs 1t/5%\n" +
                         "\n" +
-                        "使用时(20+2LV)%~(30+4LV)%免伤\n" +
-                        "使用时对半径为(LV/2)的圆形(向下取整)的敌人每回合造成LV点物理伤害并施加1.5LV回合数的流血(不可叠加，重复获取取最高)\n" +
+                        "While active it grants (20 + 2 LV)% to (30 + 4 LV)% damage reduction\n" +
+                        "While active it deals LV physical damage each turn to enemies in a circle of radius (LV/2, rounded down) and applies 1.5 LV turns of bleeding (does not stack; take the highest)\n" +
                         "\n" +
-                        "挨打使攻击目标受到本次原始伤害的反伤，并叠加LV回合数的流血")));
+                        "Being hit reflects the raw damage back at the attacker and stacks LV turns of bleeding")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MAGNETIC_CROWN), ("新神器：引力王冠"),
-                ("戴上这顶王冠时，你感受到了空间中微弱的磁力，这种力量也许能把你和其他生物拖向某一地点……\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MAGNETIC_CROWN), ("New artifact: Crown of Gravity"),
+                ("Wearing this crown you feel a faint magnetism in space, a force that might drag you and other creatures toward some point...\n" +
                         "\n" +
-                        "使用消耗1点充能，点击任意视野内的地格，将距离那个地格最近的单位拖拽至此处，在一次使用中最多因此法位移3+等级*0.5格。\n" +
-                        "（如果有相同距离判定则优先拉敌人）\n" +
+                        "Using it costs 1 charge: tap any visible tile and the unit closest to that tile is dragged there, moving at most 3 + level*0.5 tiles per use this way.\n" +
+                        "(If distances tie, enemies are pulled first)\n" +
                         "\n" +
-                        "当视野内的一次性陷阱被触发时获得10经验，每获得50+7*等级点经验神器升一级。\n" +
-                        "初始充能3，最大充能10，每升级一级获得一点最大充能。每50-等级回合恢复一点充能。\n" +
+                        "Gaining 10 XP when a one-shot trap in sight is triggered levels the artifact up every 50 + 7 * level XP.\n" +
+                        "Starts with 3 charge, max 10, and each level adds one max charge. Recovers one charge every 50 - level turns.\n" +
                         "\n" +
-                        "神器充能效果为每回合恢复0.3点充能。\n" +
-                        "诅咒效果为无法使用。")));
+                        "Artifact charging recovers 0.3 charge per turn.\n" +
+                        "Cursed effect: cannot be used.")));
 
         changes.addButton( new ChangeButton( new TalentIcon(Talent.RUNIC_TRANSFERENCE), Talent.RUNIC_TRANSFERENCE.title(),
-                "现在该天赋新增了其他英雄的嬗变策略，详情可参考该英雄的蜕变描述。"));
+                "This talent now has transmutation paths for other heroes; see that hero's metamorphosis description for details."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FLOWERY), "新书籍：元素编年史",
-                        "大概率提供魔能透视，小概率提供元素祝福。\n" +
-                        "在那些回忆商店有概率出现，出现时，绿林圣境守则书籍将不再该商店生成"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FLOWERY), "New book: Chronicle of Elements",
+                        "High chance to grant magical vision, low chance to grant an elemental blessing.\n" +
+                        "It can appear in the Memory Shop, and when it does the Codex of the Verdant Sanctum will not appear in that shop"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("查种器V3.1"),
-                ("1.移除强力搜查模式\n" +
-                        "2.修复搜索过程中可能卡住的问题\n" +
-                        "3.使用多线程提升查询速度（也是移除强力搜查模式的原因）\n" +
-                        "4.查种结束后显示对应的物品楼层位置")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_AIKELAIER), ("Seed Finder V3.1"),
+                ("1.Power Search removed\n" +
+                        "2.Fixed the search sometimes hanging\n" +
+                        "3.Multithreading speeds up lookups (also why Power Search is gone)\n" +
+                        "4.Lookups now show which floor the item is on")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_HORN4), "丰饶之角",
-                "现在贮存食物时，将自动跳转到食物袋！"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_HORN4), "Horn of Plenty",
+                "Storing food now jumps straight to the food bag!"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RANDOM_CHEST), "存档提取系统",
-                "鉴于0.9.4.8旧存档崩溃过多，但是存档克隆问题太多，所以加了这个，如果你真的需要老存档，欢迎自行提取并联系我们人工恢复。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RANDOM_CHEST), "Save extraction system",
+                "Since the 0.9.4.8 save crashes were frequent but save cloning caused too many problems, this was added: if you really need an old save, extract it yourself and contact us for a manual restore."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LONGSWORD), "伤害系统v0.3",
-                "现在真实伤害将会破盾，请万般小心！"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LONGSWORD), "Damage system v0.3",
+                "True damage now breaks shields, so be very careful!"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LANTERNB), "灯火前路：v3.3",
-                "现在灯火25以下后，常规怪物不再掉落物品。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LANTERNB), "Lights Ahead: v3.3",
+                "Below 25 lights, regular mobs no longer drop items."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_DIAMOND), "戒指重构",
-                "原有韧性、元素、精准、闪避四枚戒指实战强度偏弱，本次更新将其整合重构，替换为两枚全新戒指：\n\n" +
-                        "_-_ 庇护之戒：同时提供韧性与元素抗性加成\n" +
-                        "_-_ 集中之戒：同时提升命中精准与闪避能力\n\n" +
-                        "注：旧存档内的对应戒指会自动转换，若出现效果失效问题，取下戒指重新装备即可恢复正常。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_DIAMOND), "Ring rework",
+                "The four rings of Tenacity, Elements, Accuracy and Evasion were weak in practice, so this update folds them into two brand new rings:\n\n" +
+                        "_-_ Ring of Sanctuary: grants both Tenacity and elemental resistance\n" +
+                        "_-_ Ring of Focus: improves both accuracy and evasion\n\n" +
+                        "Note: the old rings in existing saves convert automatically. If an effect fails, unequip and re-equip the ring to fix it."));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("UI优化"),
-                ("_-_ 现在Buff显示进行了优化，特别感谢Shower-沐沐的帮忙\n" +
-                        "_-_ 现在Boss血条同步了破碎3.3.8，并且追加了血条动画，小血条也同步加入\n" +
-                        "_-_ 部分UI界面进行了优化迭代")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("UI improvements"),
+                ("_-_ Buff display improved, with special thanks to Shower for the help\n" +
+                        "_-_ Boss health bars synced to Shattered 3.3.8, with animations added, and the small health bars now match\n" +
+                        "_-_ Various UI screens updated")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.4.9：\n\n" +
-                        "_-_ 修复旧存档兼容性问题导致的各种异常\n" +
-                        "_-_ 修复引力王冠的一些崩溃问题\n" +
-                        "_-_ 修复怪物不掉落东西的异常问题\n" +
-                        "_-_ 修复女猎三皮伤害异常的问题\n" +
-                        "_-_ 修复Bzmdr礼物英雄视野异常的问题\n" +
-                        "_-_ 修复蓄血圣杯可以在荆棘激活时献祭的异常\n" +
-                        "_-_ 修复部分戒指的数值显示异常\n" +
-                        "_-_ 修复英雄小人素材缺少1px的问题，来自watabou的特性（2014-07-27）在4349天后被处理\n" +
-                        "_-_ 修复部分徽章无法显示的异常\n" +
-                        "_-_ 修复变形天赋文本不显示的问题\n"+
-                        "_-_ 粽子的生成概率下调至0.85f，比肉馅饼稍微低了一些，而不是之前的3权重"),
-                (	    "V0.9.4.8：\n\n" +
-                        "_-_ 修复异果层自爆会摧毁物品的异常\n" +
-                        "_-_ 修复在br1层触发传送类陷阱/空间残片会导致地上跟着一起传送(3*3范围)的物品消失\n" +
-                        "_-_ 多Boss血条移除，因为这导致了很多崩溃\n" +
-                        "_-_ 修复石油大井部分文案异常\n" +
-                        "_-_ 修复星尘藏品会导致主动效果回合全部减半的异常\n" +
-                        "_-_ 修复商人佩剑倒卖也要打折的异常\n" +
-                        "_-_ 修复新0层可使用返回晶柱的异常\n" +
-                        "_-_ 创世神之心现在不会再被祝福\n" +
-                        "_-_ 修复近期的工单，游戏崩溃等相关问题")));
+                ("V0.9.4.9:\n\n" +
+                        "_-_ Fixed various errors caused by old save compatibility\n" +
+                        "_-_ Fixed some crashes with the Crown of Gravity\n" +
+                        "_-_ Fixed mobs not dropping anything\n" +
+                        "_-_ Fixed the Huntress third skin dealing wrong damage\n" +
+                        "_-_ Fixed the hero's sight being wrong with Bzmdr's gift\n" +
+                        "_-_ Fixed the Blood Chalice being usable to sacrifice while Thorns is active\n" +
+                        "_-_ Fixed stat display errors on some rings\n" +
+                        "_-_ Fixed the hero sprite missing 1px, a quirk from watabou (2014-07-27) addressed 4349 days later\n" +
+                        "_-_ Fixed some badges failing to display\n" +
+                        "_-_ Fixed metamorphosis talent text not showing\n"+
+                        "_-_ Zongzi spawn chance lowered to 0.85f, a little rarer than a meat pie, instead of the previous weight of 3"),
+                (	    "V0.9.4.8:\n\n" +
+                        "_-_ Fixed the Strange Fruit floor explosion destroying items\n" +
+                        "_-_ Fixed teleport traps and Shards of Space on Boss Rush floor 1 deleting items on the ground around you (3x3 area) as they teleported\n" +
+                        "_-_ Removed multi-boss health bars, as they caused many crashes\n" +
+                        "_-_ Fixed some text on the Oil Well\n" +
+                        "_-_ Fixed the Stardust collectible halving the duration of every active effect\n" +
+                        "_-_ Fixed the merchant sabre also getting a discount when resold\n" +
+                        "_-_ Fixed the new floor 0 letting you use the return pillar crystal\n" +
+                        "_-_ The Heart of the Creator can no longer be blessed\n" +
+                        "_-_ Fixed recent tickets, crashes and related issues")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
@@ -1229,18 +1229,18 @@ public class vm0_9_X_Changes {
 
         Image s =new CrivusStarFruitsSprite();
         s.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(s, ("异果调整"),
-                ("_-_ 现在异果二阶段的触手可以被攻击，攻击会提供给英雄少量灵视，在异果战斗结束后会去除灵视效果（无论你有多少回合）\n" +
-                        "_-_ 异果新增 丛林毒刺 Boss专武")));
+        changes.addButton(new ChangeButton(s, ("Strange Fruit changes"),
+                ("_-_ The phase two tentacles can now be attacked, and attacking them gives the hero a little spirit vision, which is removed when the Strange Fruit fight ends (however many turns you had left)\n" +
+                        "_-_ The Strange Fruit gained the Jungle Sting boss weapon")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.GREENBOOKS), "绿林圣境守则书籍调整",
-                "绿林圣境守则普通效果更改，改成给予0-20树肤。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.GREENBOOKS), "Codex of the Verdant Sanctum changes",
+                "Its regular effect changed to granting 0-20 barkskin."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), "法师之手调整",
-                "鉴于目前法师之手轻微超模，将法师之手英雄可见视野移除。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), "Mage Hand changes",
+                "Since the Mage Hand is slightly overtuned, its shared hero sight has been removed."));
 
-        changes.addButton(new ChangeButton(new PumkingBomberSprite(), "南瓜姜饼人调整",
-                "鉴于目前与时间气泡有严重卡死冲突且短时间无法解决，在困难模式下将自动死亡，但无经验提供。"));
+        changes.addButton(new ChangeButton(new PumkingBomberSprite(), "Pumpkin Gingerbread Man changes",
+                "Since it currently softlocks badly with Time Bubbles and that cannot be fixed quickly, in Hard Mode it now dies automatically, though it grants no XP."));
 
     }
 
@@ -1253,33 +1253,33 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("新原创音乐：王宫议事-将军"),
-                ("矮人将军专属音乐，现已正式到来。\n\nBy Tatsro")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("New original music: Palace Council - General"),
+                ("Music for the Dwarven General has officially arrived.\n\nBy Tatsro")));
 
-        changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.MAGE, 1), "大立绘更新",
-                "原皮大立绘进行迭代更新"));
+        changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.MAGE, 1), "Key art update",
+                "The default skin's key art has been updated"));
 
-        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("抢劫商店优化"),
-                ("如果拾取回溯之书，则不能前往抢劫。")));
+        changes.addButton(new ChangeButton(new ShopkKingSprite(), ("Shop robbery improvements"),
+                ("If you pick up the Tome of Return you cannot go through with a robbery.")));
 
         Image s =new CrivusStarFruitsSprite();
         s.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(s, ("异果优化"),
-                ("死亡时将产生延时爆炸。")));
+        changes.addButton(new ChangeButton(s, ("Strange Fruit improvements"),
+                ("It now leaves a delayed explosion on death.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                (	    "V0.9.4.5：\n\n" +
-                        "_-_ 修复大雷霆法杖ARC效果可能空指针导致的闪退游戏异常\n" +
-                        "_-_ 修复解离法杖不能穿透免伤的异常\n" +
-                        "_-_ 修复地狱赤蝶在以下情况的异常\n" +
-                        "_-_ ①磷火飞镖扎幻想结界水晶现在可以上地狱火\n" +
-                        "_-_ ②地狱火现在可以清除异果三阶段的护盾\n" +
-                        "_-_ 修复藏品望远镜导致投掷物打开面板异常\n" +
-                        "_-_ 修复近期的闪退崩溃相关问题")));
+                (	    "V0.9.4.5:\n\n" +
+                        "_-_ Fixed a crash from a possible null pointer in the Greater Lightning Staff ARC effect\n" +
+                        "_-_ Fixed the Disintegration Staff not piercing damage immunity\n" +
+                        "_-_ Fixed the Hell Red Butterfly in the following cases\n" +
+                        "_-_ 1.Ghostfire Darts hitting an Illusion Barrier Crystal can now apply hellfire\n" +
+                        "_-_ 2.Hellfire can now clear the phase three shield of the Strange Fruit\n" +
+                        "_-_ Fixed the Telescope collectible breaking the thrown item panel\n" +
+                        "_-_ Fixed recent crashes")));
     }
 
     public static void add_V0942_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -1291,37 +1291,37 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：繁体中文"),
-                ("来自Sotis的繁体中文已经更新\n\n当前繁体中文语言包版本：2026/4/16")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: Traditional Chinese"),
+                ("The Traditional Chinese pack from Sotis has been updated\n\nCurrent Traditional Chinese pack version: 2026/4/16")));
 
-        changes.addButton( new ChangeButton(new BuffIcon(BuffIndicator.ANCIENT_SURVEY, true), "远古遗迹Buff",
-                "现在游玩远古遗迹，可以实时查看自己的调查点数。"));
+        changes.addButton( new ChangeButton(new BuffIcon(BuffIndicator.ANCIENT_SURVEY, true), "Ancient Ruins buff",
+                "Playing Ancient Ruins now shows your investigation points live."));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.INFO), ("伤害系统v0.2"),
-                ("修复伤害系统默认为魔法伤害图标的显示，伤害实际来源是没有问题的。\n\n并且现在真实伤害拥有独特图标：绿剑")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.INFO), ("Damage system v0.2"),
+                ("Fixed the damage system defaulting to the magic damage icon; the actual damage source was always correct.\n\nTrue damage also has its own icon now: a green sword")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                (	    "V0.9.4.2：\n\n" +
-                        "_-_ 修复雷霆法杖ARC效果可能空指针导致的闪退游戏异常\n" +
-                        "_-_ 修复英雄护甲一个潜在的可能导致空指针的问题闪退游戏异常\n" +
-                        "_-_ 修复Boss多血条渲染潜在的一些问题\n" +
-                        "_-_ 修复部分远古存档徽章更新后的闪退，但部分过于老旧版本的徽章可能会直接作废\n" +
-                        "_-_ 修复糯米大剑的一些潜在游戏崩溃问题\n" +
-                        "_-_ 修复因伤害系统改变，远古遗迹怪物部分技能异常\n" +
-                        "_-_ 优化法师之手图鉴显示需求\n" +
-                        "_-_ 优化传送方法底层代码")));
+                (	    "V0.9.4.2:\n\n" +
+                        "_-_ Fixed a crash from a possible null pointer in the Lightning Staff ARC effect\n" +
+                        "_-_ Fixed a possible null pointer in hero armor that crashed the game\n" +
+                        "_-_ Fixed some potential issues in multi-boss health bar rendering\n" +
+                        "_-_ Fixed crashes after the badge update for some very old saves, though badges from extremely old versions may be voided\n" +
+                        "_-_ Fixed some potential crashes with the Glutinous Greatsword\n" +
+                        "_-_ Fixed some Ancient Ruins mob skills after the damage system change\n" +
+                        "_-_ Improved the Mage Hand catalogue display requirements\n" +
+                        "_-_ Improved the low-level teleport code")));
 
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new NyarlathotepSprite(), ("古堡奈亚调整"),
-                ("奈亚子生成陷阱现在不包含缴械陷阱")));
+        changes.addButton(new ChangeButton(new NyarlathotepSprite(), ("Nya changes in the Castle"),
+                ("Nyazaki's generated traps no longer include disarming traps")));
     }
 
     public static void add_V0940_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -1333,166 +1333,166 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：英文"),
-                ("英文翻译更新，本次使用PDTR和英文翻译组初审通过，也许还有诸多问题，不过翻译完善率已达到95%")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: English"),
+                ("The English translation has been updated, reviewed by PDTR and the English team. There may still be issues, but coverage has reached 95%")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("音乐调整"),
-                ("魔绫像素地牢音乐正在进行原创迭代，因此部分音乐已有调整。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("Music changes"),
+                ("Magic Ling Pixel Dungeon music is being replaced with original tracks, so some music has changed.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("新-隐藏徽章"),
-                ("新的隐藏徽章现已上线，游玩游戏获得！\n\n" +
-                        "隐藏徽章：与子偕行")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("New hidden badge"),
+                ("A new hidden badge is live. Play the game to earn it!\n\n" +
+                        "Hidden badge: Walk With You")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), "在线兑换码系统",
-                "全新在线兑换码系统实装，可通过落白商店或游戏菜单兑换奖励。\n\n" +
-                        "从0.9.4.0开始，兑换码将在游戏新闻，官方群动态更新。"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), "Online redeem code system",
+                "The brand new online redeem code system is live; claim rewards through the Luobai Shop or the game menu.\n\n" +
+                        "From 0.9.4.0 on, redeem codes are announced in game news and official group updates."));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), "排行榜收藏夹系统",
-                "排行榜收藏夹功能上线，可收藏关注心仪的排行榜记录。\n\n至多可记录20份"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), "Leaderboard favorites",
+                "Leaderboard favorites are live, so you can bookmark runs you care about.\n\nUp to 20 entries"));
 
-        changes.addButton(new ChangeButton(new DogDogMusicSprite(),"0层内容更新",
-                "常规0层完善推进，新增大量NPC与交互内容。\n" +
-                        "- 新增0层NPC：犬、A神、幽寂\n" +
-                        "- 薄绿每局30%概率在旅馆出现\n" +
-                        "- 犬罗固定在旅馆出现\n" +
-                        "- 旅馆四组桌子随机NPC组合实装"));
+        changes.addButton(new ChangeButton(new DogDogMusicSprite(),"Floor 0 content update",
+                "Work on the regular floor 0 continues, with lots of new NPCs and interactions.\n" +
+                        "- New floor 0 NPCs: Quan, A-Shen, Stillness\n" +
+                        "- Bolü appears at the inn 30% of the time each run\n" +
+                        "- Quanluo always appears at the inn\n" +
+                        "- The inn's four tables now have random NPC line-ups"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CICRE_MUSIC), "新武器：轻音铃铛",
-                "身形移动，便会打断鸣响的连击。\n攻击奏响「轻音」，连续攻击引动「回音」"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CICRE_MUSIC), "New weapon: Soft Chime Bell",
+                "Moving breaks the ringing combo.\nAttacks ring out the \"soft chime\", and consecutive attacks stir an \"echo\""));
 
-        changes.addButton(new ChangeButton(new KusumiSprites(), "久住事件推进",
-                "久住相关剧情持续更新，全新相关事件等待探索。"));
+        changes.addButton(new ChangeButton(new KusumiSprites(), "Jiuzhu event progress",
+                "Jiuzhu's story continues to grow, with new events waiting to be found."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HELL_BUTTERFLY), "新藏品：炼狱赤蝶",
-                "你获得<#E5579A>磷火和地狱火<RGB>免疫，在怪物被施加_磷火_时替换为<#E94134>地狱火<RGB>。携带地狱火的怪物每回合受到<#E94134>20%最大生命值<RGB>的魔法伤害，对于没有<#E94134>任何精英或突变词条的怪物，伤害类型变为真实<RGB>。\n\nBoss单位携带地狱火时，效果改为每回合受到<#E94134>20点魔法伤害<RGB>，并清空身上的任何护盾。地狱火可以像磷火一样传播。\n\n“扣1送地狱火”\n\n“骗你的，不扣也送。嘻嘻。”"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HELL_BUTTERFLY), "New collectible: Purgatory Red Butterfly",
+                "You gain immunity to <#E5579A>ghostfire and hellfire<RGB>, and when the enemy would be given _ghostfire_ it becomes <#E94134>hellfire<RGB> instead. Mobs carrying hellfire take <#E94134>20% of max HP<RGB> as magic damage each turn; for mobs with no <#E94134>elite or mutation traits at all, the damage type becomes true<RGB>.\n\nOn boss units hellfire instead deals <#E94134>20 magic damage<RGB> per turn and clears any shield they have. Hellfire spreads like ghostfire.\n\n\"Type 1 for a free hellfire\"\n\n\"Just kidding, it is free either way. Hee hee.\""));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SPACE_DEBRIS), "新藏品：空间残片",
-                "某处被强行撕裂开的空间崩裂出的碎片，似乎并不能借助它的力量…\n\n每<#52B9D8>50回合进行一次本层的随机传送（不会传送到被钥匙门封锁的房间里）<RGB>， 如果主动跨层传送将会在原传送位偏移3层(不会进入新楼层)。\n\n持有时，每次使用被残片传送，或使用传送卷轴，或触发传送/虫洞/扭曲陷阱都会<#52B9D8>损失10%当前生命值<RGB>（生命值为1时可致死），如果是残片传送，还能获得<#52B9D8>2回合眩晕<RGB>"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SPACE_DEBRIS), "New collectible: Shard of Space",
+                "A fragment torn from somewhere in space, and it seems its power cannot be borrowed...\n\nEvery <#52B9D8>50 turns it teleports you randomly on your floor (never into a room sealed by a key door)<RGB>. If you teleport across floors yourself, you shift 3 floors from where you would have landed (you do not enter a new floor).\n\nWhile you hold it, every shard teleport, Scroll of Teleportation, or teleport/wormhole/warping trap <#52B9D8>costs 10% of your current HP<RGB> (fatal at 1 HP), and shard teleports also grant <#52B9D8>2 turns of daze<RGB>"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.EASTER_EGG), "清明+复活-双节活动",
-                "清明限定复活活动正式开启，参与可获得对应活动奖励。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.EASTER_EGG), "Tomb-Sweeping + Easter double event",
+                "The Tomb-Sweeping limited Easter event is open, with matching rewards for taking part."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHOP_SWORD), "新武器：商人佩剑",
-                "商人佩剑正式加入，将自动替换旧版存档中的手斧。\n\n它通常作为商人之间用来互相证明身份的道具，但在应急情况下你也可以把它当做武器。\n\n这把武器目前可以使商人降价 10% ，最高降价90%%。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHOP_SWORD), "New weapon: Merchant Sabre",
+                "The Merchant Sabre is in and automatically replaces the hand axe in old saves.\n\nIt is normally a prop merchants use to prove who each other are, but in a pinch you can wield it as a weapon.\n\nThis weapon currently gets you a 10% merchant discount, up to 90%%."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.UNLESSFLOWER), "新物品：不朽花环",
-                "看上去是用不知名的花朵与坚韧的藤条编织而成的花环。戴在头上时，你几乎感受不到它的重量。\n\n全新十字架类物品，当死亡时，该优先级最高"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.UNLESSFLOWER), "New item: Undying Wreath",
+                "A wreath that looks to be woven from unknown flowers and tough vines. You can barely feel its weight on your head.\n\nA brand new ankh-type item; it has the highest priority on death"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new MoonCatSprite(), "0层NPC规则",
-                "老板娘：完成13挑以上后，给予额外净化药剂\n\n" +
-                        "以下为常规，无需13挑：\n"+
-                        "一号桌子（随机2人）：雨夜、小骑士、晓梦\n" +
-                        "二号桌子（随机2人）：月华、狐狸、魔法绵羊、喵音·椛\n" +
-                        "三号桌子（随机2人）：紫澪、小蓝、深海、浅月深白\n" +
-                        "四号桌子（斗地主常驻）：小叶、琴里、Choco"));
+        changes.addButton(new ChangeButton(new MoonCatSprite(), "Floor 0 NPC rules",
+                "Innkeeper: after 13 or more challenges she grants an extra purification potion\n\n" +
+                        "The following are standard and need no challenges:\n"+
+                        "Table one (2 random): Rainy Night, Little Knight, Xiaomeng\n" +
+                        "Table two (2 random): Yuehua, Fox, Magic Sheep, Nyanon Momiji\n" +
+                        "Table three (2 random): Ziling, Lil' Blue, Deep Sea, Qianyue Shenbai\n" +
+                        "Table four (Dou Dizhu regulars): Xiaoye, Kotori, Choco"));
 
-        changes.addButton(new ChangeButton(new ATRISprite(), "2楼NPC刷新",
-                "澪：概率出没，无限制\n" +
-                        "2号房间：萝卜子默认常驻，可兑换口粮换皮\n" +
-                        "1号房间：30%概率出现莲娜（完成抢劫事件），奖励烈焰药剂\n" +
-                        "3号房间：30%概率出现冬铃（击败冰雪魔女），奖励冰霜药剂"));
+        changes.addButton(new ChangeButton(new ATRISprite(), "Floor 2 NPC spawns",
+                "Mio: chance to appear, no restrictions\n" +
+                        "Room 2: Luobozi is always there, and rations can be traded for skins\n" +
+                        "Room 1: 30% chance of Lena (after the robbery event), rewarding a Flame Potion\n" +
+                        "Room 3: 30% chance of Dongling (after beating the Frost Witch), rewarding a Frost Potion"));
 
-        changes.addButton(new ChangeButton(new SliceGirlSprite(), "古堡分数系统",
-                "【刻耳柏洛斯】\n" +
-                        "- 恶狗扑食每击中玩家：-200分\n" +
-                        "- 凝血晶体每吸收一次：-100分\n" +
-                        "- 击败Boss：+6000分\n\n" +
-                        "【墨菲厄斯】\n" +
-                        "- 小游戏结束后：获得总分×0.25\n" +
-                        "- 机械之柱抛射体中心命中：-300分\n" +
-                        "- 时间之柱激光命中：-400分\n" +
-                        "- 放逐Boss：+10000分"));
-
-        changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                (	    "V0.9.4.1：\n\n" +
-                        "_-_ 修复空间残片在1血时传送不致死\n" +
-                        "_-_ 修复0层法伊娜未生成\n" +
-                        "_-_ 修复空间残片传送会触发很多次扣血，导致血量迅速降低\n" +
-                        "_-_ 修复指南书未在0层生成\n" +
-                        "_-_ 修复在商人处回购不消耗金币\n" +
-                        "_-_ 修复炼金指南中部分炼金能量不一致\n" +
-                        "_-_ 修复轻音铃铛武器效果异常问题\n" +
-                        "_-_ 修复0层时装自选凭证未生成的问题\n" +
-                        "_-_ 修复幽寂未在孤城生成的问题\n" +
-                        "_-_ 修复矮人将军处小叶错误生成的问题")));
+        changes.addButton(new ChangeButton(new SliceGirlSprite(), "Castle scoring",
+                "[Cerberus]\n" +
+                        "- Rabid Pounce hitting the player: -200 points\n" +
+                        "- Each Clot Crystal absorbed: -100 points\n" +
+                        "- Defeating the boss: +6000 points\n\n" +
+                        "[Morpheus]\n" +
+                        "- After the minigame: gain total score x 0.25\n" +
+                        "- Mechanical Pillar projectile hitting dead centre: -300 points\n" +
+                        "- Pillar of Time laser hit: -400 points\n" +
+                        "- Banishing the boss: +10000 points"));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("_-_ 修复幸运手套回购Bug\n" +
-                        "_-_ 修复微光向导在Boss层逃课问题\n" +
-                        "_-_ 修复无用之盾未生效问题\n" +
-                        "_-_ 部分地牢底层代码优化\n" +
-                        "_-_ 开发者模式状态查看器新增常规/综合掉落率\n" +
-                        "_-_ 优化异果层判定，未锁定楼层可召唤盟友\n" +
-                        "_-_ 绝对失明效果正式启用\n" +
-                        "_-_ 新战法重命名：敕灵天女\n" +
-                        "_-_ 修复吃豆人地图无法拾取有形之手法杖\n" +
-                        "_-_ 修复创世神之心活死人问题\n" +
-                        "_-_ 修复共生、胭脂物品掉落异常\n" +
-                        "_-_ 修复古堡非彩蛋结局无法获得挑战徽章\n" +
-                        "_-_ 修复磷焰飞镖部分问题\n" +
-                        "_-_ 修复小叶跨存档阻止下楼问题")));
+                (	    "V0.9.4.1:\n\n" +
+                        "_-_ Fixed the Shard of Space teleport not being fatal at 1 HP\n" +
+                        "_-_ Fixed Faina not spawning on floor 0\n" +
+                        "_-_ Fixed Shard of Space teleports draining HP many times over and dropping health fast\n" +
+                        "_-_ Fixed the guide book not spawning on floor 0\n" +
+                        "_-_ Fixed buying items back from a merchant costing no gold\n" +
+                        "_-_ Fixed inconsistent alchemical energy values in the alchemy guide\n" +
+                        "_-_ Fixed the Soft Chime Bell weapon effect\n" +
+                        "_-_ Fixed the floor 0 outfit voucher not spawning\n" +
+                        "_-_ Fixed Stillness not spawning in Lonely City\n" +
+                        "_-_ Fixed Xiaoye wrongly spawning at the Dwarven General")));
+
+        changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+                ("_-_ Fixed the Lucky Gloves buyback bug\n" +
+                        "_-_ Fixed cheesing boss floors with the Glimmer Guide\n" +
+                        "_-_ Fixed the Useless Shield having no effect\n" +
+                        "_-_ Improved some low-level dungeon code\n" +
+                        "_-_ The developer mode status viewer now shows regular and combined drop rates\n" +
+                        "_-_ Improved the Strange Fruit floor check so allies can be summoned on floors that are not locked\n" +
+                        "_-_ Absolute blindness is now live\n" +
+                        "_-_ Renamed the new battlemage: Celestial Maiden\n" +
+                        "_-_ Fixed being unable to pick up the Tangible Hand's wand on the Pac-Man map\n" +
+                        "_-_ Fixed the Heart of the Creator leaving you undead\n" +
+                        "_-_ Fixed drop errors with Symbiosis and Rouge items\n" +
+                        "_-_ Fixed non-secret Castle endings not granting the challenge badge\n" +
+                        "_-_ Fixed some Ghostflame Dart issues\n" +
+                        "_-_ Fixed Xiaoye blocking stairs across saves")));
 
         changes.addButton( new ChangeButton(new Image(Assets.Environment.TILES_SEWERS, 48, 80, 16
-                , 16), "房间/事件改动",
-                        "优化慧眼墓碑房间、黑魂事件\n\n" +
-                                "现在在触发这两个事件后，将在重生十字架（未祝福）里面有相应的提示"));
+                , 16), "Room and event changes",
+                        "Improved the Insight Gravestone room and the Black Soul event\n\n" +
+                                "Triggering either event now leaves a matching hint in an unblessed ankh"));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), ("药水癔症v0.4"),
-                ("现在全肉大饼可显示激活力量的概率区间。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), ("Potion Hysteria v0.4"),
+                ("The All-Meat Flatbread now shows the chance range for activating Strength.")));
 
-        changes.addButton(new ChangeButton(new RivalSprite(), ("黑魂事件"),
-                ("在灯火低于40+未祝福的十字架会出现黑魂，现在黑魂你可以看见，并且黑魂的描述也有所优化")));
+        changes.addButton(new ChangeButton(new RivalSprite(), ("Black Soul event"),
+                ("Below 40 lights, black souls appear on unblessed ankhs. You can see them now, and their description has been improved too")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKELETONGOLD), ("染血金币控制终端"),
-                ("现在里面的选中可以常驻，无需每局重新勾选Boss。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKELETONGOLD), ("Bloodstained Coin control terminal"),
+                ("Your selections persist now, so you no longer re-tick bosses every run.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), "内容延期",
-                "螃蟹王Boss更新延期，具体上线时间日后再议。"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), "Delayed content",
+                "The Crab King boss update is delayed; its release date will be decided later."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SPACE_DEBRIS), "空间残片",
-                "现在只有主动传送扣血了，且变为区间8~15%"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SPACE_DEBRIS), "Shard of Space",
+                "Only intentional teleports cost HP now, and the range is 8-15%"));
 
-        changes.addButton(new ChangeButton(new FodderSprite(), "恶魔盛宴",
-                "因为其AI逻辑特殊性，现在胭脂触发沉沦恶魔盛宴时，恶魔盛宴立刻死亡。"));
+        changes.addButton(new ChangeButton(new FodderSprite(), "Demon Feast",
+                "Because of how its AI works, when Rouge triggers Fallen Demon Feast the feast now dies immediately."));
 
-        changes.addButton( new ChangeButton(new TalentIcon(Talent.STRONGMAN), "天赋调整",
-                        "排山倒海调整：\n" +
-                        "修复排山倒海加成异常，现在不会+1因为Bug就吃到全部精准了。"));
+        changes.addButton( new ChangeButton(new TalentIcon(Talent.STRONGMAN), "Talent changes",
+                        "Overwhelming Force change:\n" +
+                        "Fixed an Overwhelming Force bonus bug that let a bug at +1 give it full accuracy."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CATGIRL_COSPLAY), "猫娘cosPlay",
-                "触发概率从12%→3.25%"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CATGIRL_COSPLAY), "Catgirl cosplay",
+                "Trigger chance from 12% to 3.25%"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKENBONE), "折断之骨",
-                "幸运掉落从降至30%-->降至70%"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKENBONE), "Broken Bone",
+                "Lucky drop changed from 30% to 70%"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "破碎之环",
-                "正在优化该藏品的手感，本版本暂时移除生成"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "Shattered Ring",
+                "We are reworking how this collectible feels, so it is temporarily removed from spawning this version"));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.GREEN_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB), "炸弹加强",
-                "电击炸弹改为雷霆炸弹，奥术改为奥磷炸弹"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB), "Bomb buffs",
+                "Shock Bomb renamed Thunder Bomb, Arcane renamed Arcane Phosphor Bomb"));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.UP_DICT), "破碎间接同步",
-                "_-_ 涌流附魔特效同步\n" +
-                        "_-_ 焰浪、冲击波、雷霆、战法技能同步\n" +
-                        "_-_ 大雷、磷火战法技能与雷霆、焰浪一致迭代\n" +
-                        "_-_ 同步破碎新饰品：雪貂绒束、幻象裂镜\n" +
-                        "_-_ 全面同步破碎炸弹\n" +
-                        "_-_ 全面同步破碎闪避图标，新增鱼甲闪避图标"));
+        changes.addButton(new ChangeButton(Icons.get(Icons.UP_DICT), "Indirect Shattered sync",
+                "_-_ Synced the Torrent enchantment effect\n" +
+                        "_-_ Synced Flamewave, Shockwave, Lightning and battlemage skills\n" +
+                        "_-_ Greater Lightning and Ghostfire battlemage skills iterated to match Lightning and Flamewave\n" +
+                        "_-_ Synced new Shattered trinkets: Ferret Tuft and Phantom Mirror\n" +
+                        "_-_ Fully synced Shattered bombs\n" +
+                        "_-_ Fully synced Shattered evasion icons and added the fish scale evasion icon"));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HIGHTWAND_3), "磷焰法杖加强",
-                "现在施法与焰浪法杖范围一致，但磷焰的火焰持续比焰浪久。并且可穿透。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HIGHTWAND_3), "Ghostflame Staff buff",
+                "Its range now matches the Flamewave Staff, but ghostfire burns longer than flamewave and it pierces."));
     }
 
     public static void add_V0931_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -1504,112 +1504,112 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new Image(Assets.Interfaces.HAICONS, 32, 0, 16, 16), "困难模式-2026",
-                "困难模式重磅回归！欢迎前来测试！\n" +
-                        "详情请参考难度描述中的介绍。"));
+        changes.addButton(new ChangeButton(new Image(Assets.Interfaces.HAICONS, 32, 0, 16, 16), "Hard Mode - 2026",
+                "Hard Mode is back in a big way! Come give it a try!\n" +
+                        "See the difficulty description for details."));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KILL_EYES), "猎杀者之眼-T3-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KILL_EYES), "Hunter's Eye - T3 - positive",
                 Messages.get(KillEye.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.PURE_ROUGE), "珍贵的胭脂-T3-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.PURE_ROUGE), "Precious Rouge - T3 - positive",
                 Messages.get(PureRouge.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FAINT_GLIMMER), "无暇微光-T3-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FAINT_GLIMMER), "Flawless Glimmer - T3 - positive",
                 Messages.get(FaintGlimmer.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DIRT_KNIFE_STAND), "土刀架-T2-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DIRT_KNIFE_STAND), "Dirt Knife Rack - T2 - negative",
                 Messages.get(Dirt_KnifeStand.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CATGIRL_COSPLAY), "猫娘cosply手册-UNDEF",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CATGIRL_COSPLAY), "Catgirl Cosplay Handbook - UNDEF",
                 Messages.get(CatGirlCosplay.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RESOLVE_DIE), "去往死的决意-UNDEF",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RESOLVE_DIE), "Resolve Unto Death - UNDEF",
                 Messages.get(DeadOrAlive.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DREAM_SEED), "梦之种-UNDEF",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DREAM_SEED), "Dream Seed - UNDEF",
                 Messages.get(DreamSeed.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.NOTEOFBZMDR), "Bzmdr的笔记-T3-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.NOTEOFBZMDR), "Bzmdr's Notes - T3 - negative",
                 Messages.get(NoteOfBzmdr.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "破碎之环-T3-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKEN_RING), "Shattered Ring - T3 - negative",
                 Messages.get(BrokenRing.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STAR_DUST), "星尘-T3-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STAR_DUST), "Stardust - T3 - negative",
                 Messages.get(StarDust.class,"desc")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_FADELEAF), "种子系统优化",
-                "同一个种子，不同的生成问题由来已久。\n\n" +
-                        "我已经在新版进行了优化，可保证主楼层95%吻合度，子楼层暂时还在思考解决方法。"));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_FADELEAF), "Seed system improvements",
+                "The same seed generating different dungeons has been a problem for a long time.\n\n" +
+                        "I have improved it in this version, guaranteeing 95% agreement on main floors; sub-floors still need a solution."));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项改动"),
-                ("1.素材优化迭代\n" +
-                        "2.墓志铭文案修改\n" +
-                        "3.骸骨房间英雄遗骸改为箱子")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc changes"),
+                ("1.Asset updates\n" +
+                        "2.Gravestone epitaphs rewritten\n" +
+                        "3.Hero remains in bone rooms changed to chests")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("_-_ 修复盗贼角色皮肤未生效的问题\n" +
-                        "_-_ 修复金蝶0分倍率异常\n" +
-                        "_-_ 修复藏品高SDK的异常\n" +
-                        "_-_ 修复土刀架造成的黄饿不回血的异常\n" +
-                        "_-_ 修复古神Boss极端情况下的无敌异常\n" +
-                        "_-_ 修复跳楼房在子层生成异常\n" +
-                        "_-_ 修复猎杀者的独眼的穿甲对猎杀者自身的必定伏击不生效的异常\n" +
-                        "_-_ 修复在小叶处选择获取三阶藏品时有概率获得垃圾(藏品池未空)的异常\n" +
-                        "_-_ 修复部分楼层无视小叶直接下楼的卡死")
+                ("_-_ Fixed the Rogue skin having no effect\n" +
+                        "_-_ Fixed the Gold Butterfly 0-score multiplier\n" +
+                        "_-_ Fixed collectible errors on high SDK devices\n" +
+                        "_-_ Fixed the Dirt Knife Rack stopping health regen while starving\n" +
+                        "_-_ Fixed the Ancient God boss becoming invulnerable in extreme cases\n" +
+                        "_-_ Fixed trapdoor rooms generating wrongly on sub-floors\n" +
+                        "_-_ Fixed the Hunter's Monocle armor piercing not applying to the Hunter's own guaranteed ambush\n" +
+                        "_-_ Fixed sometimes getting junk when choosing a tier 3 collectible from Xiaoye (the pool was not empty)\n" +
+                        "_-_ Fixed softlocks from skipping Xiaoye and going down on some floors")
         ));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("显示调整"),
-                ("_-_ 现在支持多Boss血条\n" +
-                        "_-_ 现在特殊皮肤不再显示草")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("Display changes"),
+                ("_-_ Multi-boss health bars are supported again\n" +
+                        "_-_ Special skins no longer show grass")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("调整"),
-                ("每下攻击攒2+等级/5 生命护盾量，上限20+等级*2\n" +
-                        "储存盾量只可吸收奥术护盾，不吸收生命护盾")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("Changes"),
+                ("Each hit builds 2 + level/5 points of life shield, up to 20 + level*2\n" +
+                        "Stored shield only absorbs arcane shield, not life shield")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMORSCALESOFBZMDR), "Bzmdr的盔甲鳞片-降级到T1",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMORSCALESOFBZMDR), "Bzmdr's Armor Scales - dropped to T1",
                 Messages.get(ArmorScalesOfBzmdr.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HEARTOFCRYSTALFRACTAL), "水晶之心的噩梦-T1-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HEARTOFCRYSTALFRACTAL), "Nightmare of the Crystal Heart - T1 - negative",
                 Messages.get(HeartOfCrystalFractal.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.PORTABLEWHETSTONE), "携带型砥石-T1-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.PORTABLEWHETSTONE), "Portable Whetstone - T1 - positive",
                 Messages.get(PortableWhetstone.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKENBONE), "折断之骨-T1-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BROKENBONE), "Broken Bone - T1 - negative",
                 Messages.get(BrokenBone.class,"desc")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.GREEN_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DELICIOUSRECIPE), "惠民食谱-T1-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DELICIOUSRECIPE), "People's Cookbook - T1 - positive",
                 Messages.get(DeliciousRecipe.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MONOCULAR), "单筒望远镜-T2-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MONOCULAR), "Monocular - T2 - positive",
                 Messages.get(Monocular.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.YANSTUDYINGPAPERTWO), "言的研究手稿<其二>-T2-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.YANSTUDYINGPAPERTWO), "Yan's Research Manuscript (part two) - T2 - positive",
                 Messages.get(YanStudyingPaperTwo.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WENSTUDYINGPAPERONE), "文的研究手稿<其一>-T2-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WENSTUDYINGPAPERONE), "Wen's Research Manuscript (part one) - T2 - positive",
                 Messages.get(WenStudyingPaperOne.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.YANSTUDYINGPAPERONE), "言的研究手稿<其一>-T2-负面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.YANSTUDYINGPAPERONE), "Yan's Research Manuscript (part one) - T2 - negative",
                 Messages.get(YanStudyingPaperOne.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KINGHTSTABBINGSWORD), "迅捷骑士刺剑-T2-正面",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.KINGHTSTABBINGSWORD), "Swift Knight Rapier - T2 - positive",
                 Messages.get(KnightStabbingSword.class,"desc")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RAPIDEARTHROOT), "速生地缚根-提升到T2",
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RAPIDEARTHROOT), "Fast-Growing Binding Root - raised to T2",
                 Messages.get(RapidEarthRoot.class,"desc")));
 
     }
@@ -1623,125 +1623,125 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.TITLE_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new WhiteGirlSprites(), ("魔绫5岁啦！"),
-                ("2021-2-12---2026-2-12\n\n五载同行，共赴新程\n" +
-                        "祝所有魔绫地牢玩家心想事成，鸿运当头，马到成功。")));
+        changes.addButton(new ChangeButton(new WhiteGirlSprites(), ("Magic Ling is 5!"),
+                ("2021-2-12 to 2026-2-12\n\nFive years together, a new road ahead\n" +
+                        "May every Magic Ling player get what they wish for, with fortune smiling and success at every turn.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("新系统：突发事件"),
-                ("新系统：突发事件 开始投入测试，它会让你的冒险增加更多随机性。\n\n" +
-                        "_-_ No.1---突发事件-冰与火之歌\n" +
-                        "_-_ 触发说明：与莲娜战斗时，有20% + 挑战数量 x 5%的概率出现。\n" +
-                        "_-_ 事件说明：冰雪魔女-冬铃加入本场战斗，且冬铃的行为发生改变。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("New system: random events"),
+                ("The new random event system has gone into testing, adding more unpredictability to your adventure.\n\n" +
+                        "_-_ No.1 - random event - A Song of Ice and Fire\n" +
+                        "_-_ Trigger: a 20% + challenges x 5% chance during the Lena fight.\n" +
+                        "_-_ Event: the Frost Witch Dongling joins the fight, and her behaviour changes.")));
 
-        changes.addButton(new ChangeButton(new ElementalSprite.HaloFire(), ("新怪物：磷焰精英"),
-                ("火元素生成时有10%的概率变成该怪物，击败必定掉落一瓶龙王祝福合剂。")));
+        changes.addButton(new ChangeButton(new ElementalSprite.HaloFire(), ("New mob: Ghostflame Elite"),
+                ("Fire Elementals have a 10% chance to spawn as this mob, and killing one always drops a Dragon King Blessing Elixir.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("新兑换码：FiveYearsOld"),
-                ("进入游戏通过落白商店 或者 游戏菜单 获取奖励！\n\n有效期：2026-3-4 00:00前")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("New redeem code: FiveYearsOld"),
+                ("Claim your reward in game through the Luobai Shop or the game menu!\n\nValid until: before 2026-03-04 00:00")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("新系统：周年庆UI"),
-                ("现在可以自选周年庆了，默认五周年，从2周年-5周年均可选择。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("New system: anniversary UI"),
+                ("You can now pick the anniversary look, defaulting to the fifth; anything from the second to the fifth works.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：繁体中文"),
-                ("来自Sotis提供的繁体中文已经更新。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: Traditional Chinese"),
+                ("The Traditional Chinese pack provided by Sotis has been updated.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.UP_DICT), ("0层翻新"),
-                ("0层再次翻新，接近30个NPC加入，还要各种各样的新年赠送，欢迎各位游玩！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.UP_DICT), ("Floor 0 renovation"),
+                ("Floor 0 has been renovated again, with close to 30 NPCs added and all sorts of New Year gifts. Come and have a look!")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BZMDR_GIFT), ("新物品：Bzmdr的新年礼物"),
-                ("想要挑战极限？那就战！！！")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BZMDR_GIFT), ("New item: Bzmdr's New Year Gift"),
+                ("Want to push your limits? Then fight!")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("上下楼文本更新"),
-                ("五周年更新了全新38个文本，来自众多的玩家投稿。\n\n让你上下楼也会有新的体验！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("Stair text update"),
+                ("The fifth anniversary adds 38 brand new texts, contributed by many players.\n\nGoing up and down stairs is a new experience now!")));
 
-        changes.addButton(new ChangeButton(new ClearElemtGuardGirlSprites(), ("法伊娜后续剧情"),
-                ("火龙事件之后，新年即将到来之际，法伊娜突然离开了小镇，她去了哪里？\n\n前往火龙曾经的巢穴，或许会有情报。")));
+        changes.addButton(new ChangeButton(new ClearElemtGuardGirlSprites(), ("Faina's story continues"),
+                ("After the Fire Dragon events, with the New Year approaching, Faina suddenly left town. Where did she go?\n\nHead to the Fire Dragon's old lair and you may find a lead.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MOTO_BREW), ("新物品：莫洛托夫烈焰特调"),
-                ("一瓶冒着火星的琥珀色烈酒，瓶塞缠裹着浸油火绒。\n\n饮用后可获得治疗、激素涌动、极速与火焰之力加持，但酒性刚烈，饮用后会短暂头晕目眩。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MOTO_BREW), ("New item: Molotov Flame Special"),
+                ("A bottle of amber spirit crackling with sparks, its stopper wrapped in oil-soaked tinder.\n\nDrinking it grants healing, Adrenaline Surge, Haste and the power of flame, but it is strong stuff and leaves you dizzy for a short while.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("新-普通徽章 & 隐藏徽章"),
-                ("新的一批普通 & 隐藏徽章现已上线，游玩游戏获得！\n\n" +
-                        "普通徽章：尽竭\n\n" +
-                        "隐藏徽章：勇敢者的印记")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("New regular & hidden badges"),
+                ("A new batch of regular and hidden badges is live. Play the game to earn them!\n\n" +
+                        "Regular badge: Exhaustion\n\n" +
+                        "Hidden badge: Mark of the Brave")));
 
-        changes.addButton(new ChangeButton(new KusumiSprites(), ("久住新年特别版"),
-                ("新年到来之际，她却只能在无尽轮回中默默等待毁灭降临，如果你能去看看她，说不定会感谢你呢。\n\n" +
-                        "在9层下楼携带一种特殊的信物将有概率前往。")));
+        changes.addButton(new ChangeButton(new KusumiSprites(), ("Jiuzhu New Year special"),
+                ("With the New Year arriving, all she can do is wait quietly in an endless cycle for destruction. If you go and see her, she may well thank you.\n\n" +
+                        "Carrying a special token downstairs from floor 9 gives you a chance to get there.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.Flower_Cake), ("新食物：桃花饼"),
-                ("与新年小镇的白宴交谈可获得。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.Flower_Cake), ("New food: Peach Blossom Cake"),
+                ("Obtained by talking to Baiyan in the New Year town.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BLESS_SCROLL), ("新物品：赐福卷轴"),
-                ("与新年小镇的小叶交谈可获得。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BLESS_SCROLL), ("New item: Scroll of Blessing"),
+                ("Obtained by talking to Xiaoye in the New Year town.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                            ("_-_ 修复拟态之王的无敌异常\n" +
-                             "_-_ 修复白浪刺剑的部分判定导致的游戏崩溃问题\n" +
-                             "_-_ 修复法师之手极端情况下的卡死问题"),
+                            ("_-_ Fixed the Mimic King invulnerability bug\n" +
+                             "_-_ Fixed crashes caused by some White Wave Rapier checks\n" +
+                             "_-_ Fixed the Mage Hand freezing in extreme cases"),
 
-                            ("_-_ 修复部分素材的渲染异常崩溃\n" +
-                            "_-_ 修复低安卓系统，部分新API无法调用导致的崩溃异常\n" +
-                            "_-_ 修复FireBase上面提到的一系列崩溃异常\n" +
-                            "_-_ 修复烈阳&暗金护符在魔法免疫下仍可使用的问题\n" +
-                            "_-_ 修复藏品重复问题")
+                            ("_-_ Fixed rendering crashes with some assets\n" +
+                            "_-_ Fixed crashes on older Android versions from new APIs that cannot be called\n" +
+                            "_-_ Fixed a series of crashes reported through Firebase\n" +
+                            "_-_ Fixed the Blazing Sun and Darkgold amulets still being usable under magic immunity\n" +
+                            "_-_ Fixed duplicate collectibles")
 
         ));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("调整"),
-                ("二阶，力量需求13\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("Changes"),
+                ("Tier 2, 13 Strength\n" +
                         "\n" +
-                        "初始3-14，成长1-1\n" +
+                        "3-14 base, growth 1-1\n" +
                         "\n" +
-                        "初始护甲0-3，成长0-1\n" +
+                        "0-3 base armor, growth 0-1\n" +
                         "\n" +
-                        "这把武器可以积蓄生命能量以释放生命护盾，上限为30+5*武器等级\n" +
+                        "This weapon stores life energy to release a life shield, up to 30 + 5 * weapon level\n" +
                         "\n" +
-                        "攻击将积攒2+0.2*等级点护盾。可以花费1回合将这些护盾释放出来。\n" +
+                        "Attacks build 2 + 0.2 * level points of shield. You can spend 1 turn to release it.\n" +
                         "\n" +
-                        "能够吸收空气中魔力生长的植物。")));
+                        "A plant that grows by drawing magic out of the air.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项改动"),
-                ("1.素材优化迭代\n" +
-                        "2.部分文案优化迭代\n" +
-                        "3.V3对话框已重构，可直接跳过（除部分关键剧情无法跳过）\n" +
-                        "4.火龙剧情优化，撒谎分支路线移除\n" +
-                        "5.游戏新闻界面滑动区域优化，请在右侧区域滑动")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc changes"),
+                ("1.Asset updates\n" +
+                        "2.Some text updates\n" +
+                        "3.The V3 dialogue box was rebuilt and can be skipped (except for some key story scenes)\n" +
+                        "4.Improved the Fire Dragon story and removed the lying branch\n" +
+                        "5.Improved the scroll area of the game news screen; scroll on the right side")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("徽章移除"),
-                ("药水研究员，道具专家，卷轴研究员因无法获取现已移除。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("Badges removed"),
+                ("Potion Researcher, Item Expert and Scroll Researcher have been removed as they can no longer be obtained.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HIGHTWAND_7), ("法杖调整"),
-                ("_-_ 大冰杖每级额外减速5%\n" +
-                        "_-_ 烈阳每五级可以多召唤一个太阳，初始只能召唤一个太阳，每点充能只能续2回合命\n" +
-                        "_-_ 老魔杖在转职战斗巫女(旧版)的时候大幅度提升基础数值，小幅度调整成长\n" +
-                        "_-_ 共生法杖将无法受到任何形式的充能，只能在每获得半级经验的时候充能一次")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.HIGHTWAND_7), ("Wand changes"),
+                ("_-_ The great ice wand slows 5% more per level\n" +
+                        "_-_ Blazing Sun can summon one extra sun every five levels; it starts at one sun, and each point of charge only extends its life by 2 turns\n" +
+                        "_-_ On becoming a Battle Shrine Maiden (old version) the old wand gains a big base stat boost and a small growth adjustment\n" +
+                        "_-_ The Symbiosis Staff can no longer be charged by any means; it charges once per half level of XP gained")));
 
-        changes.addButton(new ChangeButton(new AoReadyDragonSprite(), ("奥尔祖龙"),
-                ("由于剧情编写组上有一个错误的乌龙，导致此怪诞生。此怪与现有新剧情框架冲突，故而移除。")));
+        changes.addButton(new ChangeButton(new AoReadyDragonSprite(), ("Orzu Dragon"),
+                ("A mix-up in the story team brought this mob into being. It conflicts with the current story framework, so it has been removed.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LINGPEA), ("棱晶调整"),
-                ("每75回合生成20回合的丛林守护之盾。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LINGPEA), ("Prism Crystal changes"),
+                ("Generates 20 turns of Jungle Guardian Shield every 75 turns.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("寒冰神扇"),
-                ("此武器正式移除。")));
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("终焉"),
-                ("此武器正式移除。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("Frost Fan"),
+                ("This weapon has been removed.")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("The End"),
+                ("This weapon has been removed.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.GREEN_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FIVEREN), ("五仁月饼"),
-                ("完成中秋节事件且获得真结局后，该武器可在游戏内生成。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.FIVEREN), ("Five-Nut Mooncake"),
+                ("After completing the Mid-Autumn Festival event and getting the true ending, this weapon can spawn in game.")));
 
 
     }
@@ -1755,121 +1755,121 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.GREEN_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("新兑换码：Pre-5YearsOld"),
-                ("进入游戏通过落白商店 或者 游戏菜单 获取奖励！\n\n有效期：2026-2-12 22:00前")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("New redeem code: Pre-5YearsOld"),
+                ("Claim your reward in game through the Luobai Shop or the game menu!\n\nValid until: before 2026-02-12 22:00")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("新系统：效果百科"),
-                ("在图鉴中新增效果百科，目前尚不完善，后续版本会陆续完善。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CATALOG), ("New system: effect codex"),
+                ("Added an effect codex to the catalogue. It is not complete yet and will be filled in over future versions.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKIN_11), ("新皮肤：晚宴邀请"),
-                ("已可在时装商人处购买，售价1500钴币")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SKIN_11), ("New skin: Dinner Invitation"),
+                ("Available from the skin merchant for 1500 cobalt coins")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.OLDSUNSHADOW), ("新道具:往日投影"),
-                ("水晶上面映射出各种可能性，你能否找到属于你的位面？")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.OLDSUNSHADOW), ("New item: Past Projection"),
+                ("The crystal reflects all sorts of possibilities - can you find the plane that is yours?")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("材质包系统1.0"),
-                ("材质包系统正式登场，目前预置了5个材质包，你也可以自行定制材质包。\n\n" +
-                        "如要定制材质包，请查阅游戏新闻材质包置顶使用说明。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY), ("Texture pack system 1.0"),
+                ("The texture pack system is live. Five packs are bundled, and you can make your own.\n\n" +
+                        "To make your own pack, see the pinned texture pack guide in the game news.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB_SWORD), ("新武器：炸弹匕首"),
-                ("炸弹匕首重做归来，并实装了动画效果！\n\n这件武器会在击杀敌人时有概率获取一枚弹药，通过升级该武器可以提高概率，和解锁更加强大的炸弹。" )));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.BOMB_SWORD), ("New weapon: Bomb Dagger"),
+                ("The Bomb Dagger is back after a rework, with animations!\n\nThis weapon has a chance to gain a round of ammo on kill; upgrading it improves the odds and unlocks stronger bombs." )));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), ("新战法相关调整"),
-                ("新增以下功能\n\n" +
-                        "1.针对于部分特殊地图（异果，小游戏地图）将自动死亡并掉落物品在英雄脚下\n" +
-                        "2.现在装配法杖的充能数看得见了\n" +
-                        "3.装配法杖现在有右侧快捷键了\n" +
-                        "4.当老魔杖耗尽时，将自动转为近战攻击，每次攻击都会给予英雄1回合敌意效果\n" +
-                        "5.现在法师之手控制器检测到法师之手不存在时，贴图持续闪红光且快捷键直接变成【召唤】\n" +
-                        "6.现在法师之手不会再寻找不存在的敌人\n" +
-                        "7.现在法师之手装配老法杖时，近远智能使用，而不是冷却期间发呆\n" +
-                        "8.魔力补偿天赋废弃\n" +
-                        "9.魔力汲取天赋实装\n" +
-                        "10.实现哨位适配，法师之手巡查AI，视野共享\n" +
-                        "11.多样打击现在只需要英雄背包有老魔杖或法师之手有老魔杖即可触发")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), ("Battlemage changes"),
+                ("Added the following\n\n" +
+                        "1.On some special maps (the Strange Fruit, minigame maps) it dies automatically and drops its items under the hero\n" +
+                        "2.Equipped wand charge is now visible\n" +
+                        "3.Equipped wands now have right side hotkeys\n" +
+                        "4.When the old wand runs dry it switches to melee, and each attack gives the hero 1 turn of hostility\n" +
+                        "5.When the Mage Hand controller detects the hand is gone, its sprite flashes red and the hotkey becomes [Summon]\n" +
+                        "6.The Mage Hand no longer looks for enemies that do not exist\n" +
+                        "7.The Mage Hand now uses old wands smartly at range and up close instead of idling during cooldown\n" +
+                        "8.The Mana Recompense talent is retired\n" +
+                        "9.The Mana Siphon talent is implemented\n" +
+                        "10.Sentinel integration: Mage Hand patrol AI and shared sight\n" +
+                        "11.Versatile Strikes now triggers as long as the hero's backpack or the Mage Hand has an old wand")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STORYBOOKS), ("新开发者工具:思维之书"),
-                ("进入各种领袖的思维，去回忆那些和它们的决战。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STORYBOOKS), ("New developer tool: Book of Thoughts"),
+                ("Step into the minds of the various leaders and relive your decisive battles with them.")));
 
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEAL), ("精巧纹章天赋调整"),
-                ("精巧纹章天赋生效时，可对纹章使用祛邪卷轴；诅咒菱晶现在也可以对诅咒纹章提供一次永久升级。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SEAL), ("Delicate Emblem talent changes"),
+                ("While the Delicate Emblem talent is active you can use a Scroll of Cleansing on the Emblem, and Cursed Prisms can now give a cursed Emblem one permanent upgrade.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SCROLL_GOLD), ("金蝶模式调整"),
-                ("1.金蝶任务2：每大层至多因为猎杀金蝶怪物获得额外1次嬗变，五区累计总计5次嬗变\n" +
-                        "2.修复抢劫可上楼导致的严重bug")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SCROLL_GOLD), ("Gold Butterfly Mode changes"),
+                ("1.Gold Butterfly quest 2: each region grants at most 1 extra transmutation for killing Gold Butterfly mobs, for 5 total across the five regions\n" +
+                        "2.Fixed a serious bug that let robberies go upstairs")));
 
-        changes.addButton(new ChangeButton(new NyarlathotepSprite(), ("古堡奈亚调整"),
-                ("奈亚子生成陷阱现在不包含塌方陷阱")));
+        changes.addButton(new ChangeButton(new NyarlathotepSprite(), ("Nya changes in the Castle"),
+                ("Nyazaki's generated traps no longer include collapse traps")));
 
         Image sss =new MyCoreHeartSprite();
         sss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(sss, ("古堡宇宙之心调整"),
-                ("_往昔的幻影_若转化为友方阵营将会被宇宙之心处决")));
+        changes.addButton(new ChangeButton(sss, ("Castle Heart of the Universe changes"),
+                ("If _Phantom of the Past_ turns friendly, the Heart of the Universe executes it")));
 
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("1.修复部分素材的渲染异常崩溃\n" +
-                        "2.修复英雄存活读取的优先级异常崩溃\n" +
-                        "3.修复风暴雷霆法杖的一些异常崩溃\n" +
-                        "4.修复法师之手的传送异常崩溃，无限卡死修复\n" +
-                        "5.修复法师之手瞬间指向异常"),
-                ("6.修复法师之手无法充能\n" +
-                        "7.修复属性查看器会导致英雄buff显示异常问题\n" +
-                        "8.修复激流陷阱越界异常\n" +
-                        "9.升降器现在至多降到5子层\n" +
-                        "10.修复解离战法的攻击距离增加效果异常" ),
+                ("1.Fixed rendering crashes with some assets\n" +
+                        "2.Fixed a crash in the hero-alive load priority\n" +
+                        "3.Fixed some crashes with the Storm Lightning Staff\n" +
+                        "4.Fixed Mage Hand teleport crashes and the endless freeze\n" +
+                        "5.Fixed the Mage Hand pointing at odd things\n"),
+                ("6.Fixed the Mage Hand being unable to charge\n" +
+                        "7.Fixed the stat viewer breaking hero buff display\n" +
+                        "8.Fixed an out-of-bounds error with the Torrent trap\n" +
+                        "9.The elevator now descends at most to sub-floor 5\n" +
+                        "10.Fixed the Disintegration battlemage attack range bonus\n" ),
 
-                ("11.修复老魔杖没有说明战法效果的文本\n" +
-                        "12.少量文案错误修正\n" +
-                        "13.血饮附魔异常修复，现在不能对中立与友方生物生效\n" +
-                        "14.修复烟雾体索敌距离异常\n" +
-                        "15.修复狱火附魔受奥术加成的一些异常"),
+                ("11.Added missing battlemage effect text for the old wand\n" +
+                        "12.Fixed a few text errors\n" +
+                        "13.Fixed the Bloodthirst enchantment; it no longer affects neutral and friendly creatures\n" +
+                        "14.Fixed the Smoke Body targeting range\n" +
+                        "15.Fixed some Infernal enchantment interactions with Arcane bonuses"),
 
-                ("16.修复拟态之王坠楼导致死档\n" +
-                        "17.修复空间信标未判定锁定楼层的异常\n" +
-                        "18.现在子层死亡的遗物背包均会在死亡地点生成\n" +
-                        "19.修复龙血鳞片一般显示的文案数值异常\n" +
-                        "20.修复夏渔雾溟对话时给予的饰品获取文本与实际获取的不相符"),
+                ("16.Fixed falling to death on the Mimic King floor bricking the save\n" +
+                        "17.Fixed the Space Beacon not checking for locked floors\n" +
+                        "18.Relic backpacks from deaths on sub-floors now spawn where you died\n" +
+                        "19.Fixed the wrong numbers shown in the Dragonblood Scales description\n" +
+                        "20.Fixed the trinket text in the Xiayu Wuming dialogue not matching what you actually get"),
 
-                ("21.修复破损纹章携带的部分附魔未正常生效的异常\n" +
-                        "22.修复暗金宝石护符诅咒特效失效\n" +
-                        "23.修复普通古神战中，孤城情况下，拳头在古神附近应有的无敌效果失效\n" +
-                        "24.修复弩炮显示法伤的异常\n" +
-                        "25.定身期间现在无敌 & 护盾为0时，快捷栏按钮不会生效")
+                ("21.Fixed some enchantments on the Broken Emblem not working\n" +
+                        "22.Fixed the Darkgold Gem Amulet curse effect not working\n" +
+                        "23.Fixed the fist losing its proper invulnerability near the Ancient God during a normal Ancient God fight with Lonely City on\n" +
+                        "24.Fixed the ballista showing spell damage\n" +
+                        "25.Rooted units are now invulnerable, and quickslot buttons do nothing at 0 shield")
 
         ));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项调整"),
-                ("1.Mob更安全的边界检查\n" +
-                        "2.萨卡班甲鱼现在进入场地才会生成，且死亡时清除所有地图上的霜火粒子效果\n" +
-                        "3.在子层系统中，陷阱房间将不再存在裂缝\n" +
-                        "4.萨卡班甲鱼存活判定变得更加细致\n" +
-                        "5.开发者模式状态查看器可查阅免疫状态\n" +
-                        "6.DM720电塔激活时，将指向电塔\n" +
-                        "7.三井层在探险笔记中会同时显示三个井，使用其中一个这三个都会在探险笔记中被移除\n" +
-                        "8.特殊模式Boss不再掉落天狗面具，金蝶到11层，BR到10层的楼层入口自行领取\n" +
-                        "9.钴币开发者模式可以获取，但无效果")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc changes"),
+                ("1.Safer bounds checks for mobs\n" +
+                        "2.Sakaban Fish now only spawns once you enter the arena, and clears all frostfire particles on the map when it dies\n" +
+                        "3.Trap rooms no longer have rifts in the sub-floor system\n" +
+                        "4.The Sakaban Fish alive check is more precise\n" +
+                        "5.The developer mode status viewer shows immunities\n" +
+                        "6.When the DM-720 pylons activate, it now points at them\n" +
+                        "7.The Three Wells floor shows all three wells in the exploration notes, and using one removes all three from the notes\n" +
+                        "8.Special mode bosses no longer drop the Tengu Mask; collect it at the floor entrance on floor 11 in Gold Butterfly and floor 10 in Boss Rush\n" +
+                        "9.Cobalt coins can be obtained in developer mode but do nothing")));
 
 
         Image ss =new ShubNiggurathSprite();
         ss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(ss, ("莎布·尼古拉丝"),
-                "1.如果与墨菲厄斯在同一个格子 直接死亡\n" +
-                        "2.召唤上限调整至18"));
+        changes.addButton(new ChangeButton(ss, ("Shub-Niggurath"),
+                "1.Sharing a tile with Morpheus is instant death\n" +
+                        "2.Summon cap changed to 18"));
 
         Image st =new TowerMachineSprite();
         st.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(st, ("古堡四柱调整"),
-                "1.修复机械之柱范围伤害异常\n" +
-                        "2.四柱近战伤害都为0\n" +
-                        "3.思维模块相关Bug修复\n" +
-                        "4.修复机械之柱的炮弹击杀会多次弹出死亡文本\n" +
-                        "5.修复神明之柱的元素抗性异常，现在半血前50%，半血后75%"));
+        changes.addButton(new ChangeButton(st, ("Castle pillar changes"),
+                "1.Fixed the Mechanical Pillar's area damage\n" +
+                        "2.All four pillars now have 0 melee damage\n" +
+                        "3.Fixed bugs related to the thought modules\n" +
+                        "4.Fixed Mechanical Pillar shells printing the death text several times\n" +
+                        "5.Fixed the Pillar of the Divine elemental resistance; it is now 50% above half HP and 75% below"));
     }
 
     public static void add_V0915_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -1881,57 +1881,57 @@ public class vm0_9_X_Changes {
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), ("法师之手控制器"),
-                ("新增以下功能\n\n" +
-                        "1.可以指定敌人，法师之手将优先攻击此敌人\n\n" +
-                        "2.如果在召唤过程中失败，可在这里进行再次召唤")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), ("Mage Hand controller"),
+                ("Added the following\n\n" +
+                        "1.You can designate an enemy and the Mage Hand will prioritise it\n\n" +
+                        "2.If a summon fails, you can resummon from here")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("1.修复有形之手天赋造成的崩溃\n" +
-                        "2.隐藏控件暂时删除\n" +
-                        "3.修复矮人尸群因为多线程导致的检查崩溃\n" +
-                        "4.修复创世神之心的判定优先级问题导致的崩溃\n" +
-                        "5.修复并发检查带来的崩溃\n" +
-                        "6.修复苦痛刻痕判定优先级问题带来的崩溃异常\n" +
-                        "7.修复熔岩火龙视野判定导致的崩溃异常\n" +
-                        "8.修复绝命头目-拟态之王 流血公式计算异常\n"),
-                ("9.修复思维之柱的判定优先级的崩溃异常\n" +
-                        "10.修复哨位素材无法读取时，则直接摧毁素材实体\n" +
-                        "11.修复矮人尸山的越界判定异常\n" +
-                        "12.修复灵壤，雷霆，注魂，腐化的使用者始终为英雄，即便在法师之手上\n" +
-                        "13.修复BossRush-绿野精灵国王 的伤害重复调用传送，可能导致栈溢出的异常\n" +
-                        "14.修复因上次2.5破碎底层的迁移导致的各种异常残留\n" +
-                        "15.修复机械之柱的敌人判定的一些异常\n" +
-                        "16.修复法师之手没有贵重物品标签\n" ),
+                ("1.Fixed crashes caused by the Tangible Hand talent\n" +
+                        "2.Hidden widgets temporarily removed\n" +
+                        "3.Fixed a crash in the Dwarven Corpse Swarm check caused by multithreading\n" +
+                        "4.Fixed a crash from the Heart of the Creator's priority checks\n" +
+                        "5.Fixed crashes caused by concurrent checks\n" +
+                        "6.Fixed crashes from Pain Scratch priority checks\n" +
+                        "7.Fixed crashes from the Molten Fire Dragon sight check\n" +
+                        "8.Fixed the Badder Bosses Mimic King bleeding formula\n"),
+                ("9.Fixed crashes from the Thought Pillar priority check\n" +
+                        "10.When a Sentinel sprite cannot be read it now destroys the entity outright\n" +
+                        "11.Fixed an out-of-bounds check on the Dwarven Corpse Mountain\n" +
+                        "12.Spirit Soil, Lightning, Soul Infusion and Corruption now always credit the hero as the user, even from the Mage Hand\n" +
+                        "13.Fixed a possible stack overflow when Boss Rush Verdant Elf King damage repeatedly calls teleport\n" +
+                        "14.Fixed various leftovers from the 2.5 Shattered backport\n" +
+                        "15.Fixed some enemy checks on the Mechanical Pillar\n" +
+                        "16.The Mage Hand now has the valuable item tag\n" ),
 
-                ("17.修复幽寂错误的对话逻辑导致的崩溃\n" +
-                        "18.修复了魔力补偿的相关异常崩溃\n" +
-                        "19.修复了纯晶护卫长火墙描述文本缺失\n" +
-                        "20.部分文案优化和错误修正")));
+                ("17.Fixed a crash from Stillness's faulty dialogue logic\n" +
+                        "18.Fixed crashes related to Mana Recompense\n" +
+                        "19.Fixed missing fire wall text on the Pure Crystal Captain\n" +
+                        "20.Some text fixes and improvements")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new DeadEyeSprite(), ("毁灭魔眼"),
-                ("现在可解离背包内的物品，增大了解离的物品池子（包括容器内的物品，但仍会排除贵重物品、露水、国王袋等特殊物品）")));
+        changes.addButton(new ChangeButton(new DeadEyeSprite(), ("Doom Eye"),
+                ("It can now disintegrate items in your backpack, widening the pool it destroys (including items inside containers, though it still excludes valuables, dew, the King's Bag and other special items)")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("熔岩洞穴"),
-                ("现在只会固定生成随机2卷轴，1符石，1食物，1药剂")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Lava Cave"),
+                ("It now always generates exactly 2 random scrolls, 1 runestone, 1 food and 1 potion")));
 
         Image ss =new ShubNiggurathSprite();
         ss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(ss, ("莎布·尼古拉丝"),
-                "_-_ 分身分裂上限：最多分裂9个黑山羊分身\n" +
-                        "_-_ 血量恢复机制：本体在分身存在时可恢复1000点生命值，但仅限5次\n" +
-                        "_-_ 死亡条件：第6次尝试恢复生命值时，本体与所有分身将直接死亡 或 黑山羊无任何分身时可直接死亡"));
+        changes.addButton(new ChangeButton(ss, ("Shub-Niggurath"),
+                "_-_ Clone limit: at most 9 Black Goat clones\n" +
+                        "_-_ Healing: while clones exist the body can heal 1000 HP, but only 5 times\n" +
+                        "_-_ Death condition: on the sixth attempt to heal, the body and all clones die outright, or the Black Goat dies directly when it has no clones"));
 
-        changes = new ChangeInfo("预载", false, null);
+        changes = new ChangeInfo("Preload", false, null);
         changes.hardlight(Window.CBLACK);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("1.0.0-MLPD"),
-                ("1.0.0相关资源预载")));
+                ("1.0.0 resource preload")));
     }
 
 
@@ -1946,198 +1946,198 @@ public class vm0_9_X_Changes {
 
 
 
-        changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.MAGE, 13), "新皮肤：晚宴邀请",
-                "2025.12.25-2026.1.1 0点前，完成特别委托任务，获得此皮肤。\n\n" +
-                        "未在活动期间完成委托的，将在0.9.2更新后以 _1500_钴币在时装商人处购买\n\n" +
-                        "             --Art Design By:戈壁滩-Seagull"));
+        changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.MAGE, 13), "New skin: Dinner Invitation",
+                "Complete the special commission between 2025.12.25 and 2026.01.01 to earn this skin.\n\n" +
+                        "Anyone who does not finish the commission during the event can buy it from the skin merchant for _1500_ cobalt coins after the 0.9.2 update\n\n" +
+                        "             --Art Design By: Seagull"));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("新兑换码：MerryChristmas"),
-                ("进入游戏通过落白商店 或者 游戏菜单 获取奖励！\n\n有效期至：2026年1月1日0：00前。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("New redeem code: MerryChristmas"),
+                ("Claim your reward in game through the Luobai Shop or the game menu!\n\nValid until: before 2026-01-01 00:00.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STAR_CRYSTAL), ("新物品：星空水晶"),
-                ("完成古堡真结局后，卡戎商店将会有此商品，进入猩红剧院线的31层，将立刻前往最终决战。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STAR_CRYSTAL), ("New item: Starry Crystal"),
+                ("After the Castle true ending, Charon's shop stocks this. Entering floor 31 of the Crimson Theatre route takes you straight to the final battle.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MAGNETIC_CROWN), ("新神器：引力王冠"),
-                ("戴上这顶王冠时，你感受到了空间中微弱的磁力，这种力量也许能把你和其他生物拖向某一地点……\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MAGNETIC_CROWN), ("New artifact: Crown of Gravity"),
+                ("Wearing this crown you feel a faint magnetism in space, a force that might drag you and other creatures toward some point...\n" +
                         "\n" +
-                        "使用消耗1点充能，点击任意视野内的地格，将距离那个地格最近的单位拖拽至此处，在一次使用中最多因此法位移3+等级*0.5格。\n" +
-                        "（如果有相同距离判定则优先拉敌人）\n" +
+                        "Using it costs 1 charge: tap any visible tile and the unit closest to that tile is dragged there, moving at most 3 + level*0.5 tiles per use this way.\n" +
+                        "(If distances tie, enemies are pulled first)\n" +
                         "\n" +
-                        "当视野内的一次性陷阱被触发时获得10经验，每获得50+7*等级点经验神器升一级。\n" +
-                        "初始充能3，最大充能10，每升级一级获得一点最大充能。每50-等级回合恢复一点充能。\n" +
+                        "Gaining 10 XP when a one-shot trap in sight is triggered levels the artifact up every 50 + 7 * level XP.\n" +
+                        "Starts with 3 charge, max 10, and each level adds one max charge. Recovers one charge every 50 - level turns.\n" +
                         "\n" +
-                        "神器充能效果为每回合恢复0.3点充能。\n" +
-                        "诅咒效果为无法使用。")));
+                        "Artifact charging recovers 0.3 charge per turn.\n" +
+                        "Cursed effect: cannot be used.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RITUAL_SWORD_M), ("新武器：仪式短剑"),
-                ("二阶，力量需求12\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RITUAL_SWORD_M), ("New weapon: Ritual Dagger"),
+                ("Tier 2, 12 Strength\n" +
                         "\n" +
-                        "初始3-15，成长1-3\n" +
+                        "3-15 base, growth 1-3\n" +
                         "\n" +
-                        "这把武器不会被诅咒，并且使献祭仪式更加高效（只需要杀一个怪）。\n" +
+                        "This weapon cannot be cursed and makes sacrifice rituals more efficient (it only needs one kill).\n" +
                         "\n" +
-                        "曾被主教用于主持多场宗教仪式。")));
+                        "Once used by a bishop to conduct many religious rites.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("新武器：树痕"),
-                ("二阶，力量需求13\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.TREELIST), ("New weapon: Tree Scar"),
+                ("Tier 2, 13 Strength\n" +
                         "\n" +
-                        "初始3-14，成长1-3\n" +
+                        "3-14 base, growth 1-3\n" +
                         "\n" +
-                        "初始护甲0-3，成长0-1\n" +
+                        "0-3 base armor, growth 0-1\n" +
                         "\n" +
-                        "这把武器会吸收自然损失的护盾值，上限为25+15*区域数\n" +
+                        "This weapon absorbs shield lost naturally, up to 25 + 15 * regions\n" +
                         "\n" +
-                        "10*等级，攻击也会积攒2+0.2*等级点护盾。可以花费1回合将这些护盾释放出来。\n" +
+                        "10 * level, and attacks also build 2 + 0.2 * level points of shield. You can spend 1 turn to release it.\n" +
                         "\n" +
-                        "能够吸收空气中魔力生长的植物。")));
+                        "A plant that grows by drawing magic out of the air.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SAD_MAGIC_BOOK), ("新武器：悲情法典"),
-                ("三阶，力量需求14\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SAD_MAGIC_BOOK), ("New weapon: Codex of Sorrow"),
+                ("Tier 3, 14 Strength\n" +
                         "\n" +
-                        "初始2-20，成长2-2\n" +
+                        "2-20 base, growth 2-2\n" +
                         "\n" +
-                        "使用这把武器击杀敌人后，有（10+3*等级）%的概率鉴定背包内的一件随机物品。\n" +
+                        "Killing an enemy with this weapon has a (10 + 3 * level)% chance to identify a random item in your backpack.\n" +
                         "\n" +
-                        "这本书上记载着一些称得上悲惨的内容，包括无饭可吃而被迫食用简单处理的怪物肉、被逐渐石化致死，甚至包括变形为非知性体，金属制品的过程。")));
+                        "The book records tales of true misery: eating crudely butchered monster meat out of hunger, slowly turning to stone, even being reshaped into unthinking metal.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHEPHERD_FLUTE), ("新武器：牧笛"),
-                ("三阶，力量需求14\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHEPHERD_FLUTE), ("New weapon: Reed Flute"),
+                ("Tier 3, 14 Strength\n" +
                         "\n" +
-                        "初始2-9，成长1-2，攻击距离10\n" +
+                        "2-9 base, growth 1-2, 10 attack range\n" +
                         "\n" +
-                        "目标距离你每有1距离，对其造成的攻击伤害减少10%，攻击无视物理防御并造成法术伤害。\n" +
+                        "For every tile of distance the target takes 10% less attack damage; attacks ignore physical defense and deal spell damage.\n" +
                         "\n" +
-                        "城郊牧笛声落在那座野村，缘分落地生根是我们。")));
+                        "A flute song drifts from the outskirts to that lonely village, and there our fate takes root.")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("新武器：破军"),
-                ("五阶，力量需求18\n" +
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER), ("New weapon: Army Breaker"),
+                ("Tier 5, 18 Strength\n" +
                         "\n" +
-                        "初始6-28，成长1-6\n" +
+                        "6-28 base, growth 1-6\n" +
                         "\n" +
-                        "当你装备着这把武器时，对生命值低于50%的敌人造成的伤害提升（30+3*等级）%，若使用这把武器攻击，则效果提升至（100+10*等级）%\n" +
+                        "While equipped you deal (30 + 3 * level)% more damage to enemies below 50% HP, rising to (100 + 10 * level)% when attacking with this weapon\n" +
                         "\n" +
-                        "孩子们，等我……")));
+                        "Children, wait for me...")));
 
         Image gf = new Image(new GiantFlowerSlimeSprites());
         gf.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(gf, ("新怪物：巨型繁花史莱姆"),
-                ("相对来说比较稀有的繁花史莱姆，因为体型更大导致粘上了更多的植物和种子，并因此导致攻击可能会产生植物的效果\n" +
-                        "14血，2闪，1速，8命中，2经验，最高5等级获取经验\n" +
-                        "攻击时有1/3的概率施加2回合火焰，1/3概率施加3回合冻伤，1/3概率施加5回合缠绕，1/5概率5回合植物疗养或者2回合时空气泡\n" +
-                        "掉落俩种子。")));
+        changes.addButton(new ChangeButton(gf, ("New mob: Giant Blossom Slime"),
+                ("A relatively rare Blossom Slime, so large that more plants and seeds stuck to it, so its attacks may produce plant effects\n" +
+                        "14 HP, 2 evasion, 1 speed, 8 accuracy, 2 XP, XP up to level 5\n" +
+                        "On attack there is a 1/3 chance of 2 turns of burning, 1/3 of 3 turns of frostbite, 1/3 of 5 turns of entanglement, and a 1/5 chance of 5 turns of plant healing or 2 turns of air bubble\n" +
+                        "Drops two seeds.")));
 
-        changes.addButton(new ChangeButton(new Image(new CrabSprite.NewBornCrabSprite()), ("新怪物：新生螃蟹"),
-                ("丛林螃蟹的青年体，甲壳还未发育成熟，因此防御会更脆弱，但是速度会更快，动作会更灵活\n" +
-                        "12血，1-7攻击，0-3防御，移动速度为2.5闪避为6，命中为12，掉落等级和螃蟹一样\n" +
-                        "掉落奇怪的肉一块")));
+        changes.addButton(new ChangeButton(new Image(new CrabSprite.NewBornCrabSprite()), ("New mob: Newborn Crab"),
+                ("A juvenile Jungle Crab whose shell has not matured, so its defense is weaker but it is faster and more nimble\n" +
+                        "12 HP, 1-7 attack, 0-3 defense, 2.5 speed, 6 evasion, 12 accuracy, same drop level as a crab\n" +
+                        "Drops a piece of strange meat")));
 
-        changes.addButton(new ChangeButton(new Image(new DM111Sprite()), ("新怪物：DM-111"),
-                ("dm100的加强版本，其实是第一版加强，但是第二版已经叫dm200了，拥有更强的火力，更厚重的装甲，并且可以蓄力放电制服犯人，但是引擎没有跟上，所以移动速度会更慢\n" +
-                        "35血，4-10攻击，远程5-13，防御为0-6，可以蓄力俩回合造成5-15伤害的远程攻击，并施加3回合麻痹，蓄力攻击会被水传导，不传导麻痹效果，只传导伤害，移动速度0.5蓄力攻击后2-8回合不能攻击\n" +
-                        "掉落一张充能卷轴，7经验，最高13等级")));
+        changes.addButton(new ChangeButton(new Image(new DM111Sprite()), ("New mob: DM-111"),
+                ("An upgraded DM-100 - the first upgrade in fact, since the second is already called DM-200. It has stronger firepower and heavier armor and can charge up a discharge to subdue prisoners, but the engine never caught up, so it moves slower\n" +
+                        "35 HP, 4-10 attack, 5-13 ranged, 0-6 defense. It can charge for two turns to fire a 5-15 ranged attack that paralyses for 3 turns; the charged shot conducts through water, carrying damage but not paralysis. 0.5 speed, and it cannot attack for 2-8 turns after a charged shot\n" +
+                        "Drops a Scroll of Recharging, 7 XP, max level 13")));
 
-        changes.addButton(new ChangeButton(new Image(new GuardCapitalSprite()), ("新怪物：狱卒小队长"),
-                ("作为狱卒的小头领，相比其他狱卒更加强壮，但不使用锁链将犯人拉近而是更习惯将犯人击退或配合其他狱卒远程攻击\n" +
-                        "50血 6-16攻击 防御0-7 闪避12 命中12，远程攻击伤害6-12\n" +
-                        "玩家靠近时将玩家击退3格，不会掉入悬崖，优先寻找其他狱卒一起行动，单独行动时遇到玩家会保持距离，在其他狱卒附近会保持攻击玩家，击退玩家有20回合冷却，7经验14等级\n" +
-                        "掉落随机护甲武器")));
+        changes.addButton(new ChangeButton(new Image(new GuardCapitalSprite()), ("New mob: Warden Captain"),
+                ("The leader among the wardens, stronger than the rest, but instead of pulling prisoners in with chains it prefers to knock them back or support other wardens from range\n" +
+                        "50 HP, 6-16 attack, 0-7 defense, 12 evasion, 12 accuracy, 6-12 ranged damage\n" +
+                        "When the player comes close it knocks them back 3 tiles without dropping them off ledges, prefers to seek out other wardens, keeps its distance when alone and keeps attacking near other wardens. The knockback has a 20 turn cooldown. 7 XP, level 14\n" +
+                        "Drops a random armor or weapon")));
 
-        changes.addButton(new ChangeButton(new Image(new VeryColdRatSprite()), ("新怪物：极寒冰鼠"),
-                ("长期的寒冷环境与冰系魔力导致其体内魔力狂暴而又非常不稳定\n" +
-                        "70血，攻击15-25，5闪避，20精准，1.5速，0-3防\n" +
-                        "周身一直散发冰寒气体(类似腐鼠)，\n" +
-                        "攻击有25%概率造成冻结\n" +
-                        "战斗状态下每回合损失5%最大生命值，没有目标时每回合回复5%最大生命值\n" +
-                        "死亡前必定掉落一个冰霜炸弹，并且自身_4回合后_会产生一次爆炸，范围与效果等同寒霜炸弹\n" +
-                        "8经验，最高16等级")));
+        changes.addButton(new ChangeButton(new Image(new VeryColdRatSprite()), ("New mob: Frost Rat"),
+                ("Long exposure to cold and ice magic has left the mana in its body frenzied and highly unstable\n" +
+                        "70 HP, 15-25 attack, 5 evasion, 20 accuracy, 1.5 speed, 0-3 defense\n" +
+                        "It constantly radiates freezing gas (like the Rot Rat),\n" +
+                        "and its attacks have a 25% chance to freeze\n" +
+                        "While fighting it loses 5% of max HP per turn, and with no target it heals 5% of max HP per turn\n" +
+                        "It always drops a Frost Bomb on death, and _after 4 turns_ it explodes with the same radius and effect as a Frost Bomb\n" +
+                        "8 XP, max level 16")));
 
-        changes.addButton(new ChangeButton(new Image(new BloodsSwarmSprite()), ("新怪物：血红蝇群"),
-                ("因为过于寒冷导致血红苍蝇依靠挤一起取暖，一起行动，攻击会导致他们分裂开，非常危险\n" +
-                        "被攻击扣20%血当前血量分裂出一只火苍蝇，分裂出来的火苍蝇会和蝇群一起行动，和火苍蝇一样，会远程攻击\n" +
-                        "80血，攻击5-10，防御0-2，闪避15，命中20，掉落等级和火苍蝇一样，必定掉落一瓶磷火")));
+        changes.addButton(new ChangeButton(new Image(new BloodsSwarmSprite()), ("New mob: Blood Fly Swarm"),
+                ("It is so cold that Blood Flies huddle for warmth and act together, and attacking them splits the swarm apart - very dangerous\n" +
+                        "Taking 20% of its current HP in damage splits off a Fire Fly, which acts with the swarm and attacks at range like any Fire Fly\n" +
+                        "80 HP, 5-10 attack, 0-2 defense, 15 evasion, 20 accuracy, same drop level as Fire Flies, and always drops a ghostfire potion")));
 
         Image js = new Image(new GhoulPlusSprite());
         js.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(js, ("新怪物：矮人尸山"),
-                ("矮人尸群拥有可以源源不断战斗的能力，但是魔法总是不那么可靠，所以他们在恢复的时候粘到一起了，并且在不停的吸收其他的尸群\n" +
-                        "会主动和其他尸群一起行动，如果旁边有尸群存在则会削弱他们并加强自身\n" +
-                        "生成时代替一组尸群，不再生成俩只尸群而是只生成一只尸山，尸山会优先向其他尸群移动并和其他尸群一起行动\n" +
-                        "尸山5x5范围内每有一只尸群尸山获得15%减伤和15%的攻击加成，尸山附近的尸群受到的伤害增加30%，附近的尸群死亡会直接死亡，并让尸山回复50点血量并增加30血上限和10点攻击力和5点防御\n" +
-                        "初始100血，15-20攻击，0-3防御，闪避10，命中25，必定掉落4倍矮人尸群的金币，经验，经验等级同尸群")));
+        changes.addButton(new ChangeButton(js, ("New mob: Dwarven Corpse Mountain"),
+                ("Dwarven Corpse Swarms can fight endlessly, but magic is never reliable, so while healing they stuck together, endlessly absorbing other swarms\n" +
+                        "It seeks out other swarms, and if any are nearby it weakens them and strengthens itself\n" +
+                        "When generated it replaces a pair of swarms - instead of two swarms only one Mountain spawns, and the Mountain moves toward other swarms and acts with them\n" +
+                        "For each swarm within 5x5 the Mountain gains 15% damage reduction and 15% attack bonus; nearby swarms take 30% more damage, and when a nearby swarm dies the Mountain heals 50 HP and gains 30 max HP, 10 attack and 5 defense\n" +
+                        "Starts at 100 HP, 15-20 attack, 0-3 defense, 10 evasion, 25 accuracy, always drops 4x a swarm's gold and XP, same XP level as a swarm")));
 
-        changes.addButton(new ChangeButton(new Image(new WarlockHeadSprite()), ("新怪物：矮人首席术士"),
-                ("矮人术士是矮人中的掌权者，而这位更是术士的领导者，他对黑暗魔法的掌握远超其他术士，可以对目标造成更加严重的影响\n" +
-                        "85血，18-23攻击\n" +
-                        "防御为0-10，闪避为18，精准为28\n" +
-                        "远程攻击有2/3的概率让目标降级40回合，1/3概率让目标流血5-8，1/3概率让目标幻惑30回合，1/5的概率让目标失明12回合，如果触发了，每一种buff，就额外施加5回合虚弱\n" +
-                        "近战时，获得10-20的奥术护盾\n" +
-                        "固定掉落一瓶经验，掉落11经验，最大经验等级为21级")));
+        changes.addButton(new ChangeButton(new Image(new WarlockHeadSprite()), ("New mob: Dwarven Head Warlock"),
+                ("Dwarven warlocks are the power brokers among dwarves, and this one leads them all. His command of dark magic far surpasses the rest and he can inflict far worse effects on a target\n" +
+                        "85 HP, 18-23 attack\n" +
+                        "0-10 defense, 18 evasion, 28 accuracy\n" +
+                        "Ranged attacks have a 2/3 chance to degrade the target for 40 turns, 1/3 to bleed them for 5-8, 1/3 to confuse them for 30 turns and 1/5 to blind them for 12 turns; whenever one of these triggers it also applies 5 turns of weakness\n" +
+                        "In melee it gains 10-20 arcane shield\n" +
+                        "Always drops a Potion of Experience, 11 XP, max XP level 21")));
 
-        changes.addButton(new ChangeButton(new Image(new SpawnereEvilSprite()), ("新怪物：恶孽血巢"),
-                ("这一团矮人血肉比其他血巢更加活跃，浓厚的血气和死气正是恶魔们最好的食粮。\n" +
+        changes.addButton(new ChangeButton(new Image(new SpawnereEvilSprite()), ("New mob: Vile Blood Nest"),
+                ("This lump of dwarven flesh is more active than other nests, and its thick reek of blood and death is the finest food for demons.\n" +
                         "\n" +
-                        "血量上限140，防御0-12\n" +
-                        "每隔50/40/35/30回合召唤一只“恶魔盛宴”\n" +
-                        "大幅减少超过14的伤害\n" +
-                        "每受到1伤害减少1回合召唤cd\n" +
-                        "必定掉落治疗药水*1，大饼*1\n" +
-                        "掉落等级同血巢")));
+                        "Max HP 140, 0-12 defense\n" +
+                        "Summons a Demon Feast every 50/40/35/30 turns\n" +
+                        "Heavily reduces damage above 14\n" +
+                        "Each point of damage taken cuts 1 turn off the summon cooldown\n" +
+                        "Always drops a Potion of Healing x1 and a flatbread x1\n" +
+                        "Same drop level as other nests")));
 
-        changes.addButton(new ChangeButton(new Image(new FodderSprite()), ("新怪物：'恶魔盛宴'"),
-                ("恶魔世界中非原生的存在，天生比正常的恶魔弱小。通过被其他的恶魔蚕食，它会成为强大恶魔的一部分。\n" +
-                        "同恶魔撕裂者，但只有一半移速。会成为其他任何一种敌怪的攻击目标，被其他敌怪击杀时，完全治疗那个敌怪后赋予其等于最大生命一半的奥术护盾，并赋予其随机精英/突变双词条。生命上限50，攻击为10-20，命中为30，防御为0，攻击延迟0.5，闪避为15，不会攻击其他怪物，被其他怪物攻击时必中，不掉落东西，不获得经验")));
+        changes.addButton(new ChangeButton(new Image(new FodderSprite()), ("New mob: 'Demon Feast'"),
+                ("A being not native to the demon world, naturally weaker than a normal demon. Eaten by other demons, it becomes part of a stronger one.\n" +
+                        "Like a Demon Render but at half speed. It can be targeted by any other enemy, and when killed by another enemy that enemy is fully healed, given arcane shield equal to half its max HP, and given a random elite/mutation pair of traits. 50 max HP, 10-20 attack, 30 accuracy, 0 defense, 0.5 attack delay, 15 evasion. It does not attack other mobs, always takes hits from them, drops nothing and grants no XP")));
 
         Image vs = new Image(new DeadEyeSprite());
         vs.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(vs, ("新怪物：毁灭魔眼"),
-                ("魔眼是一种邪眼的变体，拥有和邪眼一样的能力，但是比邪眼更容易发现敌人，其的死亡凝视比邪眼更具破坏性，也许你不应该和他硬碰硬\n" +
-                        "110血，攻击为22-35，防御0-10，闪避20，命中30，视野距离8\n" +
-                        "蓄力2回合射出死亡凝视，攻击30-50，蓄力期间免伤3/4，解离被死亡凝视命中的玩家背包中的除贵重物品和武甲背包以外的物品2-3件，掉落复仇一张，掉落13经验，26获取等级")));
+        changes.addButton(new ChangeButton(vs, ("New mob: Doom Eye"),
+                ("The Doom Eye is a variant of the Evil Eye with the same abilities, but it spots enemies more easily and its death gaze is more destructive - you probably should not take it head on\n" +
+                        "110 HP, 22-35 attack, 0-10 defense, 20 evasion, 30 accuracy, 8 sight\n" +
+                        "Charges for 2 turns then fires a death gaze for 30-50 damage, taking a quarter damage while charging. It disintegrates 2-3 items from the backpacks of players hit by the gaze, excluding valuables and the armored backpack, and drops a Revenge, 13 XP, XP up to level 26")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new Image(new MageHandSprite()), ("法师之手AI初步优化"),
-                ("_-_ 添加如果英雄在弹道上，先到英雄的弹道不可抵达处来，但对于范围伤害法杖仍然可能误伤英雄\n\n" +
-                        "_-_ 对于怪物威胁度，添加优先级：正在攻击英雄的怪物 > 精英Buff怪物  > (血量+伤害)(从高到低) 怪物 > 随机选择\n\n" +
-                        "_-_ 智能评估自身站位，以更好的援助自己的主人")));
+        changes.addButton(new ChangeButton(new Image(new MageHandSprite()), ("Mage Hand AI improvements"),
+                ("_-_ If the hero is in the line of fire, it first moves to a spot the hero is not exposed to, though area wands can still hit the hero\n\n" +
+                        "_-_ Threat priority is now: mobs attacking the hero > elite buff mobs > mobs by (HP + damage), high to low > random\n\n" +
+                        "_-_ It evaluates its own position to better support its master")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.NEWSTEM), ("初生树枝"),
-                ("一截发芽的枯枝，渴盼着再长出来的一天。\n\n在非严重饥饿状态下，自然回复时额外获得_+1生命值_")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.NEWSTEM), ("Newborn Branch"),
+                ("A sprouting dead twig, longing for the day it grows again.\n\nOutside of severe hunger it grants an extra _+1 HP_ when regenerating naturally")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CONfUSEDMIEMIETALISMAN), ("咩咩护符"),
-                ("也许制作者的本意是使用魔法绵羊来保护自己，但很显然，他手艺不精。\n\n你<#F00>每回合有2%<RGB>的概率触发绵羊符石效果\n触发后有<#F00>10回合<RGB>的预警时间\n效果触发后的_75回合_内不会再次触发。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CONfUSEDMIEMIETALISMAN), ("Baa Baa Amulet"),
+                ("The maker presumably meant to use the Magic Sheep to protect himself, but clearly he was no craftsman.\n\nYou have a <#F00>2% chance each turn<RGB> to trigger the sheep runestone effect,\nwith <#F00>10 turns<RGB> of warning beforehand.\nOnce triggered it cannot trigger again for _75 turns_.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), ("挑战调整"),
-                ("变幻莫测：新增稀有怪全局生成概率提升10%")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), ("Challenge changes"),
+                ("Unpredictable: rare mob spawn chance increased by a global 10%")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("错误报告历史记录"),
-                ("现在游戏崩溃后，错误报告将会记录在本地存储中，方便给开发者提供更多数据，以追查问题。")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.WARNING), ("Error report history"),
+                ("Crash reports are now stored locally so developers get more data to track problems down.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项调整"),
-                ("_-_ 新闻界面调整，现在可滚动（手机端用户请用新闻卡片缝隙处进行滑动，此UI将会在092继续调整）\n" +
-                        "_-_ 新闻界面现在可以读取置顶卡片，链接需求卡片\n" +
-                        "_-_ 皮肤系统底层升级\n" +
-                        "_-_ 部分素材优化迭代")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc changes"),
+                ("_-_ The news screen now scrolls (on mobile, swipe in the gaps between news cards; this UI will be improved further in 0.9.2)\n" +
+                        "_-_ The news screen now reads pinned and link cards\n" +
+                        "_-_ Skin system backend upgraded\n" +
+                        "_-_ Some asset updates")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                "修复了上个版本的诸多问题。"));
+                "Many issues from the last version have been fixed."));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new RedNecromancerSprite(), ("豺狼祭司"),
-                ("此怪物在生成中移除，但仍然保留在开发者模式和图鉴中。")));
+        changes.addButton(new ChangeButton(new RedNecromancerSprite(), ("Gnoll Priest"),
+                ("Removed from spawning, but still kept in developer mode and the catalogue.")));
 
-        changes.addButton(new ChangeButton(new SRPDHBLRTT(), ("火把猎人"),
-                ("此怪物在生成中移除，仅能在特殊房间中生成，但仍然保留在开发者模式和图鉴中。")));
+        changes.addButton(new ChangeButton(new SRPDHBLRTT(), ("Torch Hunter"),
+                ("Removed from spawning and now only appears in special rooms, but still kept in developer mode and the catalogue.")));
 
         Image ss =new ShubNiggurathSprite();
         ss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(ss, ("莎布·尼古拉丝"),
-                ("分裂个体至多为9个，超过这个后不再自动分裂，攻击也无法自动分裂")));
+        changes.addButton(new ChangeButton(ss, ("Shub-Niggurath"),
+                ("Clones are capped at 9; beyond that it stops splitting automatically and attacks cannot split it either")));
     }
 
     public static void add_V0900_Changes(ArrayList<ChangeInfo> changeInfos ) {
@@ -2149,146 +2149,146 @@ public class vm0_9_X_Changes {
         changes.hardlight(Window.CYELLOW);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.CHANGES), ("重大更新"),
-                ("魔绫现已进入0.9.0.0版本！感谢所有支持魔绫像素地牢的玩家们。\n\n全新古堡外传章节现已开启，欢迎尝鲜！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.CHANGES), ("Major update"),
+                ("Magic Ling is now at version 0.9.0.0! Thank you to everyone who supports Magic Ling Pixel Dungeon.\n\nThe brand new Abyssal Castle side chapter is open - come and have a taste!")));
 
-        changes.addButton(new ChangeButton(NetIcons.get(NetIcons.GLOBE), ("在线更新系统V2.1"),
-                ("因协议调整，0.9.0.3起将使用新的更新接口。老版本的更新接口将陆续退场。")));
+        changes.addButton(new ChangeButton(NetIcons.get(NetIcons.GLOBE), ("Online update system V2.1"),
+                ("Because of protocol changes, from 0.9.0.3 a new update endpoint is used and the old ones are being retired.")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("新-普通徽章 & 隐藏徽章"),
-                ("新的一批普通 & 隐藏徽章现已上线，游玩游戏获得！\n\n" +
-                        "普通徽章：剧院新星->知名演员->金奖影帝，幽寂之梦\n\n" +
-                        "隐藏徽章：我从地狱归来，神圣裁决，不给糖就捣蛋，再摸亿下，幽灵猎人")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), ("New regular & hidden badges"),
+                ("A new batch of regular and hidden badges is live. Play the game to earn them!\n\n" +
+                        "Regular badges: Theatre Star -> Famous Actor -> Golden Actor, Dream of Stillness\n\n" +
+                        "Hidden badges: I Returned from Hell, Holy Verdict, Trick or Treat, Pet Me a Billion More Times, Ghost Hunter")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("新原创音乐：决战星海"),
-                ("作者：犬罗\n\n为古堡最终Boss的战斗BGM，欢迎欣赏！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.AUDIO), ("New original music: Battle of the Star Sea"),
+                ("By Quanluo\n\nThe battle BGM for the Castle's final boss. Enjoy!")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SZJ_REBACK), ("新投掷武器：十字回旋镖"),
-                ("武器设计：小叶\n\n在这枚投掷武器的命中敌人处会产生电墙，持续若干回合。墙范围内的敌人每回合受到若干点伤害。\n\n异端必被裁决，在此宣告审判！！！\n\n<#FFA500>渊落古堡外传 神圣裁决 徽章后解锁的限定武器，再次感谢你游玩魔绫的首个外传。<RGB>")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SZJ_REBACK), ("New thrown weapon: Cross Boomerang"),
+                ("Weapon design: Xiaoye\n\nWhere it hits an enemy it leaves an electric wall for several turns, damaging enemies in the wall each turn.\n\nHeretics must be judged - let the verdict be declared here!!!\n\n<#FFA500>Limited weapon unlocked by the Holy Verdict badge in the Abyssal Castle side story. Thank you again for playing Magic Ling's first side story.<RGB>")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DEATHRONG_BOAT), ("新武器：卡戎的船桨"),
-                ("武器设计：小叶\n\n如果你的脚下是水面，则对此次攻击目标的攻击伤害将传导至水面上的所有敌人，每扩大一格，伤害就丢失若干。\n\n小船儿荡起双桨，让我们推开波浪~\n\n<#FFA500>渊落古堡外传击败刻耳柏洛斯限定武器，再次感谢你游玩魔绫的首个外传。<RGB>")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.DEATHRONG_BOAT), ("New weapon: Charon's Oar"),
+                ("Weapon design: Xiaoye\n\nIf you are standing on water, attack damage to your target conducts to every enemy on the water, losing some damage per extra tile.\n\nThe little boat rows its oars, let us push through the waves~\n\n<#FFA500>Abyssal Castle side story limited weapon for defeating Cerberus. Thank you again for playing Magic Ling's first side story.<RGB>")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.IRON_KEY), ("新机制：赘余钥匙清理"),
-                ("在小游戏全面搜查结束后，将移除全部多余的钥匙。")));
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.IRON_KEY), ("New mechanic: spare key cleanup"),
+                ("After the full search minigame ends, all spare keys are removed.")));
 
         Image mp = new MorpheusSprite();
         mp.scale.set(PixelScene.align(0.6f));
-        changes.addButton(new ChangeButton(mp, ("新Boss：墨菲厄斯"),
-                ("盛大的剧目即将开演，猩红的宴会现在开始！")));
+        changes.addButton(new ChangeButton(mp, ("New boss: Morpheus"),
+                ("The grand performance is about to begin - the crimson banquet starts now!")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("语言更新：繁体中文"),
-                ("来自Sotis的繁体中文已经更新")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.LANGS), ("Language update: Traditional Chinese"),
+                ("The Traditional Chinese pack from Sotis has been updated")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY_LAND), ("UI更新"),
-                ("由 BrogField 制作的桌面端全尺寸已经实装，欢迎使用！")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY_LAND), ("UI update"),
+                ("Full size desktop mode by BrogField is live. Enjoy!")));
 
-        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CASTLE_AIRPORT), ("首个外传：渊落古堡"),
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.CASTLE_AIRPORT), ("First side story: Abyssal Castle"),
                 (
-                        "魔绫像素地牢-渊落古堡外传，于2023年10月立项，期间经过了太多问题和冲突，但最终，她在2025年11月01日圆满完成！\n\n" +
-                                "制作名单：\n\n" +
-                                "_-_ 总策划：JDSALing\n" +
-                                "_-_ 编码支持：JDSALing 手电 潘多拉\n" +
-                                "_-_ 剧情原案：JDSALing\n" +
-                                "_-_ 美术设计：Daniel Calan\n" +
-                                "_-_ 领袖设计：寄神\n" +
-                                "_-_ 文案设计：久住 小叶\n" +
-                                "_-_ 武器设计：小叶\n" +
-                                "_-_ 音乐制作：犬罗 スタ-Tatsuro\n" +
-                                "_-_ 领航测试：Archetto喵 大猫 太上忘情\n\n" +
-                                "谨以此外传，献给所有热爱 魔绫像素地牢 的玩家！！！\n\n" +
-                                "祝各位玩家玩的愉快，冒险之路永不停歇！")));
+                        "Magic Ling Pixel Dungeon - Abyssal Castle side story started in October 2023 and went through far too many problems and conflicts, but finally it was completed on 2025-11-01!\n\n" +
+                                "Credits:\n\n" +
+                                "_-_ Director: JDSALing\n" +
+                                "_-_ Coding support: JDSALing, Shoudian, Pandora\n" +
+                                "_-_ Story concept: JDSALing\n" +
+                                "_-_ Art design: Daniel Calan\n" +
+                                "_-_ Leader design: Jishen\n" +
+                                "_-_ Writing: Jiuzhu, Xiaoye\n" +
+                                "_-_ Weapon design: Xiaoye\n" +
+                                "_-_ Music: Quanluo, Tatsuro\n" +
+                                "_-_ Lead testing: Archetto, Big Cat, Taishang Wangqing\n\n" +
+                                "This side story is dedicated to everyone who loves Magic Ling Pixel Dungeon!!!\n\n" +
+                                "Have fun, and may the road of adventure never end!")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("新兑换码：NINENINEZEROONE"),
-                ("进入游戏通过落白商店 或者 游戏菜单 获取奖励！\n\n有效期：永久")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("New redeem code: NINENINEZEROONE"),
+                ("Claim your reward in game through the Luobai Shop or the game menu!\n\nValid: forever")));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("新兑换码：HELLO-MLPD-V0.9"),
-                ("进入游戏通过落白商店 或者 游戏菜单 获取奖励！\n\n有效期：永久")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.NEWS), ("New redeem code: HELLO-MLPD-V0.9"),
+                ("Claim your reward in game through the Luobai Shop or the game menu!\n\nValid: forever")));
 
-        changes.addButton( new ChangeButton(new BuffIcon(BuffIndicator.PACMAN_GAME, true), "三大小游戏登场",
-                "吃豆人，推箱子，全面搜查小游戏登场，探索渊落古堡外传，游玩这些小游戏。"));
+        changes.addButton( new ChangeButton(new BuffIcon(BuffIndicator.PACMAN_GAME, true), "The three minigames arrive",
+                "Pac-Man, Sokoban and Full Search are here. Explore the Abyssal Castle side story and play them."));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "changes"), false, null);
         changes.hardlight(CharSprite.WARNING);
         changeInfos.add(changes);
 
         changes.addButton(new ChangeButton(Icons.get(Icons.LIBGDX), ("LibGDX 1.11"),
-                ("魔绫现在使用LibGDX1.11系统，此版本对于所有系统都有较好的兼容性。")));
+                ("Magic Ling now runs on LibGDX 1.11, which is well compatible with every platform.")));
 
         Image xs =new PeachGodStateSprite();
         xs.scale.set(PixelScene.align(0.8f));
-        changes.addButton(new ChangeButton(xs, ("桃源祈愿-复刻"),
-                ("【限时活动--桃源祈愿·十连必得】-复刻活动时间：2025.11.2-2025.11.30\n\n" +
-                        "地牢深处将随机生成 「桃源祈愿间」55%概率 \n" +
-                        "（13挑战以下触发【不包含13挑】）\n" +
-                        "祈愿规则：\n" +
-                        "单次投掷 50钴币\n" +
-                        "保底机制 ：\n\n" +
-                        "【小保底】\n" +
-                        "每10次祈愿雕像必出 1 次罕见奖励 \n" +
-                        "\n【大保底】--【可跨存档】" +
-                        "累计40抽且未出现传说及以上，\n下次必出传说以上奖励\n"),
-                ("奖励类型概率公示【以单抽标准】：\n\n"+
-                        "常规【40%】 稀有【35%】 \n\n" +
-                        "罕见【20%】 传说【4%】 神话【1%】\n\n" +
-                        "10连概率规则：\n" +
-                        "小保底必出概率：\n" +
-                        "罕见70% 传说28% 神话2%\n" +
-                        "则9+1【必出罕见以上】\n" +
-                        "累计40抽还未出现传说的10抽：\n" +
-                        "大保底10连必出概率：\n\n" +
-                        "罕见70% 传说28% 神话2%\n" +
-                        "传说95% 神话5%")));
+        changes.addButton(new ChangeButton(xs, ("Peach Blossom Wishes - rerun"),
+                ("[Limited-time event - Peach Blossom Wishes, 10-pull guaranteed] - rerun period: 2025.11.2-2025.11.30\n\n" +
+                        "A Wishing Room generates randomly in the depths with 55% chance \n" +
+                        "(triggers below 13 challenges, not including 13)\n" +
+                        "Wishing rules:\n" +
+                        "Each throw costs 50 cobalt coins\n" +
+                        "Pity system:\n\n" +
+                        "[Soft pity]\n" +
+                        "Every 10 wishes guarantees 1 rare reward \n" +
+                        "\n[Hard pity] -- [carries across saves]" +
+                        "If 40 pulls pass without legendary or better,\nthe next pull is legendary or better\n"),
+                ("Reward odds [per single pull]:\n\n"+
+                        "Common [40%], Uncommon [35%] \n\n" +
+                        "Rare [20%], Legendary [4%], Mythic [1%]\n\n" +
+                        "10-pull odds:\n" +
+                        "Soft pity guaranteed odds:\n" +
+                        "Rare 70%, Legendary 28%, Mythic 2%\n" +
+                        "so 9+1 [guaranteed rare or better]\n" +
+                        "For a 10-pull after 40 pulls without a legendary:\n" +
+                        "Hard pity 10-pull guaranteed odds:\n\n" +
+                        "Rare 70%, Legendary 28%, Mythic 2%\n" +
+                        "Legendary 95%, Mythic 5%")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                "魔绫像素地牢-修复内容：\n\n" +
-                        ("0.9.0.3-修复内容：\n" +
-                                "_-_ 修复种子局下得分为0\n" +
-                                "_-_ 修复查种崩溃\n" +
-                                "_-_ 优化墨菲厄斯更好的背包赠送\n" +
-                                "_-_ 优化吃豆人战前默认没有任何装备。避免携带部分被Ban物品直接被带入\n" +
-                                "_-_ 种子局也显示古堡结局图标\n" +
-                                "_-_ 修复吃豆人游戏卡死的严重异常\n" +
-                                "_-_ 优化商店抢劫十字架处理\n" +
-                                "_-_ 奈亚不再生成捕猎陷阱\n" +
-                                "_-_ 黑山羊分身如果与本体重合将自动死亡"
+                "Magic Ling Pixel Dungeon - Fixes:\n\n" +
+                        ("0.9.0.3 - Fixes:\n" +
+                                "_-_ Fixed seed runs scoring 0\n" +
+                                "_-_ Fixed seed lookup crashes\n" +
+                                "_-_ Better backpack handouts from Morpheus\n" +
+                                "_-_ The Pac-Man fight now starts with no gear by default, so banned items cannot be carried in\n" +
+                                "_-_ Seed runs now show the Castle ending icon too\n" +
+                                "_-_ Fixed a serious Pac-Man softlock\n" +
+                                "_-_ Improved how shop robberies handle ankhs\n" +
+                                "_-_ Nya no longer generates hunting traps\n" +
+                                "_-_ Black Goat clones now die automatically if they overlap the body"
                         )));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                "魔绫像素地牢-修复内容：\n\n" +
-                        ("0.9.0.2-修复内容：\n" +
-                                "_-_ 修复三大小游戏流程问题，即便崩溃也不会再卡死游戏进程\n" +
-                                "_-_ 修复查种器因为控件调用不一致导致的崩溃\n" +
-                                "_-_ 修复角斗士连击技能的一些判定问题导致的游戏崩溃\n" +
-                                "_-_ 修复撤离点效果的一些判定问题导致的游戏崩溃\n" +
-                                "_-_ 修复推箱子错误的坐标算法导致的部分状态下的按钮错乱\n" +
-                                "_-_ 任何类型十字架现在小游戏中无任何作用，但英雄也永远不会在小游戏中死亡\n" +
-                                "_-_ 修复抢劫返还十字架异常"
+                "Magic Ling Pixel Dungeon - Fixes:\n\n" +
+                        ("0.9.0.2 - Fixes:\n" +
+                                "_-_ Fixed flow issues in the three minigames; even a crash no longer freezes the game process\n" +
+                                "_-_ Fixed Seed Finder crashes caused by inconsistent widget calls\n" +
+                                "_-_ Fixed crashes from some Gladiator combo checks\n" +
+                                "_-_ Fixed crashes from some extraction point checks\n" +
+                                "_-_ Fixed Sokoban buttons getting mixed up in some states from a bad coordinate algorithm\n" +
+                                "_-_ Ankhs of any kind now do nothing in minigames, but the hero can never die in them either\n" +
+                                "_-_ Fixed ankhs not being returned properly after a robbery"
                         )));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                "魔绫像素地牢-修复内容：\n\n" +
-                        ("0.9.0.1-修复内容：\n" +
-                                "_-_ 修复传送晶柱可回到 0 层的异常问题\n" +
-                                "_-_ 修复0层使用金蝶可以荆棘嬗变相关异常问题\n" +
-                                "_-_ 修复墨菲厄斯三阶段四柱异常问题\n" +
-                                "_-_ 修复部分古堡物品图鉴无法正常解锁异常问题\n" +
-                                "_-_ 修复注魂法杖加盾失效问题\n" +
-                                "_-_ 修复陷阱给予心魔损伤异常问题\n" +
-                                "_-_ 修复全面搜查刷分异常问题\n" +
-                                "_-_ 修复吃豆人可以使用虚空锁链的问题"
+                "Magic Ling Pixel Dungeon - Fixes:\n\n" +
+                        ("0.9.0.1 - Fixes:\n" +
+                                "_-_ Fixed the teleport pillar crystal letting you return to floor 0\n" +
+                                "_-_ Fixed Thorns transmutation issues when using Gold Butterfly on floor 0\n" +
+                                "_-_ Fixed the four pillars in Morpheus phase three\n" +
+                                "_-_ Fixed some Castle items not unlocking in the catalogue\n" +
+                                "_-_ Fixed the Soul Infusion staff failing to add shield\n" +
+                                "_-_ Fixed traps applying inner demon damage\n" +
+                                "_-_ Fixed score farming in Full Search\n" +
+                                "_-_ Fixed Pac-Man letting you use the void chain"
                         )));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                "魔绫像素地牢-修复内容：\n\n" +
-                        ("0.9.0.0-修复内容：\n" +
-                                "中测相关反馈问题已经完全修复。\n" +
-                                "中测协力领航人：Archetto喵 大猫 太上忘情"
+                "Magic Ling Pixel Dungeon - Fixes:\n\n" +
+                        ("0.9.0.0 - Fixes:\n" +
+                                "All closed beta feedback has been fully fixed.\n" +
+                                "Closed beta lead testers: Archetto, Big Cat, Taishang Wangqing"
                         )));
 
-        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("杂项改动"),
-                ("1.素材优化迭代\n" +
-                        "2.古堡图块优化迭代")));
+        changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), ("Misc changes"),
+                ("1.Asset updates\n" +
+                        "2.Castle tile improvements")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
         changes.hardlight(Window.GREEN_COLOR);
@@ -2296,25 +2296,25 @@ public class vm0_9_X_Changes {
 
         Image s =new ShubNiggurathSprite();
         s.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(s, ("莎布·尼古拉丝"),
-                ("灵爆秘卷对其的伤害降低60%。")));
+        changes.addButton(new ChangeButton(s, ("Shub-Niggurath"),
+                ("Spirit Blast scroll damage against it reduced by 60%.")));
 
         changes = new ChangeInfo(Messages.get(ChangesScene.class, "nerfs"), false, null);
         changes.hardlight(Window.R_COLOR);
         changeInfos.add(changes);
 
-        changes.addButton(new ChangeButton(new TribemanOldSprite(), ("豺狼悍匪"),
-                ("攻速改为2.0，而非之前的0.5。")));
+        changes.addButton(new ChangeButton(new TribemanOldSprite(), ("Gnoll Bandit"),
+                ("Attack speed changed to 2.0 from 0.5.")));
 
         Image ss =new ShubNiggurathSprite();
         ss.scale.set(PixelScene.align(0.4f));
-        changes.addButton(new ChangeButton(ss, ("莎布·尼古拉丝"),
-                ("1.分裂个体至多为18个，超过这个后不再自动分裂，攻击也无法自动分裂\n" +
-                        "2.现在本体有 突变爆炸体 的特殊标记\n" +
-                        "3.现在可以吃到灵爆秘卷的伤害\n" +
-                        "\n4.当场上只剩下黑山羊和它的分身时，攻击_黑山羊本体_将导致它的血量重置时，给予英雄50000回合灵视。\n同时，在_黑山羊本体_死亡时，将去除英雄的灵视效果。")));
+        changes.addButton(new ChangeButton(ss, ("Shub-Niggurath"),
+                ("1.Clones are capped at 18; beyond that it stops splitting automatically and attacks cannot split it either\n" +
+                        "2.The body now carries a special mutation explosive blob tag\n" +
+                        "3.It can now take Spirit Blast scroll damage\n" +
+                        "\n4.When only the Black Goat and its clones remain, attacking _the Black Goat body_ resets its HP and grants the hero 50000 turns of spirit vision.\nAlso, when _the Black Goat body_ dies, the hero's spirit vision is removed.")));
 
-        changes.addButton(new ChangeButton(new YogSoulSprite(), ("犹格·索托斯"),
-                ("在 犹格·索托斯 周围时，犹格·索托斯将不再释放任何技能。")));
+        changes.addButton(new ChangeButton(new YogSoulSprite(), ("Yog-Sothoth"),
+                ("While near Yog-Sothoth it no longer uses any skills.")));
     }
 }
