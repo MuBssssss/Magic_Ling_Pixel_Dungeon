@@ -27,7 +27,7 @@ return {
       width = 7,
       height = 7,
       id = 1,
-      name = "图块层 1",
+      name = "Tile Layer 1",
       class = "",
       visible = true,
       opacity = 1,
