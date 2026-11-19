@@ -51,3 +51,13 @@ Paste this file at the start of a new chat so the agent works the way you like.
 ## 5. Starter prompt for a new chat
 
 > Read TERMUX_GUIDE.md first and follow it. I use Termux on Android. Work on branch `<branch>`. Give me copy-paste scripts under 32 KB as `*.bash` files. Check CI and PR state before reporting success.
+
+## 6. Getting an installable English build
+
+The Android app module only exists on the `Android` branch; `english-translation` is the desktop tree and cannot produce an APK. `.github/workflows/build-apk.yml` bridges the two: it checks out `Android`, drops the English message packs in (once as the default pack, once under `_en`), and builds a debug APK with the armeabi-v7a and arm64 natives already in `core/libs`.
+
+- Push to `english-translation` touching `core/src/main/assets/messages/**` (or the workflow) rebuilds it.
+- The finished APK is attached to the release tagged `english-apk`:
+  `https://github.com/MuBssssss/Magic_Ling_Pixel_Dungeon/releases/tag/english-apk`
+- The job opens the APK after building and fails unless both native ABIs are inside and the packaged packs are English, so a green run is a real check.
+- `core/google-services.json` is gitignored upstream. The job uses the `GOOGLE_SERVICES_JSON` secret when set and a placeholder otherwise; with the placeholder, analytics and crash reporting do nothing.
