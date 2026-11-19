@@ -123,6 +123,28 @@ jobs:
           find core/build/outputs/apk -name '*.apk' -print -exec cp {} out/MagicLing-English-armv7.apk \;
           ls -l out
 
+      - name: Check what actually went into the APK
+        run: |
+          python3 - <<'PY'
+          import re, zipfile
+          z = zipfile.ZipFile('out/MagicLing-English-armv7.apk')
+          names = z.namelist()
+          for abi in ('armeabi-v7a', 'arm64-v8a'):
+              assert f'lib/{abi}/libgdx.so' in names, f'missing {abi} natives'
+              assert f'lib/{abi}/libgdx-freetype.so' in names, f'missing {abi} freetype'
+          cjk = re.compile('[\u3000-\u303f\u3400-\u4dbf\u4e00-\u9fff\uff01-\uff60\uffe0-\uffee]')
+          for p in ('assets/messages/windows/windows.properties',
+                    'assets/messages/windows/windows_en.properties',
+                    'assets/messages/actors/actors.properties'):
+              data = z.read(p).decode('utf-8')
+              hits = cjk.findall(data)
+              assert not hits, f'{p} still holds {len(hits)} Chinese characters, e.g. {hits[:6]}'
+              assert 'windows.wndkeybindings' in data or 'actors.mobs' in data, p
+          win = z.read('assets/messages/windows/windows.properties').decode('utf-8')
+          assert 'windows.wndkeybindings.prev=<' in win, 'English arrow keys are not in the APK'
+          print(f'APK holds {len(names)} entries, armv7 and arm64 natives present, message packs are English')
+          PY
+
       - name: Upload the APK as a build artifact
         uses: actions/upload-artifact@v4
         with:
