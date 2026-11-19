@@ -159,7 +159,7 @@ public class SeedFindLogScene extends PixelScene {
                     // 格式校验：每行只能有一个查询条件，不能包含中文/英文逗号
                     for (String line : itemList) {
                         if (line == null || line.trim().isEmpty()) continue;
-                        if (line.contains("，") || line.contains(",")) {
+                        if (line.contains("\uFF0C") || line.contains(",")) {
                             String msg = Messages.get(SeedFindLogScene.class,"error_format");
                             ShatteredPixelDungeon.scene().add(new WndError(msg){
                                 @Override

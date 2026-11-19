@@ -665,13 +665,13 @@ public class SeedFinder implements Runnable {
 
             // 任务奖励（在地面物品之前展示）
             if (fd.ghostRewards != null) {
-                this.addTextQuest("【 " + Messages.get(SeedFinder.class, "sad_ghost_reward") + " 】", fd.ghostRewards, builder);
+                this.addTextQuest("[ " + Messages.get(SeedFinder.class, "sad_ghost_reward") + " ]", fd.ghostRewards, builder);
             }
             if (fd.redDragonRewards != null) {
-                this.addTextQuest("【 " + Messages.get(SeedFinder.class, "red_dragon_reward") + " 】", fd.redDragonRewards, builder);
+                this.addTextQuest("[ " + Messages.get(SeedFinder.class, "red_dragon_reward") + " ]", fd.redDragonRewards, builder);
             }
             if (fd.wandmakerRewards != null) {
-                builder.append("【 ").append(Messages.get(SeedFinder.class, "wandmaker_need")).append(" ]:\n ");
+                builder.append("[ ").append(Messages.get(SeedFinder.class, "wandmaker_need")).append(" ]:\n ");
                 switch (fd.wandmakerType) {
                     case 1:
                     default:
@@ -683,10 +683,10 @@ public class SeedFinder implements Runnable {
                     case 3:
                         builder.append(Messages.get(SeedFinder.class, "rotBerry")).append("\n\n");
                 }
-                addTextQuest("【 " + Messages.get(SeedFinder.class, "wandmaker_reward") + " 】", fd.wandmakerRewards, builder);
+                addTextQuest("[ " + Messages.get(SeedFinder.class, "wandmaker_reward") + " ]", fd.wandmakerRewards, builder);
             }
             if (fd.impRewards != null) {
-                addTextQuest("【 " + Messages.get(SeedFinder.class, "imp_reward") + " 】", fd.impRewards, builder);
+                addTextQuest("[ " + Messages.get(SeedFinder.class, "imp_reward") + " ]", fd.impRewards, builder);
             }
 
             // 分类地面物品
@@ -723,14 +723,14 @@ public class SeedFinder implements Runnable {
                 heapA.items.add(goldA);
                 others.add(new HeapItem(goldA, heapA));
             }
-            addTextItems("【 " + Messages.get(SeedFinder.class, "scrolls") +   " 】", scrolls, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "potions") +   " 】", potions, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "equipment") + " 】", equipment, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "rings") +     " 】", rings, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "artifacts") + " 】", artifacts, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "wands")     + " 】", wands, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "for_sales") + " 】", forSales, builder);
-            addTextItems("【 " + Messages.get(SeedFinder.class, "others") +    " 】", others, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "scrolls") +   " ]", scrolls, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "potions") +   " ]", potions, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "equipment") + " ]", equipment, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "rings") +     " ]", rings, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "artifacts") + " ]", artifacts, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "wands")     + " ]", wands, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "for_sales") + " ]", forSales, builder);
+            addTextItems("[ " + Messages.get(SeedFinder.class, "others") +    " ]", others, builder);
             result.append(builder);
         }
         // 日志生成期间同样使用了 overrideSeed，生成完毕后必须复位，

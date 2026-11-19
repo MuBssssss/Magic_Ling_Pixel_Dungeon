@@ -306,7 +306,7 @@ public class MagicGirlDead extends Boss {
                         new SRPDICLRPRO().spawnAround(pos);
                         yell(Messages.get(this, "arise"));
                         GLog.b(Messages.get(this, "shield"));
-                        enemy.sprite.showStatus(0x00ffff, ("！！！"));
+                        enemy.sprite.showStatus(0x00ffff, ("!!!"));
                     }
                     sprite.emitter().start(SparkParticle.STATIC, 0.05f, 20);
                 }

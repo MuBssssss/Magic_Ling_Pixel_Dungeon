@@ -71,3 +71,9 @@ If you plan to add new text to the game, maintaining these translations may be d
 - Optionally, if you are multilingual or have translators and wish to retain some languages, do not comment out the language picker and only remove the enums/resources for the languages you won't be using.
 
 If you want to have a language other than English as the base language, you can simply remove the .properties files that do not have a language code, and remove the underscore+language code from the language you want to use. The game will consider this language to be English internally however, so you may want to look into where the ENGLISH variable is used and make adjustments accordingly, and possibly rename it.
+
+## Localization status of this branch
+
+This branch (`english-translation`) carries a complete English localization of the content added by this fork. As a goal, and as a rule for future contributions, the default (suffixless) message packs, the Java string literals and the in-game changelog should contain **no untranslated Chinese text** — no Han characters, and no Chinese typography either (fullwidth punctuation, lenticular brackets, ideographic commas, fullwidth currency signs). Use plain ASCII punctuation in English values: `:` `!` `?` `,` `(` `)` `"…"` and `<` / `>` for the page-turn keys.
+
+The additional language packs (Chinese, Japanese, Russian, Brazilian Portuguese, Greek) are unchanged. They are incomplete, so a game running in one of those languages falls back to English for any key the pack does not cover.
