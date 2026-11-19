@@ -213,7 +213,7 @@ public class vm0_9_X_Changes {
         img.frame(0, 0, 28, 22);
         img.scale.set(0.8f);
         changes.addButton(new ChangeButton(img, ("New skin: Fatebound Crimson"),
-                ("Chaos has swallowed the world, and after the church's plan failed, \"the world\" branded everyone a high-risk entity. She stopped caring about that verdict long ago. The shackles of fate cannot hold her; she walks in crimson and tears this silent trial apart with her own hands.\n\nHow to get it: clear Boss Rush on any difficulty (except developer mode)")));
+                ("Chaos has swallowed the world, and after the church's plan failed, \"the world\" branded everyone a high-risk entity. She stopped caring about that verdict long ago. The shackles of fate cannot hold her; she walks in crimson and tears this silent trial apart with her own hands.\n\nHow to get it: clear Boss Rush on any difficulty (except developer mode) using _Honorata_")));
 
         changes.addButton(new ChangeButton( new Image(Assets.Interfaces.HERO_ICONS,32,16,16,16), ("Swift Shadow Linghong - third class"),
                 (       "Nether Hunter:" +
@@ -284,7 +284,7 @@ public class vm0_9_X_Changes {
                         "_-_ the Mage Hand's wand is stored in the Mage Hand controller, so it is no longer lost if the hand dissipates and you reload the save")));
 
         changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
-                ("V0.9.8.0:\n\n" +
+                ("V0.9.8.0-1:\n\n" +
                         "_-_ Fixed e-cigarettes permanently converting affected animal enemies into allies after being equipped and removed\n" +
                         "_-_ Fixed the Shattered Ring costing a turn to block items, which could get you comboed forever in extreme cases\n" +
                         "_-_ Toned down the red flashing of the Cloak of Thorns\n" +
@@ -299,7 +299,12 @@ public class vm0_9_X_Changes {
                                 "_-_ Fixed the Rogue tier 2 talent Terrain Awareness not detecting the hidden rooms added by Magic Ling\n" +
                                         "_-_ Fixed the Sakaban Fish floor occasionally being unable to start the game properly\n" +
                                         "_-_ Fixed the Swift Slash talent sometimes having no effect\n"+
-                                        "_-_ Fixed leaderboard score ordering and improved the score display.")));
+                                        "_-_ Fixed leaderboard score ordering and improved the score display.\n" +
+                                        "_-_ Fixed various multiplayer issues\n" +
+                                        "_-_ Fixed some rare errors")));
+
+        changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_HAND_CONTROL), ("Mage Hand Controller - V2"),
+                ("The Mage Hand controller window has been overhauled to be clearer and easier to use.")));
 
         changes.addButton(new ChangeButton( new TalentIcon(Talent.PSIONIC_STRIDE), "Celestial Maiden - talent rework",
                 "Versatile Strikes -> Psionic Step\n" +
